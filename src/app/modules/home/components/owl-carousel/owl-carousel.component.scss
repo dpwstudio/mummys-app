@@ -1,0 +1,45 @@
+.slider-text-inner {
+	position: absolute;
+	bottom: 460px;
+	right: 0px;
+
+	.desc {
+		padding: 30px;
+		background: #ffdc8cd9;
+
+		h1 {
+			margin-bottom: 20px;
+			font-size: 44px;
+			line-height: 1.3;
+			font-weight: 300;
+			text-transform: uppercase;
+			color: white;
+		}
+
+		h2 {
+			font-size: 18px;
+			line-height: 1.5;
+			margin-bottom: 30px;
+			font-weight: 300;
+			font-family: "Quicksand", Arial, sans-serif;
+		}
+
+		.btn.btn-learn {
+			color: #000;
+			border: 1px solid #fff;
+			background: #fff !important;
+		}
+	}
+}
+
+
+
+
+@media screen and (max-width: 380px) {
+	.slides {
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

@@ -1,0 +1,36 @@
+#colorlib-aside {
+  background-color: white !important;
+  #colorlib-main-menu {
+    ul {
+      text-align: right;
+
+      li {
+        font-size: 17px;
+        cursor: pointer;
+
+        a {
+          color: #464646;
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+}
+
+
+#colorlib-aside #colorlib-logo a {
+  text-align: center;
+}
+
+#colorlib-aside #colorlib-main-menu ul li a:hover {
+  color: #ffdc8c;
+}
+
+#colorlib-aside #colorlib-main-menu ul li a:after {
+  height: 2px;
+  bottom: -2px;
+}
+
+.active {
+  border-bottom: 2px solid #ffdc8c;
+}
