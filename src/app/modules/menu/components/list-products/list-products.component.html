@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-lg-4" *ngFor="let product of products">
+    <div class="wrapper mb-2">
+      <div class="container-product">
+        <div class="top"
+          style="background: url(assets/images/{{product.imageUri}}) no-repeat center center; background-size: 100%;"></div>
+        <div class="bottom">
+          <div class="left">
+            <div class="details d-flex flex-column justify-content-center">
+              <h1>{{product.name}}</h1>
+              <p>{{product.price | currency:'EUR':'symbol':'1.2-2':'fr' }}</p>
+            </div>
+            <div class="buy d-flex align-items-center justify-content-center">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+          </div>
+          <div class="right">
+            <div class="done"><i class="fas fa-check"></i></div>
+            <div class="details">
+              <h1>{{product.name}}</h1>
+              <p>a été ajouté à votre panier.</p>
+            </div>
+            <div class="remove"><i class="fas fa-times"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="inside">
+        <div class="icon"><i class="fas fa-info-circle"></i></div>
+        <div class="contents">
+          <table>
+            <tr>
+              <th>Catégorie</th>
+              <td>{{product.type}}</td>
+            </tr>
+            <tr>
+              <th>Taille</th>
+              <td>{{product.size}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

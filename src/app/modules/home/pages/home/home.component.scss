@@ -1,5 +1,42 @@
-.colorlib-about {
+.colorlib-services {
   padding-bottom: 3em;
+
+  .icone-step {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    border-radius: 100px;
+    box-shadow: 0px 18px 20px -15px rgba(0, 0, 0, 0.2);
+
+    span {
+      position: absolute;
+      left: -30px;
+      top: 75px;
+      font-size: 35px;
+      background: #fdca2e;
+      padding: 0px 22px;
+      font-weight: bold;
+      color: white;
+      border-radius: 35px;
+    }
+
+    img {
+      margin-top: 20px;
+    }
+
+    .title-box {
+      color: #495057;
+      font-size: 17px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.colorlib-about {
+  padding-bottom: 8em;
 }
 
 #colorlib-hero {
@@ -19,6 +56,8 @@
   cursor: pointer;
 }
 
-#get-in-touch {
-  background-color: #ffdc8c;
+
+.services-img {
+  border-radius: 15px;
+  box-shadow: 0 1px 8px 1px #2727273b;
 }

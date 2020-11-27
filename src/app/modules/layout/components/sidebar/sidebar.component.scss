@@ -1,5 +1,6 @@
 #colorlib-aside {
   background-color: white !important;
+
   #colorlib-main-menu {
     ul {
       text-align: right;
@@ -10,7 +11,7 @@
 
         a {
           color: #464646;
-          padding: 5px 0;
+          padding: 5px 0px;
         }
       }
     }
@@ -28,9 +29,36 @@
 
 #colorlib-aside #colorlib-main-menu ul li a:after {
   height: 2px;
-  bottom: -2px;
+  bottom: 16px;
+  position: initial;
+  background-color: transparent;
+  transform: scaleX(1);
+  visibility: visible;
 }
 
-.active {
-  border-bottom: 2px solid #ffdc8c;
+.dropdown-menu {
+  border: none;
+
+  &.show {
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+    border-left: 5px solid #ffdc8c;
+    border-radius: 0;
+    font-size: 13px;
+    position: absolute;
+
+    .dropdown-item {
+      padding: 5px 15px !important;
+    }
+  }
 }
+
+.colorlib-footer {
+  p {
+    margin: 0;
+    color: #eee2d4;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+  }
+}
+

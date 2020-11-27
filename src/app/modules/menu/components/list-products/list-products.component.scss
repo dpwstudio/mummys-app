@@ -22,11 +22,6 @@
     .top {
       height: 70%;
       width: 100%;
-      background: url('../../../../../assets/images/entrees/img-3.jpg') no-repeat center center;
-      -webkit-background-size: 100%;
-      -moz-background-size: 100%;
-      -o-background-size: 100%;
-      background-size: 100%;
     }
 
     .bottom {
@@ -41,7 +36,7 @@
       h1 {
         margin: 0;
         padding: 0;
-        font-size: 20px;
+        font-size: 18px;
       }
 
       p {
@@ -58,14 +53,15 @@
         float: left;
 
         .details {
-          padding: 15px 20px;
+          padding: 0 20px;
           float: left;
-          width: calc(80% - 30px);
+          width: 80%;
+          height: 100%;
         }
 
         .buy {
           float: right;
-          width: calc(27% - 10px);
+          width: 20%;
           height: 100%;
           background: #fafafa;
           transition: background 0.5s;
@@ -73,7 +69,6 @@
 
           i {
             font-size: 22px;
-            padding: 30px;
             color: #254053;
             transition: transform 0.5s;
             cursor: pointer;
@@ -147,7 +142,7 @@
 
   .inside {
     z-index: 9;
-    background: #ffcd6e;
+    background: #ffdc8cd6;
     width: 140px;
     height: 140px;
     position: absolute;
