@@ -6,6 +6,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { OwlCarouselComponent } from './components/owl-carousel/owl-carousel.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LayoutModule } from '../layout/layout.module';
 
 @NgModule({
   declarations: [HomeComponent, OwlCarouselComponent],
@@ -13,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserAnimationsModule,
     CommonModule,
     HomeRoutingModule,
+    LayoutModule,
     NgbModule
   ],
   exports: [

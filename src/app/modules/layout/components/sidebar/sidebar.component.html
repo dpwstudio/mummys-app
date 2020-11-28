@@ -22,18 +22,32 @@
           La carte
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/entrees"><i class="fas fa-carrot mr-2" style="color: orange;"></i> Entrées</a>
-          <a class="dropdown-item" routerLink="/plats"><i class="fas fa-utensils mr-2" style="color: lightblue;"></i> Plats</a>
-          <a class="dropdown-item" routerLink="/desserts"><i class="fas fa-ice-cream mr-2" style="color: pink;"></i> Desserts</a>
-          <a class="dropdown-item" routerLink="/boissons"><i class="fas fa-cocktail mr-2" style="color: greenyellow;"></i> Boissons</a>
+          <a class="dropdown-item" routerLink="/entrees"><i class="fas fa-carrot mr-2" style="color: orange;"></i>
+            Entrées</a>
+          <a class="dropdown-item" routerLink="/plats"><i class="fas fa-utensils mr-2" style="color: lightblue;"></i>
+            Plats</a>
+          <a class="dropdown-item" routerLink="/desserts"><i class="fas fa-ice-cream mr-2" style="color: pink;"></i>
+            Desserts</a>
+          <a class="dropdown-item" routerLink="/boissons"><i class="fas fa-cocktail mr-2"
+              style="color: greenyellow;"></i> Boissons</a>
           <a class="dropdown-item" routerLink="/menus"><i class="fas fa-cube mr-2" style="color: tomato;"></i> Menus</a>
         </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!isLoggedIn()">
         <a class="nav-link" routerLink="/login" routerLinkActive="active"><i class="far fa-user-circle"></i> Login</a>
+      </li>
+      <li class="nav-item dropdown" *ngIf="isLoggedIn()">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Profile
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/plats"><i class="far fa-user-circle mr-2"></i> Mon profil</a>
+          <a class="dropdown-item" routerLink="/entrees"><i class="fas fa-sort-numeric-down mr-2"></i> Mes commandes</a>
+        </div>
       </li>
     </ul>
   </nav>

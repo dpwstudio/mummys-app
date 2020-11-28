@@ -1,54 +1,60 @@
+<div class="loading d-flex flex-column align-items-center justify-content-center" *ngIf="loading">
+	<div class="animate__animated animate__pulse animate__infinite text-center">
+	  <img src="assets/images/logo.png" alt="" width="100">
+	  <p class="text-white mt-2">Veuillez patienter...</p>
+	</div>
+ </div>
 <div class="colorlib-contact">
 	<div class="colorlib-narrow-content">
 	  <div class="row">
 		 <div class="col-md-12">
 			<span class="heading-meta">S'inscrire</span>
-			<h2 class="colorlib-heading">Créez un compte</h2>
+			<h2 class="colorlib-heading">Inscrivez pour commander.</h2>
 		 </div>
 	  </div>
 	  <div class="row">
 		 <div class="col-md-8 offset-md-2 pt-2 pb-2">
 			<div class="card">
-			  <form>
+			  <form [formGroup]="registerForm">
 				 <div class="header text-center">
 					<i class="far fa-user-circle mr-2"></i>
-					S'incrire
+					Créer votre compte
 				 </div>
 				 <div class="content">
 					 <div class="row">
 
 						 <div class="col-md-6">
 							 <div class="form-group">
-								<input class="form-control" placeholder="Email" type="email">
+								<input class="form-control" formControlName="email" placeholder="Email" type="email">
 							 </div>
 							 <div class="form-group">
-								<input class="form-control" placeholder="Nom" type="text">
+								<input class="form-control" formControlName="lastname" placeholder="Nom" type="text">
 							 </div>
 							 <div class="form-group">
-								<input class="form-control" placeholder="Prénom" type="text">
+								<input class="form-control" formControlName="firstname" placeholder="Prénom" type="text">
 							 </div>
 							 <div class="form-group">
-								<input class="form-control" placeholder="Mot de passe" type="password">
+								<input class="form-control" formControlName="password" placeholder="Mot de passe" type="password">
 							 </div>
 						 </div>
 						 <div class="col-md-6">
 							 <div class="form-group">
-								<input class="form-control" placeholder="Adresse" type="text">
+								<input class="form-control" formControlName="address" placeholder="Adresse" type="text">
 							 </div>
 							 <div class="form-group">
-								<input class="form-control" placeholder="Code postal" type="text">
+								<input class="form-control" formControlName="zipcode" placeholder="Code postal" type="text">
 							 </div>
 							 <div class="form-group">
-								<input class="form-control" placeholder="Ville" type="text">
+								<input class="form-control" formControlName="city" placeholder="Ville" type="text">
 							 </div>
 							 <div class="form-group">
-								<input class="form-control" placeholder="Confirmer le mot de passe" type="password">
+								<input class="form-control" formControlName="phone" placeholder="Téléphone" type="text">
 							 </div>
 						 </div>
 					 </div>
 				 </div>
 				 <div class="footer text-center mt-4">
-					<button class="btn btn-fill btn-round 	btn-primary btn-wd">Valider</button>
+					<button class="btn btn-fill btn-round 	btn-primary btn-wd" [disabled]="!registerForm.valid">Enregistrer</button>
 				 </div>
 			  </form>
 			</div>

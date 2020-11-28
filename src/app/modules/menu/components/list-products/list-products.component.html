@@ -1,9 +1,10 @@
 <div class="row">
   <div class="col-lg-4" *ngFor="let product of products">
     <div class="wrapper mb-2">
-      <div class="container-product">
+      <div class="container-product" (click)="goDetail(detailProduct, product)">
         <div class="top"
-          style="background: url(assets/images/{{product.imageUri}}) no-repeat center center; background-size: 100%;"></div>
+          style="background: url(assets/images/{{product.imageUri}}) no-repeat center center; background-size: 100%;">
+        </div>
         <div class="bottom">
           <div class="left">
             <div class="details d-flex flex-column justify-content-center">
@@ -42,3 +43,47 @@
     </div>
   </div>
 </div>
+
+<ng-template #detailProduct let-modal>
+  <div class="modal-header" style="border: none;">
+    <button type="button" class="close d-flex"  (click)="modal.dismiss('Cross click')">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body d-flex align-items-center">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 product-single-gallery">
+      <div class="container-image">
+        <img id="photo" src="assets/images/{{product.imageUri}}" style="cursor: pointer; width: 100%;" />
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 product-single-details">
+      <h1 class="product-title">Silver Porto Headset</h1>
+
+      <div class="product-desc">
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non.</p>
+      </div><!-- End .product-desc -->
+
+      <div class="price-box">
+        <span class="product-price">{{product.price | currency:'EUR':'symbol':'1.2-2':'fr' }}</span>
+      </div><!-- End .price-box -->
+
+      <hr class="divider">
+
+      <div class="number d-flex flex-row align-items-center justify-content-between">
+        <div class="quantity">
+          <span class="minus">-</span>
+          <input type="text" value="1" />
+          <span class="plus">+</span>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="addToCart(transfer, product)">
+          Ajouter au panier
+        </button>
+      </div>
+    </div>
+    <hr class="divider">
+  </div>
+  <div class="modal-footer" style="border: none;">
+
+  </div>
+</ng-template>

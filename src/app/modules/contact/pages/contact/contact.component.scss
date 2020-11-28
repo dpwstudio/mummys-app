@@ -3,10 +3,14 @@
 }
 
 .form-control {
-  background: rgba(0, 0, 0, 0.03);
-
+  background: #fafafa;
+  border-radius: 10px;
   &::placeholder {
     color: #d1d1d1;
     font-size: 13px;
   }
+}
+
+.colorlib-feature .colorlib-icon {
+  border-radius: 10px;
 }

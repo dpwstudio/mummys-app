@@ -6,6 +6,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LayoutModule } from '../layout/layout.module';
 import { LostPasswordComponent } from './pages/lost-password/lost-password.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { customNotifierOptions } from 'src/app/config/config';
+import { NotifierModule } from 'angular-notifier';
 
 
 @NgModule({
@@ -13,7 +16,9 @@ import { LostPasswordComponent } from './pages/lost-password/lost-password.compo
   imports: [
     CommonModule,
     AuthRoutingModule,
-    LayoutModule 
+    ReactiveFormsModule,
+    NotifierModule.withConfig(customNotifierOptions),
+    LayoutModule,
   ]
 })
 export class AuthModule { }
