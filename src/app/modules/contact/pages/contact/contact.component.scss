@@ -4,4 +4,9 @@
 
 .form-control {
   background: rgba(0, 0, 0, 0.03);
+
+  &::placeholder {
+    color: #d1d1d1;
+    font-size: 13px;
+  }
 }

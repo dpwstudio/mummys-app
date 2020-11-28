@@ -11,14 +11,15 @@
 
     span {
       position: absolute;
-      left: -30px;
-      top: 75px;
-      font-size: 35px;
+      left: -28px;
+      top: 90px;
+      font-size: 30px;
       background: #fdca2e;
-      padding: 0px 22px;
+      padding: 0px 18px;
       font-weight: bold;
       color: white;
       border-radius: 35px;
+      font-family: "Karla", sans-serif;
     }
 
     img {
@@ -27,9 +28,9 @@
 
     .title-box {
       color: #495057;
-      font-size: 17px;
+      font-size: 15px;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 4px;
       margin-bottom: 0;
     }
   }

@@ -8,8 +8,8 @@
       <img src="assets/images/logo.png" alt="" width="120 ">
     </a>
   </h1>
-  <nav class="navbar navbar-expand-lg" id="colorlib-main-menu" role="navigation" style="margin: 0;">
-    <ul class="navbar-nav mr-auto d-flex flex-column">
+  <nav class="navbar navbar-expand-lg" id="colorlib-main-menu" role="navigation" style="margin: 0 auto; width: 250px;">
+    <ul class="navbar-nav d-flex flex-column" style="margin: 0 auto;">
       <li class="nav-item">
         <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
       </li>
@@ -22,18 +22,18 @@
           La carte
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/entrees">Entrées</a>
-          <a class="dropdown-item" routerLink="/plats">Plats</a>
-          <a class="dropdown-item" routerLink="/desserts">Desserts</a>
-          <a class="dropdown-item" routerLink="/boissons">Boissons</a>
-          <a class="dropdown-item" routerLink="/menus">Menus</a>
+          <a class="dropdown-item" routerLink="/entrees"><i class="fas fa-carrot mr-2" style="color: orange;"></i> Entrées</a>
+          <a class="dropdown-item" routerLink="/plats"><i class="fas fa-utensils mr-2" style="color: lightblue;"></i> Plats</a>
+          <a class="dropdown-item" routerLink="/desserts"><i class="fas fa-ice-cream mr-2" style="color: pink;"></i> Desserts</a>
+          <a class="dropdown-item" routerLink="/boissons"><i class="fas fa-cocktail mr-2" style="color: greenyellow;"></i> Boissons</a>
+          <a class="dropdown-item" routerLink="/menus"><i class="fas fa-cube mr-2" style="color: tomato;"></i> Menus</a>
         </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/panier" routerLinkActive="active">Mon Panier</a>
+        <a class="nav-link" routerLink="/login" routerLinkActive="active"><i class="far fa-user-circle"></i> Login</a>
       </li>
     </ul>
   </nav>

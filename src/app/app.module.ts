@@ -8,6 +8,7 @@ import { HomeModule } from './modules/home/home.module';
 import { AboutModule } from './modules/about/about.module';
 import { MenuModule } from './modules/menu/menu.module';
 import { ContactModule } from './modules/contact/contact.module';
+import { AuthModule } from './modules/auth/auth.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { registerLocaleData } from '@angular/common';
@@ -25,6 +26,7 @@ registerLocaleData(localeFr, 'fr');
     AboutModule,
     MenuModule,
     ContactModule,
+    AuthModule,
     AppRoutingModule,
     NgbModule
   ],
