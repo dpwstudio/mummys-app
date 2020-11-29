@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from '../auth/pages/login/login.component';
 import { RegisterComponent } from '../auth/pages/register/register.component';
 import { LostPasswordComponent } from '../auth/pages/lost-password/lost-password.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,12 @@ const routes: Routes = [
     component: LostPasswordComponent,
     data: {
       title: 'Mot de passe oublié'
+    }
+  }, {
+    path: 'profile',
+    component: ProfileComponent,
+    data: {
+      title: 'Mon compte'
     }
   }
 ];

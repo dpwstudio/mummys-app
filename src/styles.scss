@@ -1766,3 +1766,14 @@ body.offcanvas .colorlib-nav-toggle {
   display: flex !important;
   align-items: center;
 }
+
+.modal-content {
+  border-radius: 20px;
+  border: none;
+}
+
+@media screen and (max-width: 400px) {
+  .modal-content {
+    padding: 0 8px 30px;
+  }
+}

@@ -8,80 +8,85 @@
   z-index: 1002;
 }
 
+
 .colorlib-contact {
   padding-top: 5em;
   background: #f7f0e6;
-  height: 100vh;
 }
+
 
 .card {
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  margin-bottom: 30px;
   border: none;
   box-shadow: 0 3px 20px 0 rgba(0, 0, 0, .1);
-  padding: 40px;
-  border-radius: 20px;
 
-  .header {
-    display: block;
-    font-size: 30px;
-    color: #000;
-    line-height: 1.2;
-    text-align: center;
-    margin-bottom: 50px;
+  .card-image {
+    width: 100%;
+    height: 110px;
+    overflow: hidden;
+    height: 260px;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
   }
 
-  .content {
-    input {
-      border-radius: 10px;
+  .card-body {
+    min-height: 240px;
+    padding: 15px 15px 10px 15px;
 
-      &::placeholder {
-        color: #d1d1d1;
-        font-size: 13px;
+    .author {
+      padding: 20px 0;
+      text-align: center;
+      text-transform: none;
+      margin-top: -70px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      overflow: hidden;
+      margin: 0 auto;
+      -webkit-transition: all 300ms linear;
+      -moz-transition: all 300ms linear;
+      -o-transition: all 300ms linear;
+      -ms-transition: all 300ms linear;
+      transition: all 300ms linear;
+
+      .avatar {
+        width: 124px;
+        height: 124px;
+        position: relative;
+        margin-bottom: 25px;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 50%;
       }
     }
   }
 
-  .footer {
-    .btn {
-      margin-top: 20px;
-      width: 200px;
-    }
+  .card-footer {
+    padding: 15px 15px 10px 15px;
+    background-color: transparent;
+    line-height: 30px;
+    border-top: none !important;
+    font-size: 14px;
 
-    .btn-primary.disabled,
-    .btn-primary:disabled {
-      background-color: #ffdc8c;
-      border: 2px solid #ffdc8c;
-
-      &:hover {
-        background-color: #ffdc8c !important;
-        border: 2px solid #ffdc8c !important;
-      }
-    }
-  }
-
-  .signup {
-    position: absolute;
-    margin-top: 3em;
-    text-align: center;
-    bottom: -15px;
-    right: -13px;
-    width: 50px;
-    height: 50px;
-    background: #ffdc8c;
-    border-radius: 30px;
-
-    .card-link {
-      height: 100%;
-
-      i {
-        color: white;
-        font-size: 30px;
-      }
+    .btn-link {
+      font-size: 25px;
+      color: #ffdc8c;
     }
   }
 }
 
-@media screen and (max-width: 400px) {
-  .colorlib-contact {
-    padding-top: 7em;
-  }
+.header {
+  display: block;
+  font-size: 30px;
+  color: #000;
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 50px;
 }
