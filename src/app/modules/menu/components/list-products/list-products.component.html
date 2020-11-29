@@ -51,35 +51,36 @@
     </button>
     <div class="row">
       <div class="col-md-6 product-single-gallery">
-		  <div class="container-image">
-			<img src="assets/images/{{product.imageUri}}" alt="">
+        <div class="container-image">
+          <img src="assets/images/{{product.imageUri}}" alt="">
         </div>
       </div>
       <div class="col-md-6 product-single-details d-flex align-items-center justify-content-center">
-			<div class="content">
-				<h1 class="product-title">{{product.name}}</h1>
-				<div class="product-desc">
-				  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-					 Excepteur sint occaecat cupidatat non.</p>
-				</div><!-- End .product-desc -->
-	 
-				<div class="price-box">
-				  <span class="product-price">{{product.price | currency:'EUR':'symbol':'1.2-2':'fr' }}</span>
-				</div><!-- End .price-box -->
-	 
-				<hr class="divider">
-	 
-				<div class="number d-flex flex-row align-items-center justify-content-between">
-				  <div class="quantity">
-					 <span class="minus">-</span>
-					 <input type="text" value="1" />
-					 <span class="plus">+</span>
-				  </div>
-				  <button type="button" class="btn btn-primary" (click)="addToCart(transfer, product)">
-					 Ajouter au panier
-				  </button>
-				</div>
-			</div>
+        <div class="content">
+          <h1 class="product-title">{{product.name}}</h1>
+          <div class="product-desc">
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non.</p>
+          </div><!-- End .product-desc -->
+
+          <div class="price-box">
+            <span class="product-price">{{product.price | currency:'EUR':'symbol':'1.2-2':'fr' }}</span>
+          </div><!-- End .price-box -->
+
+          <hr class="divider">
+          <div class="number d-flex flex-row align-items-center justify-content-between">
+            <div class="quantity">
+              <span class="minus">-</span>
+              <input type="text" value="1" />
+              <span class="plus">+</span>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="addToCart(transfer, product)">
+              Ajouter au panier
+            </button>
+          </div>
+          <hr class="divider">
+
+        </div>
       </div>
     </div>
     <hr class="divider">
