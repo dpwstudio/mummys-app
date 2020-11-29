@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-lg-4" *ngFor="let product of products">
+  <div class="col-lg-4 animate__animated animate__bounceIn" *ngFor="let product of products">
     <div class="wrapper mb-2">
       <div class="container-product" (click)="goDetail(detailProduct, product)">
         <div class="top"
@@ -78,8 +78,6 @@
               Ajouter au panier
             </button>
           </div>
-          <hr class="divider">
-
         </div>
       </div>
     </div>
