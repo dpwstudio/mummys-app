@@ -19,7 +19,8 @@ export class SidebarComponent implements OnInit {
     notifierService: NotifierService
   ) {
     this.notifier = notifierService;
-    this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    this.currentUser = this.authService.currentUserValue;
+    console.log('this.currentUser', this.currentUser)
   }
 
   ngOnInit(): void {
@@ -31,7 +32,7 @@ export class SidebarComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.notifier.notify('success', 'You has been disconnected')
+    this.notifier.notify('success', 'Vous êtes déconnecté')
     this.router.navigate(["/login"]);
   }
 

@@ -54,7 +54,7 @@
 					 </div>
 				 </div>
 				 <div class="footer text-center mt-4">
-					<button class="btn btn-fill btn-round 	btn-primary btn-wd" [disabled]="!registerForm.valid">Enregistrer</button>
+					<button class="btn btn-fill btn-round 	btn-primary btn-wd" (click)="onSubmit()" [disabled]="!registerForm.valid">Enregistrer</button>
 				 </div>
 			  </form>
 			</div>

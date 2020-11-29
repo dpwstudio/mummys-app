@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~angular-notifier/styles";
+
 @font-face {
   font-family: 'icomoon';
   src: url("./assets/fonts/icomoon/icomoon.eot?srf3rx");
@@ -1758,4 +1760,9 @@ body.offcanvas .colorlib-nav-toggle {
     margin: 0 4px;
     background: #ffdc8c;
   }
+}
+
+.notifier__notification {
+  display: flex !important;
+  align-items: center;
 }

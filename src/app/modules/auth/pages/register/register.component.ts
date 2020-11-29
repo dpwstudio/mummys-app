@@ -50,12 +50,12 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         data => {
           console.log('data', data);
-					this.notifier.notify("success", 'You are now registered.');
+					this.notifier.notify("success", 'Votre inscription a bien été prise en compte.');
           this.router.navigate(['/login']);
         },
         error => {
           console.log('error', error);
-					this.notifier.notify("success", error.message);
+					this.notifier.notify("error", error.message);
           this.loading = false;
         });
   }

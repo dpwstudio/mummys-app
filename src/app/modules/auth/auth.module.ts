@@ -9,10 +9,11 @@ import { LostPasswordComponent } from './pages/lost-password/lost-password.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { customNotifierOptions } from 'src/app/config/config';
 import { NotifierModule } from 'angular-notifier';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, LostPasswordComponent],
+  declarations: [LoginComponent, RegisterComponent, LostPasswordComponent, ProfileComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

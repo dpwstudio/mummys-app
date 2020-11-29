@@ -55,6 +55,12 @@
 .colorlib-work {
   padding-top: 0;
   padding-bottom: 8em;
+
+  .services-wrap {
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
 
 .project {
