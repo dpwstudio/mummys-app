@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CartComponent } from './pages/cart/cart.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { DeliveryComponent } from './pages/delivery/delivery.component';
 
 const routes: Routes = [
@@ -11,16 +12,16 @@ const routes: Routes = [
       title: 'Mon panier'
     }
   }, {
-    path: 'checkout',
-    component: CartComponent,
-    data: {
-      title: 'Paiement'
-    }
-  }, {
     path: 'delivery',
     component: DeliveryComponent,
     data: {
       title: 'Livraison'
+    }
+  }, {
+    path: 'checkout',
+    component: CheckoutComponent,
+    data: {
+      title: 'Paiement'
     }
   }
 ];

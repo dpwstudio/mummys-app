@@ -1,1 +1,184 @@
-<p>checkout works!</p>
+<div class="mummys-container">
+  <div class="mummys-narrow-content">
+    <div class="row mb-5">
+      <div class="col-md-12">
+        <span class="heading-meta">Paiement</span>
+        <h2 class="mummys-heading">Procéder au paiement.</h2>
+        <div class="ariane-fil d-flex align-items-center justify-content-center">
+          <div class="ml-3 mr-3">
+            <a routerLink="/cart">
+              <h2 class="d-flex align-items-center">
+                <i class="fas fa-shopping-cart mr-3"></i>
+                <span>Panier</span>
+              </h2>
+            </a>
+          </div>
+          <i class="fas fa-angle-right"></i>
+          <a routerLink="/delivery">
+            <div class="ml-3 mr-3">
+              <h2 class="d-flex align-items-center"><i class="fas fa-truck mr-3"></i>
+                <span>Livraison</span>
+              </h2>
+            </div>
+          </a>
+          <i class="fas fa-angle-right"></i>
+          <div class="ml-3 mr-3">
+            <a routerLink="/checkout">
+              <h2 class="active d-flex align-items-center">
+                <i class="fas fa-credit-card mr-3"></i>
+                <span>Paiement</span>
+              </h2>
+            </a>
+          </div>
+        </div>
+      </div>
+	 </div>
+	 
+    <!--Main layout-->
+    <main class="pt-4">
+      <div class="container wow fadeIn">
+        <!--Grid row-->
+        <div class="row">
+
+          <!--Grid column-->
+          <div class="col-md-8 mb-4 mx-auto">
+            <div class="bg-white rounded-lg p-5">
+              <!-- Credit card form tabs -->
+              <ul role="tablist" class="nav bg-light nav-pills rounded-pill nav-fill mb-3">
+                <li class="nav-item" style="width: 250px">
+                  <a data-toggle="pill" href="#nav-tab-card" class="nav-link rounded-pill active">
+                    <i class="fas fa-credit-card"></i>
+                    Carte bancaire
+                  </a>
+                </li>
+                <li class="nav-item" style="width: 250px">
+                  <a data-toggle="pill" href="#nav-tab-paypal" class="nav-link rounded-pill">
+                    <i class="fab fa-paypal"></i>
+                    Paypal
+                  </a>
+                </li>
+              </ul>
+              <!-- End -->
+
+
+              <!-- Credit card form content -->
+              <div class="tab-content">
+
+                <!-- credit card info-->
+                <div id="nav-tab-card" class="tab-pane fade active show">
+                  <!-- <p class="alert alert-success">Some text success or error</p> -->
+                  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                      <label for="username">Nom (sur la carte)</label>
+                      <input type="text" name="fullName" formControlName="fullName" placeholder="Nom" required=""
+                        class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label for="cardNumber">Numéro de carte</label>
+                      <div class="input-group">
+                        <input type="text" name="cardNumber" formControlName="cardNumber" placeholder="xxxx xxxx xxxx xxxx"
+                          class="form-control" required="">
+                        <div class="input-group-append">
+                          <span class="input-group-text text-muted">
+                            <i class="fab fa-cc-visa mx-1"></i>
+                            <i class="fab fa-cc-amex mx-1"></i>
+                            <i class="fab fa-cc-mastercard mx-1"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-8">
+                        <div class="form-group">
+                          <label><span class="hidden-xs">Date d'expiration</span></label>
+                          <div class="input-group">
+                            <input type="number" formControlName="cardNumberExp" placeholder="Mois" name=""
+                              class="form-control" required="">
+                            <input type="number" formControlName="cardNumberExp" placeholder="Année" name=""
+                              class="form-control" required="">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group mb-4">
+                          <label data-toggle="tooltip" title=""
+                            data-original-title="Three-digits code on the back of your card">CVV
+                            <i class="fa fa-question-circle"></i>
+                          </label>
+                          <input type="text" required="" formControlName="cardNumberCVV" class="form-control">
+                        </div>
+                      </div>
+
+
+
+						  </div>
+						  <div class="text-center">
+							  <button type="button" class="subscribe btn btn-primary shadow-sm"> Payer la commande</button>
+						  </div>
+                  </form>
+                </div>
+                <!-- End -->
+
+                <!-- Paypal info -->
+                <div id="nav-tab-paypal" class="tab-pane fade">
+                  <p>Paypal est le moyen le plus simple de payer en ligne.</p>
+                  <p>
+                    <button type="button" class="btn btn-info rounded-pill"><i class="fab fa-paypal mr-2"></i> Se connecter à
+                      Paypal</button>
+                  </p>
+                  <p class="text-muted">
+							Vous pouvez depuis Paypal régler la commande avec votre compte ou si vous n'en avez pas le faire directement par carte bancaire.
+                  </p>
+                </div>
+                <!-- End -->
+              </div>
+              <!-- End -->
+
+            </div>
+
+
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-4 mb-4">
+
+            <!-- Heading -->
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+              <span class="text-muted">Panier</span>
+              <span class="badge badge-secondary badge-pill">1</span>
+            </h4>
+
+            <!-- Cart -->
+            <ul class="list-group mb-3 z-depth-1">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">10048 Grayton St, Detroit, MI 48224</h6>
+                </div>
+                <span class="text-muted">$50.73</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                  <h6 class="my-0">Quantity</h6>
+                </div>
+                <span class="text-muted">1</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between" style="background-color: #d0dfff;">
+                <span>Total (USD)</span>
+                <strong>$50.73</strong>
+              </li>
+            </ul>
+            <!-- Cart -->
+
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+      </div>
+    </main>
+    <!--Main layout-->
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,43 @@
+.mummys-container {
+  padding-top: 5em;
+  background: #f7f0e6;
+  height: 100vh;
+
+  .ariane-fil {
+    margin-bottom: 20px;
+
+    i {
+      color: #ffcd6d;
+      font-size: 15px;
+    }
+
+    h2.active {
+      background: #ffcd6d;
+      color: white;
+
+      i {
+        color: white;
+      }
+
+    }
+
+    h2 {
+      border: 2px solid #ffcd6d;
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: #ffcd6d;
+      padding: 10px 20px;
+      border-radius: 30px;
+
+      i {
+        color: #ffcd6d;
+
+      }
+    }
+  }
+
+  .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+	  background: #ffcd6d;
+  }
+}

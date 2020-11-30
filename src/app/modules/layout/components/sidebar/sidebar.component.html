@@ -42,7 +42,7 @@
       <li class="nav-item dropdown" *ngIf="isLoggedIn()">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          <i class="far fa-user-circle mr-1"></i> {{currentUser[0].firstname}}
+          <i class="far fa-user-circle mr-1"></i> {{currentUser.firstname}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="/profile"><i class="far fa-user-circle mr-2"></i>Mon compte</a>

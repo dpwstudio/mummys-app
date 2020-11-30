@@ -540,9 +540,8 @@ body.offcanvas .mummys-nav-toggle {
 .mummys-work,
 .mummys-about,
 .mummys-services,
-.mummys-cart,
-.mummys-delivery,
-.mummys-contact {
+.mummys-container,
+.mummys-container {
   padding-top: 4em;
   padding-bottom: 9em;
   clear: both;
@@ -556,9 +555,8 @@ body.offcanvas .mummys-nav-toggle {
   .mummys-work,
   .mummys-about,
   .mummys-services,
-  .mummys-cart,
-  .mummys-delivery,
-  .mummys-contact {
+  .mummys-container,
+  .mummys-container {
     padding-top: 5em;
     padding-bottom: 8em;
   }
@@ -1781,4 +1779,14 @@ body.offcanvas .mummys-nav-toggle {
   .modal-content {
     padding: 0 8px 30px;
   }
+}
+
+.loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #eee2d3e3;
+  width: 100%;
+  height: 100%;
+  z-index: 1002;
 }

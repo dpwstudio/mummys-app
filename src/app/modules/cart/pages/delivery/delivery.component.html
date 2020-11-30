@@ -2,8 +2,8 @@
   <div class="mummys-narrow-content">
     <div class="row mb-5">
       <div class="col-md-12">
-        <span class="heading-meta">Mon panier</span>
-        <h2 class="mummys-heading">Récapitulatif de votre commande.</h2>
+        <span class="heading-meta">Livraison</span>
+        <h2 class="mummys-heading">Détail de la livraison.</h2>
         <div class="ariane-fil d-flex align-items-center justify-content-center">
           <div class="ml-3 mr-3">
             <a routerLink="/cart">
@@ -38,19 +38,19 @@
         <div class="card card-user">
           <div class="card-body">
             <img class="avatar border-gray" src="assets/images/place.png" alt="...">
-            <div class="author">
+            <div class="content-card">
               <h5 class="card-title">Adresse de livraison</h5>
               <p class="card-description text-center">
-                {{currentUser[0].address}} <br>
-                {{currentUser[0].zipcode}}
-                {{currentUser[0].city}} <br>
+                {{currentUser.address}} <br>
+                {{currentUser.zipcode}}
+                {{currentUser.city}} <br>
               </p>
 
             </div>
           </div>
           <div class="card-footer d-flex justify-content-around">
             <a href="" class="btn btn-info">Changer d'adresse</a>
-            <a href="" class="btn btn-primary">Passer au paiement
+            <a routerLink="/checkout" class="btn btn-primary">Passer au paiement
               <i class="fas fa-angle-right"></i>
             </a>
           </div>

@@ -1,4 +1,4 @@
-<div class="mummys-contact">
+<div class="mummys-container">
   <div class="mummys-narrow-content">
     <div class="row mb-5">
       <div class="col-md-12">
@@ -12,21 +12,21 @@
           <div class="card-body">
             <img class="avatar border-gray" src="assets/images/user.png" alt="...">
             <div class="author">
-              <h5 class="card-title" style="margin-bottom: 15px;">{{currentUser[0].firstname}}
-                {{currentUser[0].lastname}}</h5>
+              <h5 class="card-title" style="margin-bottom: 15px;">{{currentUser.firstname}}
+                {{currentUser.lastname}}</h5>
               <h2 class="title">Identifiant</h2>
               <p class="card-description">
-                {{currentUser[0].email}}
+                {{currentUser.email}}
               </p>
               <p class="card-description text-center">
                 <i class="fas fa-mobile-alt mr-2"></i>
-                {{currentUser[0].phone}}
+                {{currentUser.phone}}
               </p>
             </div>
           </div>
           <div class="card-footer">
             <p class="card-description text-center" style="font-style: italic; font-size: 12px; color: #ad987b;">
-              Client depuis le {{currentUser[0].created_at | date:'dd/MM/yyyy'}}
+              Client depuis le {{currentUser.created_at | date:'dd/MM/yyyy'}}
             </p>
           </div>
         </div>
@@ -38,14 +38,16 @@
             <div class="author">
               <h5 class="card-title">Adresse de livraison</h5>
               <p class="card-description text-center">
-                {{currentUser[0].address}} <br>
-                {{currentUser[0].zipcode}}
-                {{currentUser[0].city}} <br>
+                {{currentUser.address}} <br>
+                {{currentUser.zipcode}}
+                {{currentUser.city}} <br>
               </p>
 
             </div>
           </div>
-          <div class="card-footer"></div>
+          <div class="card-footer text-center">
+            <button class="btn btn-primary">Modifier</button>
+          </div>
         </div>
       </div>
       <div class="col-lg-6">
