@@ -1,7 +1,11 @@
 <app-sidebar></app-sidebar>
 <div id="mummys-main">
   <div class="nav-mobile">
-    <img src="assets/images/logo2-white.png" alt="" width="70">
+    <img src="assets/images/logo-mob.png" alt="" width="70">
+    <a class="nav-link" routerLink="/cart" routerLinkActive="active">
+      <i class="fas fa-shopping-cart mr-2" style="font-size: 22px;"></i>
+      <span class="total-cart">{{getTotalCurrentCart()}}</span>
+    </a>
   </div>
   <router-outlet>
     <notifier-container style="position: absolute;"></notifier-container>

@@ -7,8 +7,29 @@
   top: 0;
   width: 100%;
   z-index: 1;
-  background: #ffcd6ec7;
+  background: #fff;
   box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+
+  .nav-link {
+    color: #ffdc7f;
+    position: absolute;
+    top: 25px;
+    right: -3px;
+
+    .total-cart {
+      background: red;
+      width: 16px;
+      height: 16px;
+      border-radius: 30px;
+      color: white;
+      position: absolute;
+      right: 15px;
+      top: 3px;
+      font-size: 9px;
+      justify-content: center;
+      display: flex;
+    }
+  }
 }
 
 @media screen and (max-width: 380px) {

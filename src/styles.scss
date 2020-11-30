@@ -537,7 +537,7 @@ body.offcanvas .mummys-nav-toggle {
 }
 
 .mummys-blog,
-.mummys-work,
+.mummys-container,
 .mummys-about,
 .mummys-services,
 .mummys-container,
@@ -552,12 +552,12 @@ body.offcanvas .mummys-nav-toggle {
 @media screen and (max-width: 768px) {
 
   .mummys-blog,
-  .mummys-work,
+  .mummys-container,
   .mummys-about,
   .mummys-services,
   .mummys-container,
   .mummys-container {
-    padding-top: 5em;
+    padding-top: 8em;
     padding-bottom: 8em;
   }
 }
@@ -1554,7 +1554,7 @@ body.offcanvas .mummys-nav-toggle {
 
 .mummys-nav-toggle.active i::before,
 .mummys-nav-toggle.active i::after {
-  background: #fff;
+  background: #ffdc7f;
 }
 
 .mummys-nav-toggle.dark.active i::before,
@@ -1582,7 +1582,7 @@ body.offcanvas .mummys-nav-toggle {
   font: bold 14px/.4 Helvetica;
   text-transform: uppercase;
   text-indent: -55px;
-  background: #fff;
+  background: #ffdc7f;
   -webkit-transition: all .2s ease-out;
   -o-transition: all .2s ease-out;
   transition: all .2s ease-out;
@@ -1593,7 +1593,7 @@ body.offcanvas .mummys-nav-toggle {
   content: '';
   width: 30px;
   height: 2px;
-  background: #fff;
+  background: #ffdc7f;
   position: absolute;
   left: 0;
   -webkit-transition: 0.2s;
@@ -1651,7 +1651,7 @@ body.offcanvas .mummys-nav-toggle {
 .mummys-nav-toggle {
   position: fixed;
   left: 0px;
-  top: 13px;
+  top: 25px;
   z-index: 9999;
   cursor: pointer;
   opacity: 1;
@@ -1755,6 +1755,7 @@ body.offcanvas .mummys-nav-toggle {
     height: 15px;
     margin: 0 4px;
     border: none;
+    border-radius: 50%;
   }
 
   .active {
@@ -1762,6 +1763,7 @@ body.offcanvas .mummys-nav-toggle {
     height: 15px;
     margin: 0 4px;
     background: #ffdc8c;
+    border-radius: 50%;
   }
 }
 
@@ -1789,4 +1791,28 @@ body.offcanvas .mummys-nav-toggle {
   width: 100%;
   height: 100%;
   z-index: 1002;
+}
+
+.notifier__notification--material .notifier__notification-button {
+  display: flex;
+  align-items: center;
+}
+
+.ngx-pagination {
+  color: #cecece !important;
+  font-size: 13px;
+  padding: 0;
+}
+
+.ngx-pagination .current {
+  padding: 0px 12px !important;
+  background: #ffcd6d !important;
+  border-radius: 3px;
+  width: 30px;
+}
+
+.ngx-pagination a:hover, .ngx-pagination button:hover {
+  padding: 0px 12px !important;
+  border-radius: 3px;
+  min-width: 30px;
 }

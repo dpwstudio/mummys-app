@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Cart } from 'src/app/shared/models/cart.model';
 import { CartService } from 'src/app/shared/services/cart/cart.service';
@@ -13,13 +13,21 @@ export class CheckoutComponent implements OnInit {
   carts: Cart[];
   loading = false;
   checkoutForm: FormGroup;
-
+  p: number = 1;
+  
   constructor(
+    private formBuilder: FormBuilder,
     private router: Router,
     private cartService: CartService  
   ) { }
 
   ngOnInit(): void {
+    this.checkoutForm = this.formBuilder.group({
+      cardNumber: ["", Validators.required],
+      fullName: ["", Validators.required],
+      cardNumberExp: ["", Validators.required],
+      cardNumberCVV: ["", Validators.required]
+    });
     this.getCarts();
   }
 

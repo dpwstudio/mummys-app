@@ -8,6 +8,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { DeliveryComponent } from './pages/delivery/delivery.component';
 import { ConfirmPaymentComponent } from './pages/confirm-payment/confirm-payment.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     LayoutModule,
     ReactiveFormsModule,
-    CartRoutingModule
+    CartRoutingModule,
+    NgxPaginationModule
   ]
 })
 export class CartModule { }

@@ -9,6 +9,8 @@ import { CartService } from 'src/app/shared/services/cart/cart.service';
 })
 export class CartComponent implements OnInit {
   carts: Cart[];
+  p: number = 1;
+  currentCart: Cart[];
 
   constructor(
     private cartService: CartService
@@ -20,7 +22,6 @@ export class CartComponent implements OnInit {
 
   getCarts() {
     this.carts = this.cartService.currentCartValue;
-    console.log('this.carts', this.carts);
   }
 
   getTotalTTC() {

@@ -1,5 +1,4 @@
 .mummys-container {
-  padding-top: 5em;
   padding-bottom: 12em;
   background: #f7f0e6;
 
@@ -87,6 +86,12 @@
   }
 
   .container-cart {
+    .title-cart {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 20px;
+    }
+
     .list-group {
       box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.1);
       border-radius: 15px;

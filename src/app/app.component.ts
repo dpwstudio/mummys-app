@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartService } from './shared/services/cart/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mummys-app';
+
+  constructor(private cartService: CartService) {
+  }
+
+  getTotalCurrentCart() {
+    return this.cartService.currentCartValue.length;
+  }
+
 }

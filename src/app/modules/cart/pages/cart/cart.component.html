@@ -13,16 +13,16 @@
               </h2>
             </a>
           </div>
-          <i class="fas fa-angle-right"></i>
-          <a routerLink="/delivery">
+          <i class="fas fa-angle-right" *ngIf="carts.length > 0"></i>
+          <a routerLink="/delivery" *ngIf="carts.length > 0">
             <div class="ml-3 mr-3">
               <h2 class="d-flex align-items-center"><i class="fas fa-truck mr-3"></i>
                 <span>Livraison</span>
               </h2>
             </div>
           </a>
-          <i class="fas fa-angle-right"></i>
-          <div class="ml-3 mr-3">
+          <i class="fas fa-angle-right" *ngIf="carts.length > 0"></i>
+          <div class="ml-3 mr-3" *ngIf="carts.length > 0">
             <a routerLink="/checkout">
               <h2 class="d-flex align-items-center">
                 <i class="fas fa-credit-card mr-3"></i>
@@ -51,7 +51,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let cart of carts">
+                  <tr *ngFor="let cart of carts | paginate: { itemsPerPage: 10, currentPage: p }">
                     <th scope="row">{{cart.id}}</th>
                     <td>{{cart.name}}</td>
                     <td>{{cart.quantity}}</td>
@@ -61,13 +61,17 @@
                 </tbody>
               </table>
             </div>
-            <div class="content-card"  *ngIf="carts.length === 0">
-              <h5>Votre panier est vide</h5>
+            <div class="content-card" *ngIf="carts.length === 0">
+              <h5 style="margin: 3em 0px 4em;">Votre panier est vide</h5>
             </div>
+          </div>
+          <div class="card-footer d-flex justify-content-center" *ngIf="carts.length > 0">
+            <pagination-controls (pageChange)="p = $event" previousLabel="Préc"
+            nextLabel="Suiv"></pagination-controls>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 offset-lg-8">
+      <div class="col-lg-4 offset-lg-8"  *ngIf="carts.length > 0">
         <div class="card card-user">
           <div class="card-body" style="padding-top: 20px;">
             <div class="content-card">
