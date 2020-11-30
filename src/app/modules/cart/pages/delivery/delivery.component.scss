@@ -1,7 +1,7 @@
-.mummys-delivery {
+.mummys-container {
   padding-top: 5em;
+  padding-bottom: 8em;
   background: #f7f0e6;
-  height: 100vh;
 
   .ariane-fil {
     margin-bottom: 20px;
@@ -39,8 +39,8 @@
 
 
 
-  .card {
-    border-radius: 20px;
+  .card-user {
+    border-radius: 15px;
     background-color: #FFFFFF;
     margin: 50px 0 13em;
     border: none;
@@ -127,4 +127,5 @@
     text-align: center;
     margin-bottom: 50px;
   }
+
 }

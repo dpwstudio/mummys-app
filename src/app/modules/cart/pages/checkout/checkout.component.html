@@ -1,3 +1,9 @@
+<div class="loading d-flex flex-column align-items-center justify-content-center" *ngIf="loading">
+  <div class="animate__animated animate__pulse animate__infinite text-center">
+    <img src="assets/images/logo.png" alt="" width="100">
+    <p class="text-white mt-2">Veuillez patienter...</p>
+  </div>
+</div>
 <div class="mummys-container">
   <div class="mummys-narrow-content">
     <div class="row mb-5">
@@ -32,8 +38,8 @@
           </div>
         </div>
       </div>
-	 </div>
-	 
+    </div>
+
     <!--Main layout-->
     <main class="pt-4">
       <div class="container wow fadeIn">
@@ -42,21 +48,27 @@
 
           <!--Grid column-->
           <div class="col-md-8 mb-4 mx-auto">
-            <div class="bg-white rounded-lg p-5">
+            <div class="container-checkout bg-white rounded-lg p-5">
               <!-- Credit card form tabs -->
               <ul role="tablist" class="nav bg-light nav-pills rounded-pill nav-fill mb-3">
-                <li class="nav-item" style="width: 250px">
+                <li class="nav-item" style="width: 175px">
                   <a data-toggle="pill" href="#nav-tab-card" class="nav-link rounded-pill active">
-                    <i class="fas fa-credit-card"></i>
+                    <i class="fas fa-credit-card mr-2"></i>
                     Carte bancaire
                   </a>
                 </li>
-                <li class="nav-item" style="width: 250px">
+                <li class="nav-item" style="width: 175px">
                   <a data-toggle="pill" href="#nav-tab-paypal" class="nav-link rounded-pill">
-                    <i class="fab fa-paypal"></i>
+                    <i class="fab fa-paypal mr-2"></i>
                     Paypal
                   </a>
-                </li>
+					 </li>
+					 <li class="nav-item" style="width: 175px">
+						<a data-toggle="pill" href="#nav-tab-bank" class="nav-link rounded-pill">
+						  <i class="fas fa-truck mr-2"></i>
+						  A la livraison
+						</a>
+					 </li>
               </ul>
               <!-- End -->
 
@@ -69,15 +81,16 @@
                   <!-- <p class="alert alert-success">Some text success or error</p> -->
                   <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
-                      <label for="username">Nom (sur la carte)</label>
+                      <label for="username">Nom <span style="font-style: italic; font-size: 10px;">(sur la
+                          carte)</span></label>
                       <input type="text" name="fullName" formControlName="fullName" placeholder="Nom" required=""
                         class="form-control">
                     </div>
                     <div class="form-group">
                       <label for="cardNumber">Numéro de carte</label>
                       <div class="input-group">
-                        <input type="text" name="cardNumber" formControlName="cardNumber" placeholder="xxxx xxxx xxxx xxxx"
-                          class="form-control" required="">
+                        <input type="text" name="cardNumber" formControlName="cardNumber"
+                          placeholder="xxxx xxxx xxxx xxxx" class="form-control card-number" required="">
                         <div class="input-group-append">
                           <span class="input-group-text text-muted">
                             <i class="fab fa-cc-visa mx-1"></i>
@@ -93,7 +106,7 @@
                           <label><span class="hidden-xs">Date d'expiration</span></label>
                           <div class="input-group">
                             <input type="number" formControlName="cardNumberExp" placeholder="Mois" name=""
-                              class="form-control" required="">
+                              class="form-control mr-3" required="">
                             <input type="number" formControlName="cardNumberExp" placeholder="Année" name=""
                               class="form-control" required="">
                           </div>
@@ -103,7 +116,7 @@
                         <div class="form-group mb-4">
                           <label data-toggle="tooltip" title=""
                             data-original-title="Three-digits code on the back of your card">CVV
-                            <i class="fa fa-question-circle"></i>
+                            <span style="font-style: italic; font-size: 10px;">(au dos)</span>
                           </label>
                           <input type="text" required="" formControlName="cardNumberCVV" class="form-control">
                         </div>
@@ -111,10 +124,10 @@
 
 
 
-						  </div>
-						  <div class="text-center">
-							  <button type="button" class="subscribe btn btn-primary shadow-sm"> Payer la commande</button>
-						  </div>
+                    </div>
+                    <div class="text-center">
+                      <button type="button" class="subscribe btn btn-primary shadow-sm" (click)="paidWithCreditCard()"> Payer la commande</button>
+                    </div>
                   </form>
                 </div>
                 <!-- End -->
@@ -123,14 +136,26 @@
                 <div id="nav-tab-paypal" class="tab-pane fade">
                   <p>Paypal est le moyen le plus simple de payer en ligne.</p>
                   <p>
-                    <button type="button" class="btn btn-info rounded-pill"><i class="fab fa-paypal mr-2"></i> Se connecter à
+                    <button type="button" class="btn btn-info rounded-pill"><i class="fab fa-paypal mr-2"></i> Se
+                      connecter à
                       Paypal</button>
                   </p>
                   <p class="text-muted">
-							Vous pouvez depuis Paypal régler la commande avec votre compte ou si vous n'en avez pas le faire directement par carte bancaire.
+                    Vous pouvez depuis Paypal régler la commande avec votre compte ou si vous n'en avez pas le faire
+                    directement par carte bancaire.
                   </p>
                 </div>
-                <!-- End -->
+					 <!-- End -->
+					 
+					 <!-- bank transfer info -->
+					 <div id="nav-tab-bank" class="tab-pane fade">
+						<p>Si vous le souhaitez, vous avez la possibilité de payer votre commande à la livraison. Le paiement peut se faire en espèce, Ticket restaurant ou carte bancaire.
+						</p>
+						<p>
+						  <button type="button" class="btn btn-primary" (click)="paidWithCreditCard()"><i class="fas fa-truck mr-2"></i> Payer à la livraison</button>
+						</p>
+					 </div>
+					 <!-- End -->
               </div>
               <!-- End -->
 
@@ -141,31 +166,27 @@
           <!--Grid column-->
 
           <!--Grid column-->
-          <div class="col-md-4 mb-4">
+          <div class="container-cart col-md-4 mb-4">
 
             <!-- Heading -->
             <h4 class="d-flex justify-content-between align-items-center mb-3">
               <span class="text-muted">Panier</span>
-              <span class="badge badge-secondary badge-pill">1</span>
+              <span class="badge badge-danger badge-pill" style="font-size: 18px;">{{carts.length}}</span>
             </h4>
 
             <!-- Cart -->
             <ul class="list-group mb-3 z-depth-1">
-              <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <li class="list-group-item d-flex justify-content-between align-items-center lh-condensed"
+                *ngFor="let cart of carts">
                 <div>
-                  <h6 class="my-0">10048 Grayton St, Detroit, MI 48224</h6>
+                  <h6 class="my-0">{{cart.quantity}} {{cart.name}}</h6>
                 </div>
-                <span class="text-muted">$50.73</span>
+                <span class="text-muted">{{cart.price | currency:'EUR':'symbol':'1.2-2':'fr'}}</span>
               </li>
-              <li class="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 class="my-0">Quantity</h6>
-                </div>
-                <span class="text-muted">1</span>
-              </li>
-              <li class="list-group-item d-flex justify-content-between" style="background-color: #d0dfff;">
-                <span>Total (USD)</span>
-                <strong>$50.73</strong>
+              <li class="list-group-item d-flex justify-content-between align-items-center"
+                style="background-color: #ffcd6d;">
+                <span>Total TTC <i class="fas fa-euro-sign ml-2"></i></span>
+                <strong>{{ getTotalTTC() | currency:'EUR':'symbol':'1.2-2':'fr' }}</strong>
               </li>
             </ul>
             <!-- Cart -->

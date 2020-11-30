@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/shared/models/product';
+import { Product } from 'src/app/shared/models/product.model';
 
 @Component({
   selector: 'app-plat',
@@ -18,21 +18,24 @@ export class PlatComponent implements OnInit {
   getProducts() {
     return this.dishes = [
       {
+        id: 1,
         imageUri: 'carousel/img-5.jpg',
         name: 'Soupe Pho',
         type: 'Plat chaud',
         size: 'Medium',
         price: 13
       }, {
+        id: 2,
         imageUri: 'carousel/img-2.jpg',
         name: 'Nouilles sautés',
         type: 'Plat chaud',
         size: 'Medium',
         price: 13
       }, {
-        imageUri: 'carousel/img-1.jpg',
-        name: 'Plateau de maki',
-        type: 'Plat froid',
+        id: 3,
+        imageUri: 'carousel/img-6.jpg',
+        name: 'Riz Loc Lac',
+        type: 'Plat chaud',
         size: 'Medium',
         price: 13
       }

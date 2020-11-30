@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/shared/models/product';
+import { Product } from 'src/app/shared/models/product.model';
 
 @Component({
 	selector: 'app-boisson',
@@ -18,18 +18,21 @@ export class BoissonComponent implements OnInit {
 	getProducts() {
 		return this.drinks = [
 			{
+				id: 1,
 				imageUri: 'boissons.jpeg',
 				name: 'Coca-Cola',
 				type: 'Soda',
 				size: '33cl',
 				price: 2
 			}, {
+				id: 2,
 				imageUri: 'boissons.jpeg',
 				name: 'Jus d\'orange',
 				type: 'Jus de fruits',
 				size: '33cl',
 				price: 2
 			}, {
+				id: 3,
 				imageUri: 'boissons.jpeg',
 				name: 'Fanta',
 				type: 'Soda',

@@ -38,7 +38,7 @@
         <div class="card card-user">
           <div class="card-body">
             <img class="avatar border-gray" src="assets/images/order.png" alt="...">
-            <div class="content-card">
+            <div class="content-card" *ngIf="carts.length > 0">
               <h5 class="card-title">Détail de la commande</h5>
               <table class="table table-striped">
                 <thead>
@@ -51,29 +51,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Salade César</td>
-                    <td>1</td>
-                    <td>6,50€</td>
-                    <td style="cursor: pointer;"><i class="text-danger fas fa-trash"></i></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Salade César</td>
-                    <td>1</td>
-                    <td>6,50€</td>
-                    <td style="cursor: pointer;"><i class="text-danger fas fa-trash"></i></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Salade César</td>
-                    <td>1</td>
-                    <td>6,50€</td>
+                  <tr *ngFor="let cart of carts">
+                    <th scope="row">{{cart.id}}</th>
+                    <td>{{cart.name}}</td>
+                    <td>{{cart.quantity}}</td>
+                    <td>{{cart.price | currency:'EUR':'symbol':'1.2-2':'fr' }}</td>
                     <td style="cursor: pointer;"><i class="text-danger fas fa-trash"></i></td>
                   </tr>
                 </tbody>
               </table>
+            </div>
+            <div class="content-card"  *ngIf="carts.length === 0">
+              <h5>Votre panier est vide</h5>
             </div>
           </div>
         </div>
@@ -81,18 +70,18 @@
       <div class="col-lg-4 offset-lg-8">
         <div class="card card-user">
           <div class="card-body" style="padding-top: 20px;">
-            <div class="author">
+            <div class="content-card">
               <div class="d-flex align-items-center justify-content-between">
                 <h5 class="card-title text-left" style="margin: 0;">Sous-total TTC</h5>
-                <p class="card-description text-left">3 articles</p>
+                <p class="card-description text-left">{{carts.length}} {carts.length, plural, =0 {article} =1 {article} other {articles}}</p>
               </div>
               <h1 class="sous-total">
-                48,00 €
+                {{ getTotalTTC() | currency:'EUR':'symbol':'1.2-2':'fr' }}
               </h1>
             </div>
           </div>
           <div class="card-footer text-center">
-            <a routerLink="/delivery" class="btn btn-primary" style="width: 100%;">Passer la commande
+            <a routerLink="/delivery" class="btn btn-primary" style="width: 100%;">Je confirme
               <i class="fas fa-angle-right"></i>
             </a>
           </div>

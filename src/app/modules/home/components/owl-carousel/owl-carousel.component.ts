@@ -34,9 +34,9 @@ export class OwlCarouselComponent implements OnInit {
       },
       {
         id: 3,
-        image: 'assets/images/carousel/img-1.jpg',
-        title: 'Plateau de maki',
-        subtitle: 'Plateau de maki façon Mummy\'s Akira'
+        image: 'assets/images/carousel/img-6.jpg',
+        title: 'Riz Loc Lac',
+        subtitle: 'Riz Loc Lac façon Mummy\'s Akira'
       },
 
     ]

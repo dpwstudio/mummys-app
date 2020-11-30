@@ -1,7 +1,7 @@
 .mummys-container {
   padding-top: 5em;
+  padding-bottom: 12em;
   background: #f7f0e6;
-  height: 100vh;
 
   .ariane-fil {
     margin-bottom: 20px;
@@ -37,7 +37,73 @@
     }
   }
 
-  .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-	  background: #ffcd6d;
+  .container-checkout {
+    box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.1);
+    border-bottom: 6px solid #f7f0e6;
+    border-radius: 15px !important;
+
+    .nav-pills .nav-link.active,
+    .nav-pills .show>.nav-link {
+      background: #ffcd6d;
+    }
+
+    .tab-pane {
+
+      .form-control {
+        border-radius: 10px;
+        background-color: #fafafa;
+
+        &::placeholder {
+          color: #d1d1d1;
+          font-size: 13px;
+        }
+      }
+
+      .input-group {
+
+        input.card-number {
+          border-radius: 10px 0 0 10px;
+          background-color: #fafafa;
+
+          &::placeholder {
+            color: #d1d1d1;
+            font-size: 13px;
+          }
+        }
+
+        .input-group-append {
+          .input-group-text {
+            border: none;
+            background-color: #fafafa;
+            border-radius: 0 10px 10px 0;
+
+            i.fab {
+              font-size: 25px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .container-cart {
+    .list-group {
+      box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+
+      .list-group-item {
+        border: none;
+        color: white;
+
+        h6 {
+          font-size: 14px;
+          letter-spacing: 1px;
+        }
+
+        strong {
+          font-size: 20px;
+        }
+      }
+    }
   }
 }

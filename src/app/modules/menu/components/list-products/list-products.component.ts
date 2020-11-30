@@ -1,7 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Product } from 'src/app/shared/models/product';
-
+import { Product } from 'src/app/shared/models/product.model';
+import { CartService } from '../../../../shared/services/cart/cart.service';
 @Component({
   selector: 'app-list-products',
   templateUrl: './list-products.component.html',
@@ -9,14 +9,17 @@ import { Product } from 'src/app/shared/models/product';
 })
 export class ListProductsComponent implements OnInit {
   @Input() products: Product[];
+  @Output() productAdded = new EventEmitter();
   closeResult = '';
   product: Product;
 
   constructor(
+    private cartService: CartService,
     private modalService: NgbModal,
   ) { }
 
   ngOnInit(): void {
+    this.getCart();
   }
 
   private getDismissReason(reason: any): string {
@@ -44,6 +47,16 @@ export class ListProductsComponent implements OnInit {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       }
     );
+  }
+
+  getCart() {
+    return this.cartService.currentCartValue;
+  }
+
+  addProductToCart(product) {
+    product.quantity = 1;
+    this.cartService.addToCart(product);
+    this.modalService.dismissAll();
   }
 
 }
