@@ -1,0 +1,62 @@
+<div class="mummys-delivery">
+  <div class="mummys-narrow-content">
+    <div class="row mb-5">
+      <div class="col-md-12">
+        <span class="heading-meta">Mon panier</span>
+        <h2 class="mummys-heading">Récapitulatif de votre commande.</h2>
+        <div class="ariane-fil d-flex align-items-center justify-content-center">
+          <div class="ml-3 mr-3">
+            <a routerLink="/cart">
+              <h2 class="d-flex align-items-center">
+                <i class="fas fa-shopping-cart mr-3"></i>
+                <span>Panier</span>
+              </h2>
+            </a>
+          </div>
+          <i class="fas fa-angle-right"></i>
+          <a routerLink="/delivery">
+            <div class="ml-3 mr-3">
+              <h2 class="active d-flex align-items-center"><i class="fas fa-truck mr-3"></i>
+                <span>Livraison</span>
+              </h2>
+            </div>
+          </a>
+          <i class="fas fa-angle-right"></i>
+          <div class="ml-3 mr-3">
+            <a routerLink="/checkout">
+              <h2 class="d-flex align-items-center">
+                <i class="fas fa-credit-card mr-3"></i>
+                <span>Paiement</span>
+              </h2>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 offset-md-3">
+        <div class="card card-user">
+          <div class="card-body">
+            <img class="avatar border-gray" src="assets/images/place.png" alt="...">
+            <div class="author">
+              <h5 class="card-title">Adresse de livraison</h5>
+              <p class="card-description text-center">
+                {{currentUser[0].address}} <br>
+                {{currentUser[0].zipcode}}
+                {{currentUser[0].city}} <br>
+              </p>
+
+            </div>
+          </div>
+          <div class="card-footer d-flex justify-content-around">
+            <a href="" class="btn btn-info">Changer d'adresse</a>
+            <a href="" class="btn btn-primary">Passer au paiement
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

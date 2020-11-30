@@ -1,7 +1,7 @@
-#colorlib-aside {
+#mummys-aside {
   background-color: white !important;
 
-  #colorlib-main-menu {
+  #mummys-main-menu {
     ul {
       text-align: right;
 
@@ -19,21 +19,32 @@
 }
 
 
-#colorlib-aside #colorlib-logo a {
+#mummys-aside #mummys-logo a {
   text-align: center;
 }
 
-#colorlib-aside #colorlib-main-menu ul li a:hover {
+#mummys-aside #mummys-main-menu ul li a:hover {
   color: #ffdc8c;
 }
 
-#colorlib-aside #colorlib-main-menu ul li a:after {
+#mummys-aside #mummys-main-menu ul li a:after {
   height: 2px;
   bottom: 16px;
   position: initial;
   background-color: transparent;
   transform: scaleX(1);
   visibility: visible;
+}
+
+.total-cart {
+  background: red;
+  padding: 0px 6px;
+  border-radius: 30px;
+  color: white;
+  position: absolute;
+  right: -3px;
+  top: 0;
+  font-size: 10px;
 }
 
 .dropdown-menu {
@@ -54,7 +65,7 @@
   }
 }
 
-.colorlib-footer {
+.mummys-footer {
   p {
     margin: 0;
     color: #eee2d4;
@@ -63,4 +74,3 @@
     font-size: 12px;
   }
 }
-

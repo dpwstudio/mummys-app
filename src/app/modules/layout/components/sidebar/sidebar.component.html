@@ -1,14 +1,14 @@
-<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle d-flex align-items-center justify-content-center"
+<a href="#" class="js-mummys-nav-toggle mummys-nav-toggle d-flex align-items-center justify-content-center"
   style="border: none;">
   <i></i>
 </a>
-<aside id="colorlib-aside" role="complementary" class="js-fullheight">
-  <h1 id="colorlib-logo">
+<aside id="mummys-aside" role="complementary" class="js-fullheight">
+  <h1 id="mummys-logo">
     <a href="index.html">
       <img src="assets/images/logo.png" alt="" width="120 ">
     </a>
   </h1>
-  <nav class="navbar navbar-expand-lg" id="colorlib-main-menu" role="navigation" style="margin: 0 auto; width: 250px;">
+  <nav class="navbar navbar-expand-lg" id="mummys-main-menu" role="navigation" style="margin: 0 auto; width: 250px;">
     <ul class="navbar-nav d-flex flex-column" style="margin: 0 auto;">
       <li class="nav-item">
         <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
@@ -37,22 +37,28 @@
         <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
       </li>
       <li class="nav-item" *ngIf="!isLoggedIn()">
-        <a class="nav-link" routerLink="/login" routerLinkActive="active"><i class="far fa-user-circle"></i> Login</a>
+        <a class="nav-link" routerLink="/login" routerLinkActive="active"><i class="far fa-user-circle mr-1"></i> Login</a>
       </li>
       <li class="nav-item dropdown" *ngIf="isLoggedIn()">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          <i class="far fa-user-circle"></i> {{currentUser[0].firstname}}
+          <i class="far fa-user-circle mr-1"></i> {{currentUser[0].firstname}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="/profile"><i class="far fa-user-circle mr-2"></i>Mon compte</a>
           <a class="dropdown-item" (click)="logout()"><i class="fas fa-power-off mr-2"></i> Déconnexion</a>
         </div>
       </li>
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a class="nav-link" routerLink="/cart" routerLinkActive="active">
+          <i class="fas fa-shopping-cart mr-2" style="font-size: 30px;"></i>
+          <span class="total-cart">3</span>
+        </a>
+      </li>
     </ul>
   </nav>
 
-  <div class="colorlib-footer">
+  <div class="mummys-footer">
     <p class="text">
       Suivez-moi
     </p>

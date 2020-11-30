@@ -9,6 +9,8 @@ import { AboutModule } from './modules/about/about.module';
 import { MenuModule } from './modules/menu/menu.module';
 import { ContactModule } from './modules/contact/contact.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { CartModule } from './modules/cart/cart.module';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotifierModule } from 'angular-notifier';
 import { customNotifierOptions } from './config/config';
@@ -31,6 +33,7 @@ registerLocaleData(localeFr, 'fr');
     MenuModule,
     ContactModule,
     AuthModule,
+    CartModule,
     AppRoutingModule,
     NgbModule,
     NotifierModule.withConfig(customNotifierOptions)

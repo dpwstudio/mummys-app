@@ -1,0 +1,104 @@
+<div class="mummys-cart">
+  <div class="mummys-narrow-content">
+    <div class="row mb-5">
+      <div class="col-md-12">
+        <span class="heading-meta">Mon panier</span>
+        <h2 class="mummys-heading">Récapitulatif de votre commande.</h2>
+        <div class="ariane-fil d-flex align-items-center justify-content-center">
+          <div class="ml-3 mr-3">
+            <a routerLink="/cart">
+              <h2 class="active d-flex align-items-center">
+                <i class="fas fa-shopping-cart mr-3"></i>
+                <span>Panier</span>
+              </h2>
+            </a>
+          </div>
+          <i class="fas fa-angle-right"></i>
+          <a routerLink="/delivery">
+            <div class="ml-3 mr-3">
+              <h2 class="d-flex align-items-center"><i class="fas fa-truck mr-3"></i>
+                <span>Livraison</span>
+              </h2>
+            </div>
+          </a>
+          <i class="fas fa-angle-right"></i>
+          <div class="ml-3 mr-3">
+            <a routerLink="/checkout">
+              <h2 class="d-flex align-items-center">
+                <i class="fas fa-credit-card mr-3"></i>
+                <span>Paiement</span>
+              </h2>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card card-user">
+          <div class="card-body">
+            <img class="avatar border-gray" src="assets/images/order.png" alt="...">
+            <div class="author">
+              <h5 class="card-title">Détail de la commande</h5>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Quantité</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Salade César</td>
+                    <td>1</td>
+                    <td>6,50€</td>
+                    <td style="cursor: pointer;"><i class="text-danger fas fa-trash"></i></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Salade César</td>
+                    <td>1</td>
+                    <td>6,50€</td>
+                    <td style="cursor: pointer;"><i class="text-danger fas fa-trash"></i></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Salade César</td>
+                    <td>1</td>
+                    <td>6,50€</td>
+                    <td style="cursor: pointer;"><i class="text-danger fas fa-trash"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 offset-lg-8">
+        <div class="card card-user">
+          <div class="card-body" style="padding-top: 20px;">
+            <div class="author">
+              <div class="d-flex align-items-center justify-content-between">
+                <h5 class="card-title text-left" style="margin: 0;">Sous-total TTC</h5>
+                <p class="card-description text-left">3 articles</p>
+              </div>
+              <h1 class="sous-total">
+                48,00 €
+              </h1>
+            </div>
+          </div>
+          <div class="card-footer text-center">
+            <a routerLink="/delivery" class="btn btn-primary" style="width: 100%;">Passer la commande
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
