@@ -14,24 +14,24 @@
           <div class="ml-3 mr-3">
             <a routerLink="/cart">
               <h2 class="d-flex align-items-center">
-                <i class="fas fa-shopping-cart mr-3"></i>
+                <i class="fas fa-shopping-cart"></i>
                 <span>Panier</span>
               </h2>
             </a>
           </div>
-          <i class="fas fa-angle-right"></i>
-          <a routerLink="/delivery">
+          <i class="fas fa-angle-right" *ngIf="carts.length > 0"></i>
+          <a routerLink="/delivery" *ngIf="carts.length > 0">
             <div class="ml-3 mr-3">
-              <h2 class="d-flex align-items-center"><i class="fas fa-truck mr-3"></i>
+              <h2 class="d-flex align-items-center"><i class="fas fa-truck"></i>
                 <span>Livraison</span>
               </h2>
             </div>
           </a>
-          <i class="fas fa-angle-right"></i>
-          <div class="ml-3 mr-3">
+          <i class="fas fa-angle-right" *ngIf="carts.length > 0"></i>
+          <div class="ml-3 mr-3" *ngIf="carts.length > 0">
             <a routerLink="/checkout">
               <h2 class="active d-flex align-items-center">
-                <i class="fas fa-credit-card mr-3"></i>
+                <i class="fas fa-credit-card"></i>
                 <span>Paiement</span>
               </h2>
             </a>

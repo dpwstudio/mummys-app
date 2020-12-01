@@ -13,7 +13,7 @@ export class AppComponent {
   }
 
   getTotalCurrentCart() {
-    return this.cartService.currentCartValue.length;
+    return this.cartService.cartProductList.length;
   }
 
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Cart } from 'src/app/shared/models/cart.model';
 import { User } from 'src/app/shared/models/user.model';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
+import { CartService } from 'src/app/shared/services/cart/cart.service';
 
 @Component({
   selector: 'app-delivery',
@@ -8,15 +10,22 @@ import { AuthService } from 'src/app/shared/services/auth/auth.service';
   styleUrls: ['./delivery.component.scss']
 })
 export class DeliveryComponent implements OnInit {
+  carts: Cart[];
   currentUser: User;
 
   constructor(
     private authService: AuthService,
+    private cartService: CartService
   ) {
     this.currentUser = this.authService.currentUserValue;
   }
 
   ngOnInit(): void {
+    this.getCarts();
   }
+
+  getCarts() {
+    this.carts = this.cartService.cartProductList;
+  } 
 
 }

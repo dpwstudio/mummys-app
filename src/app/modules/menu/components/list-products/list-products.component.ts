@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NotifierService } from 'angular-notifier';
 import { Product } from 'src/app/shared/models/product.model';
 import { CartService } from '../../../../shared/services/cart/cart.service';
 @Component({
@@ -8,6 +9,7 @@ import { CartService } from '../../../../shared/services/cart/cart.service';
   styleUrls: ['./list-products.component.scss']
 })
 export class ListProductsComponent implements OnInit {
+  private readonly notifier: NotifierService;
   @Input() products: Product[];
   @Output() productAdded = new EventEmitter();
   closeResult = '';
@@ -16,7 +18,10 @@ export class ListProductsComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private modalService: NgbModal,
-  ) { }
+    notifierService: NotifierService
+  ) {
+    this.notifier = notifierService;
+  }
 
   ngOnInit(): void {
     this.getCart();
@@ -50,12 +55,12 @@ export class ListProductsComponent implements OnInit {
   }
 
   getCart() {
-    return this.cartService.currentCartValue;
+    return this.cartService.cartProductList;
   }
 
   addProductToCart(product) {
-    product.quantity = 1;
-    this.cartService.addToCart(product);
+    this.cartService.addProductToCart(product);
+    this.notifier.notify("success", `L'article a bien été ajouté au panier.`);
     this.modalService.dismissAll();
   }
 

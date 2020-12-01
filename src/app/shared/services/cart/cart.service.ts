@@ -10,7 +10,7 @@ import { User } from '../../models/user.model';
 })
 export class CartService {
   private readonly notifier: NotifierService;
-  currentCartSubject$: BehaviorSubject<Cart[]> = new BehaviorSubject<Cart[]>([]);
+  cartProductList: Cart[] = [];
 
   constructor(
     private http: HttpClient,
@@ -19,14 +19,17 @@ export class CartService {
     this.notifier = notifierService;
   }
 
-  public get currentCartValue(): Cart[] {
-    return this.currentCartSubject$.getValue();
+  addProductToCart(product) {
+    const productExistInCart = this.cartProductList.find(({ name }) => name === product.name); // find product by name
+    if (!productExistInCart) {
+      this.cartProductList.push({ ...product, quantity: 1 }); // enhance "product" object with "quantity" property
+      return;
+    }
+    productExistInCart.quantity += 1;
   }
 
-  addToCart(dataObj) {
-    const updatedValue = [...this.currentCartValue, dataObj];
-    this.currentCartSubject$.next(updatedValue);
-    this.notifier.notify("success", `L'article a bien été ajouté au panier.`);
+  removeProduct(product) {
+    this.cartProductList = this.cartProductList.filter(({ name }) => name !== product.name)
   }
 
 

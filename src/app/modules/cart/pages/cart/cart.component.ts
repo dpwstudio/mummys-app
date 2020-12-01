@@ -21,7 +21,7 @@ export class CartComponent implements OnInit {
   }
 
   getCarts() {
-    this.carts = this.cartService.currentCartValue;
+    this.carts = this.cartService.cartProductList;
   }
 
   getTotalTTC() {

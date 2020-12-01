@@ -16,6 +16,7 @@
 
       i {
         color: white;
+        margin-right: 10px;
       }
 
     }
@@ -31,7 +32,25 @@
 
       i {
         color: #ffcd6d;
+        margin-right: 10px;
+      }
+    }
 
+    @media screen and (max-width: 380px) {
+      h2.active {
+        i {
+          margin: 0;
+        }
+      }
+
+      h2 {
+        i {
+          margin: 0;
+        }
+      }
+
+      span {
+        display: none;
       }
     }
   }

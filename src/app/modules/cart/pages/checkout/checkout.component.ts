@@ -32,7 +32,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   getCarts() {
-    this.carts = this.cartService.currentCartValue;
+    this.carts = this.cartService.cartProductList;
     console.log('this.carts', this.carts);
   }
 

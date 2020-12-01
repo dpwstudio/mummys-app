@@ -34,7 +34,7 @@ export class SidebarComponent implements OnInit {
   }
 
   getTotalCurrentCart() {
-    return this.cartService.currentCartValue.length;
+    return this.cartService.cartProductList.length;
   }
 
   logout() {
