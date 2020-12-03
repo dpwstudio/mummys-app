@@ -5,7 +5,7 @@ const apiUrl = 'http://localhost:3000';
 const customNotifierOptions: NotifierOptions = {
     position: {
           horizontal: {
-              position: 'right',
+              position: 'middle',
               distance: 12
           },
           vertical: {

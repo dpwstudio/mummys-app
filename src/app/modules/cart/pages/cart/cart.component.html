@@ -46,39 +46,48 @@
                     <th scope="col">#</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Quantité</th>
-                    <th scope="col">Prix</th>
-                    <th scope="col"></th>
+                    <th scope="col">Prix unitaire TTC</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let cart of carts | paginate: { itemsPerPage: 10, currentPage: p }">
+                  <tr *ngFor="let cart of carts | paginate: { itemsPerPage: numberPerPage, currentPage: p }">
                     <th scope="row">{{cart.id}}</th>
                     <td>{{cart.name}}</td>
-                    <td>{{cart.quantity}}</td>
+                    <td>
+                      <div class="d-flex align-items-center justify-content-center">
+                        <span class="minus" (click)="decrement(cart)">-</span>
+                        <input disabled class="form-control" type="text" [(ngModel)]="cart.quantity" min="0"
+                          max="8" id="qty">
+                        <span class="plus" (click)="increment(cart)">+</span>
+                      </div>
+
+                    </td>
                     <td>{{cart.price | currency:'EUR':'symbol':'1.2-2':'fr' }}</td>
-                    <td style="cursor: pointer;"><i class="text-danger fas fa-trash"></i></td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="content-card" *ngIf="carts.length === 0">
-              <h5 style="margin: 3em 0px 4em;">Votre panier est vide</h5>
+              <h5 class="d-flex flex-column" style="margin: 3em 0;">
+                Votre panier est vide.
+                <i class="far fa-frown mt-3" style="font-size: 40px; color: #ffcd6d;"></i>
+              </h5>
             </div>
           </div>
-          <div class="card-footer d-flex justify-content-center" *ngIf="carts.length > 0">
-            <pagination-controls (pageChange)="p = $event" previousLabel="Préc"
-            nextLabel="Suiv"></pagination-controls>
+          <div class="card-footer d-flex justify-content-center" *ngIf="carts.length > numberPerPage">
+            <pagination-controls (pageChange)="p = $event" previousLabel="Préc" nextLabel="Suiv"></pagination-controls>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 offset-lg-8"  *ngIf="carts.length > 0">
+      <div class="col-lg-4 offset-lg-8" *ngIf="carts.length > 0">
         <div class="card card-user">
           <div class="card-body" style="padding-top: 20px;">
             <div class="content-card">
               <div class="d-flex align-items-center justify-content-between">
                 <h5 class="card-title text-left" style="margin: 0;">Sous-total TTC</h5>
                 <p class="card-description text-left">
-                  <span class="badge badge-primary badge-pill">{{carts.length}} {carts.length, plural, =0 {article} =1 {article} other {articles}}</span></p>
+                  <span class="badge badge-primary badge-pill">{{carts.length}} {carts.length, plural, =0 {article} =1
+                    {article} other {articles}}</span></p>
               </div>
               <h1 class="sous-total">
                 {{ getTotalTTC() | currency:'EUR':'symbol':'1.2-2':'fr' }}
@@ -86,9 +95,9 @@
             </div>
           </div>
           <div class="card-footer text-center">
-            <a routerLink="/delivery" class="btn btn-primary" style="width: 100%;">Je confirme
+            <button class="btn btn-primary" style="width: 100%;" (click)="confirmCart()">Je confirme
               <i class="fas fa-angle-right"></i>
-            </a>
+            </button>
           </div>
         </div>
       </div>

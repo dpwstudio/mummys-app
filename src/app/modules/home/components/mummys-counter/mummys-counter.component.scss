@@ -1,0 +1,13 @@
+#mummys-counter {
+  margin: 0;
+}
+
+.mummys-counters {
+  background-position: center center;
+  transform: translateZ(-1px) scale(1.1);
+  background-size: cover;
+
+  .mummys-counter-label {
+    margin-bottom: 0;
+  }
+}

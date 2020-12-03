@@ -52,8 +52,6 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    console.log('this.f', this.f);
-
     this.authService.login(this.f.email.value, this.f.password.value)
       .pipe(first())
       .subscribe(
@@ -63,6 +61,8 @@ export class LoginComponent implements OnInit {
           this.notifier.notify("success", `Vous êtes maintenant connecté à Mummy's Food`);
         },
         error => {
+          console.log('error', error);
+          this.notifier.notify("error", error.message);
           this.loading = false;
         });
   }

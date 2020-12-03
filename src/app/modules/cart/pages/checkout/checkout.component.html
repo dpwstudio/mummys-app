@@ -151,7 +151,7 @@
                 <!-- bank transfer info -->
                 <div id="nav-tab-bank" class="tab-pane fade">
                   <p>Si vous le souhaitez, vous avez la possibilité de payer votre commande à la livraison. Le paiement
-                    peut se faire en espèce, Ticket restaurant ou carte bancaire.
+                    peut se faire en espèce, Ticket restaurant ou carte bancaire. Pour le paiement en espèce, nous vous recommandons de faire l'appoint.
                   </p>
                   <p>
                     <button type="button" class="btn btn-primary" (click)="paidWithCreditCard()"><i
@@ -186,7 +186,7 @@
                 </div>
                 <span class="text-muted">{{cart.price | currency:'EUR':'symbol':'1.2-2':'fr'}}</span>
               </li>
-              <li class="list-group-item d-flex justify-content-center align-items-center lh-condensed">
+              <li class="list-group-item d-flex justify-content-center align-items-center lh-condensed" *ngIf="carts.length > 1">
                 <pagination-controls (pageChange)="p = $event" previousLabel="Préc" nextLabel="Suiv">
                 </pagination-controls>  
               </li>

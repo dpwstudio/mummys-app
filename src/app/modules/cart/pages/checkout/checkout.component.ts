@@ -37,7 +37,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   getTotalTTC() {
-    return this.carts.reduce((acc, order) => acc = acc + order.price, 0)
+    return this.carts.reduce((acc, product) => acc = acc + (product.price * product.quantity), 0)
   }
 
   paidWithCreditCard() {

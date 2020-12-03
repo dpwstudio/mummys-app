@@ -23,7 +23,7 @@ export class OwlCarouselComponent implements OnInit {
       {
         id: 1,
         image: 'assets/images/carousel/img-5.jpg',
-        title: 'Mummy\'s day of Loy',
+        title: 'Soupe Pho',
         subtitle: 'Soupe Phô au boeuf façon Mummy\'s Loy'
       },
       {

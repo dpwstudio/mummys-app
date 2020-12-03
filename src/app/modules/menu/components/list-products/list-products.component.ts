@@ -14,6 +14,7 @@ export class ListProductsComponent implements OnInit {
   @Output() productAdded = new EventEmitter();
   closeResult = '';
   product: Product;
+  quantity = 1;
 
   constructor(
     private cartService: CartService,
@@ -25,6 +26,11 @@ export class ListProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCart();
+  }
+
+  getQuantity(event) {
+     console.log('event', event);
+     this.quantity = event;
   }
 
   private getDismissReason(reason: any): string {
@@ -59,9 +65,24 @@ export class ListProductsComponent implements OnInit {
   }
 
   addProductToCart(product) {
+    product.quantity = this.quantity;
     this.cartService.addProductToCart(product);
     this.notifier.notify("success", `L'article a bien été ajouté au panier.`);
     this.modalService.dismissAll();
+  }
+
+  increment() {
+    if (this.quantity === 8) {
+      return;
+    }
+    this.quantity++;
+  }
+
+  decrement() {
+    if (this.quantity === 1) {
+      return;
+    }
+    this.quantity--;
   }
 
 }

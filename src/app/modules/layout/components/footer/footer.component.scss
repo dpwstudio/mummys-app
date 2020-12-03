@@ -1,7 +1,45 @@
 .page-footer {
-	background-color: #262626;
+  background-color: #262626;
 
-	.footer-copyright {
-		font-size: 12px;
-	}
+  .footer-copyright {
+    font-size: 12px;
+  }
+
+  .support-newsletter {
+    background-color: #ffcd6d;
+
+    .bloc-footer {
+      padding: 3em 0;
+
+      h2 {
+        font-size: 17px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: white;
+        font-size: 16px;
+      }
+
+      .form-group {
+        input {
+          background: white;
+          margin-right: 10px;
+          border-radius: 5px;
+          padding: 6px 15px;
+
+          &::placeholder {
+            color: #d1d1d1;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+
+  }
+
 }

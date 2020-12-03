@@ -9,12 +9,14 @@ import { DessertComponent } from './pages/dessert/dessert.component';
 import { ListProductsComponent } from './components/list-products/list-products.component';
 import { BoissonComponent } from './pages/boisson/boisson.component';
 import { LayoutModule } from '../layout/layout.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [MenuComponent, EntreeComponent, PlatComponent, DessertComponent, ListProductsComponent, BoissonComponent],
   imports: [
     CommonModule,
+    FormsModule,
     MenuRoutingModule,
     LayoutModule
   ]

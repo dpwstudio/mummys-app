@@ -8,17 +8,22 @@ import { OwlCarouselComponent } from './components/owl-carousel/owl-carousel.com
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutModule } from '../layout/layout.module';
 
+import { CountToModule } from 'angular-count-to';
+import { MummysCounterComponent } from './components/mummys-counter/mummys-counter.component';
+
 @NgModule({
-  declarations: [HomeComponent, OwlCarouselComponent],
+  declarations: [HomeComponent, OwlCarouselComponent, MummysCounterComponent],
   imports: [
     BrowserAnimationsModule,
     CommonModule,
     HomeRoutingModule,
     LayoutModule,
-    NgbModule
+    NgbModule,
+    CountToModule
   ],
   exports: [
-    HomeComponent
+    HomeComponent,
+    MummysCounterComponent
   ]
 })
 export class HomeModule { }

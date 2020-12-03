@@ -22,14 +22,14 @@ export class CartService {
   addProductToCart(product) {
     const productExistInCart = this.cartProductList.find(({ name }) => name === product.name); // find product by name
     if (!productExistInCart) {
-      this.cartProductList.push({ ...product, quantity: 1 }); // enhance "product" object with "quantity" property
+      this.cartProductList.push({ ...product}); // enhance "product" object with "quantity" property
       return;
     }
     productExistInCart.quantity += 1;
   }
 
   removeProduct(product) {
-    this.cartProductList = this.cartProductList.filter(({ name }) => name !== product.name)
+    this.cartProductList = this.cartProductList.filter(({ name }) => name !== product.name);
   }
 
 

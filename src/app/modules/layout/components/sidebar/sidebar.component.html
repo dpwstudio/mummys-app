@@ -50,7 +50,7 @@
           <a class="dropdown-item" (click)="logout()"><i class="fas fa-power-off mr-2"></i> Déconnexion</a>
         </div>
       </li>
-      <li class="nav-item" *ngIf="isLoggedIn()">
+      <li class="nav-item">
         <a class="nav-link" routerLink="/cart" routerLinkActive="active">
           <i class="fas fa-shopping-cart mr-2" style="font-size: 30px;"></i>
           <span class="total-cart">{{getTotalCurrentCart()}}</span>

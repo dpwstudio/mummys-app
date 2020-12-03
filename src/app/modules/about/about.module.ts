@@ -5,6 +5,8 @@ import { AboutRoutingModule } from './about-routing.module';
 import { AboutComponent } from './pages/about/about.component';
 import { RouterModule } from '@angular/router';
 import { LayoutModule } from '../layout/layout.module';
+import { CountToModule } from 'angular-count-to';
+import { HomeModule } from '../home/home.module';
 
 
 @NgModule({
@@ -12,7 +14,8 @@ import { LayoutModule } from '../layout/layout.module';
   imports: [
     CommonModule,
     AboutRoutingModule,
-    LayoutModule
+    LayoutModule,
+    HomeModule,
   ],
   exports: [
     AboutComponent

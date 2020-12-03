@@ -7,7 +7,7 @@ import { LayoutModule } from '../layout/layout.module';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { DeliveryComponent } from './pages/delivery/delivery.component';
 import { ConfirmPaymentComponent } from './pages/confirm-payment/confirm-payment.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 
@@ -16,9 +16,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
   imports: [
     CommonModule,
     LayoutModule,
+    FormsModule,
     ReactiveFormsModule,
     CartRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ]
 })
 export class CartModule { }
