@@ -13,7 +13,7 @@ export class ProfileComponent implements OnInit {
   constructor(
     private authService: AuthService,
   ) {
-    this.currentUser = this.authService.currentUserValue;
+    this.authService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   ngOnInit(): void {

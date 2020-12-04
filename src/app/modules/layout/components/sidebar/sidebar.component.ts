@@ -23,14 +23,20 @@ export class SidebarComponent implements OnInit {
     notifierService: NotifierService
   ) {
     this.notifier = notifierService;
-    this.currentUser = this.authService.currentUserValue;
+    this.authService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   ngOnInit(): void {
   }
 
   isLoggedIn() {
-    return this.authService.currentUserValue;
+    return this.currentUser;
+  }
+  
+  isAdmin() {
+    if (this.isLoggedIn()) {
+      return this.currentUser[0].role === 'admin';
+    }
   }
 
   getTotalCurrentCart() {

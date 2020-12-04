@@ -44,7 +44,7 @@
     </tr>
   </tbody>
 </table>
-<div class="d-flex justify-content-center" *ngIf="products.length > numberPerPage">
+<div class="d-flex justify-content-center" *ngIf="products?.length > numberPerPage">
   <pagination-controls (pageChange)="p = $event" previousLabel="Préc" nextLabel="Suiv"></pagination-controls>
 </div>
 

@@ -55,14 +55,18 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.f.email.value, this.f.password.value)
       .pipe(first())
       .subscribe(
-        data => {
+        result => {
           this.router.navigate([this.returnUrl]);
           this.currentUser = this.authService.currentUserValue;
           this.notifier.notify("success", `Vous êtes maintenant connecté à Mummy's Food`);
         },
         error => {
           console.log('error', error);
-          this.notifier.notify("error", error.message);
+          if (error.status === 404) {
+            this.notifier.notify("error", 'Email ou mot de passe incorrect, veuillez réessayer.');
+          } else {
+            this.notifier.notify("error", error.message);
+          }
           this.loading = false;
         });
   }

@@ -1,6 +1,10 @@
 #mummys-aside {
   background-color: white !important;
 
+  #mummys-logo a {
+    text-align: center;
+  }
+
   #mummys-main-menu {
     ul {
       text-align: right;
@@ -12,6 +16,29 @@
         a {
           color: #464646;
           padding: 5px 0px;
+
+          &:hover {
+            color: #ffdc8c;
+          }
+
+          &:after {
+            height: 2px;
+            bottom: 16px;
+            position: initial;
+            background-color: transparent;
+            transform: scaleX(1);
+            visibility: visible;
+          }
+        }
+      }
+
+      .admin {
+        a.nav-link {
+          background: #ffdc8c;
+          color: white;
+          padding: 5px 15px;
+          border-radius: 10px;
+          border-bottom: 4px solid #ffcd6e;
         }
       }
     }
@@ -19,22 +46,6 @@
 }
 
 
-#mummys-aside #mummys-logo a {
-  text-align: center;
-}
-
-#mummys-aside #mummys-main-menu ul li a:hover {
-  color: #ffdc8c;
-}
-
-#mummys-aside #mummys-main-menu ul li a:after {
-  height: 2px;
-  bottom: 16px;
-  position: initial;
-  background-color: transparent;
-  transform: scaleX(1);
-  visibility: visible;
-}
 
 .total-cart {
   background: red;

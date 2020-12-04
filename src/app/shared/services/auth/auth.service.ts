@@ -25,8 +25,8 @@ export class AuthService {
     return this.http.post<any>(`${apiUrl}/auth/login`, { email, password })
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
-        localStorage.setItem('currentUser', JSON.stringify(this.currentUserValue[0]));
         return user;
       }));
   }
@@ -40,5 +40,9 @@ export class AuthService {
     // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+  }
+
+  isAdmin() {
+    return this.currentUserValue[0].role === 'admin';
   }
 }
