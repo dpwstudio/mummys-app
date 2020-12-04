@@ -22,8 +22,8 @@ export class RegisterComponent implements OnInit {
     private authService: AuthService,
     notifierService: NotifierService
   ) {
-		this.notifier = notifierService;
-   }
+    this.notifier = notifierService;
+  }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -34,28 +34,35 @@ export class RegisterComponent implements OnInit {
       zipcode: ["", Validators.required],
       city: ["", Validators.required],
       phone: ["", Validators.required],
+      newsletter: [""],
       password: ["", [Validators.required, Validators.minLength(4)]],
     });
   }
 
   onSubmit() {
+    this.loading = true;
+    
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
     }
 
     console.log('this.registerForm', this.registerForm.value);
-    this.loading = true;
+
     this.authService.register(this.registerForm.value).pipe(first())
       .subscribe(
         data => {
           console.log('data', data);
-					this.notifier.notify("success", 'Votre inscription a bien été prise en compte.');
+          this.notifier.notify("success", 'Votre inscription a bien été prise en compte.');
           this.router.navigate(['/login']);
         },
         error => {
           console.log('error', error);
-					this.notifier.notify("error", error.message);
+          if (error.status === 409) {
+            this.notifier.notify("error", 'Cet email existe déjà, veuillez en saisir un autre.');
+          } else {
+            this.notifier.notify("error", error.message);
+          }
           this.loading = false;
         });
   }

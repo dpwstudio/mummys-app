@@ -8,5 +8,7 @@ export interface User {
 	zipcode: string;
 	city: string;
 	phone: string;
+	newsletter: boolean;
+	role: string;
 	createdAt?: Date;
 }

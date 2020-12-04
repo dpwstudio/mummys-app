@@ -35,12 +35,15 @@
       margin-top: 20px;
       width: 200px;
     }
-    .btn-primary.disabled, .btn-primary:disabled {
+
+    .btn-primary.disabled,
+    .btn-primary:disabled {
       background-color: #ffdc8c;
       border: 2px solid #ffdc8c;
+
       &:hover {
         background-color: #ffdc8c !important;
-      border: 2px solid #ffdc8c !important;
+        border: 2px solid #ffdc8c !important;
       }
     }
   }
@@ -71,4 +74,73 @@
   .mummys-container {
     padding-top: 7em;
   }
+}
+
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 3px;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input~.checkmark {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked~.checkmark {
+  background-color: #ffdc8c;
+  border-radius: 3px;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 7px;
+  top: 2px;
+  width: 7px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
