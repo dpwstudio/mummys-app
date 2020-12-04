@@ -8,5 +8,5 @@ export interface User {
 	zipcode: string;
 	city: string;
 	phone: string;
-	created_at?: Date;
+	createdAt?: Date;
 }

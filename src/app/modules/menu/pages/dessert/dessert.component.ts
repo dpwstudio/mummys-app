@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Product } from 'src/app/shared/models/product.model';
+import { ProductService } from 'src/app/shared/services/product/product.service';
 
 @Component({
   selector: 'app-dessert',
@@ -9,37 +12,22 @@ import { Product } from 'src/app/shared/models/product.model';
 export class DessertComponent implements OnInit {
   desserts: Product[];
 
-  constructor() { }
+  constructor(
+		private productService: ProductService
+	) { }
 
-  ngOnInit(): void {
-    this.getProducts();
-  }
+	ngOnInit(): void {
+		this.getProducts();
+	}
 
-  getProducts() {
-    return this.desserts = [
-      {
-        id: 1,
-        imageUri: 'desserts/img-1.jpg',
-        name: 'Tiramisu aux fruits rouges',
-        type: 'Plat chaud',
-        size: 'Medium',
-        price: 7.5
-      }, {
-        id: 2,
-        imageUri: 'desserts/img-2.jpeg',
-        name: 'Nougat chinois',
-        type: 'Plat chaud',
-        size: 'Medium',
-        price: 7.5
-      }, {
-        id: 3,
-        imageUri: 'desserts/img-3.jpg',
-        name: 'Mizu Shingen Mochi',
-        type: 'Plat froid',
-        size: 'Medium',
-        price: 7.5
-      }
-    ];
-  }
+	getProducts() {
+		this.productService.getProducts().pipe(
+			catchError(error => {
+				return throwError(error);
+			})
+		).subscribe(products => {
+			this.desserts = products.filter(product => product.category === 'dessert');
+		})
+	}
 
 }

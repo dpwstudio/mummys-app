@@ -1,9 +1,9 @@
-<div class="row">
+<div class="row" *ngIf="products?.length > 0">
   <div class="col-lg-4 animate__animated animate__bounceIn" *ngFor="let product of products">
     <div class="wrapper mb-2">
       <div class="container-product">
         <div class="top" (click)="goDetail(detailProduct, product)"
-          style="background: url(assets/images/{{product.imageUri}}) no-repeat center center; background-size: 100%;">
+          style="background: url(http://localhost:3000/images/products/{{product.image}}) no-repeat center center; background-size: 100%;">
         </div>
         <div class="bottom">
           <div class="left">
@@ -27,16 +27,21 @@
       </div>
       <div class="inside">
         <div class="icon"><i class="fas fa-info-circle"></i></div>
-        <div class="contents">
+        <div class="contents d-flex align-items-center justify-content-center">
           <div class="product-desc">
             <h5>Composition</h5>
-            <p>Salade, sel, poivre, coriandre, poulet halal</p>
-            <h5>Description</h5>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non.</p>
+            <p>{{product.ingredient}}</p>
           </div><!-- End .product-desc -->
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center" *ngIf="products?.length === 0">
+  <div class="card no-product">
+    <div class="card-body">
+      <h5 class="no-product-text">Aucun produit disponible.</h5>
     </div>
   </div>
 </div>
@@ -49,15 +54,14 @@
     <div class="row">
       <div class="col-md-6 product-single-gallery">
         <div class="container-image">
-          <img src="assets/images/{{product.imageUri}}" alt="">
+          <img src="http://localhost:3000/images/products/{{product.image}}" alt="">
         </div>
       </div>
       <div class="col-md-6 product-single-details d-flex align-items-center justify-content-center">
         <div class="content">
           <h1 class="product-title">{{product.name}}</h1>
           <div class="product-desc">
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non.</p>
+            <p>{{product.description}}</p>
           </div><!-- End .product-desc -->
 
           <div class="price-box">

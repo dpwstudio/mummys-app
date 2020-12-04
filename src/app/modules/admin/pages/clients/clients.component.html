@@ -1,0 +1,124 @@
+<div class="mummys-container">
+  <div class="mummys-narrow-content">
+    <div class="row mb-5">
+      <div class="col-md-12">
+        <span class="heading-meta">Clients</span>
+        <h2 class="mummys-heading">Gestion des clients.</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 offset-lg-2">
+        <div class="card card-user" style="border-left: 6px solid #4e73df">
+          <div class="card-body d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="card-title" style="color: #4e73df;">Clients</h5>
+              <h1>{{users.length}}</h1>
+            </div>
+            <i class="fas fa-users fa-2x"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card card-user" style="border-left: 6px solid #1cc88a">
+          <div class="card-body d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="card-title" style="color: #1cc88a;">Inscrits à la Newsletters</h5>
+              <h1>15</h1>
+            </div>
+            <i class="fas fa-check fa-2x"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card card-user">
+          <div class="card-body">
+            <h5 class="card-title">Liste des clients</h5>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Prénom</th>
+                  <th scope="col">Adresse</th>
+                  <th scope="col">Téléphone</th>
+                  <th class="text-center" scope="col">Newsletters</th>
+                  <th scope="col">Crée le</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="users?.length > 0">
+                <tr *ngFor="let user of users | paginate: { itemsPerPage: numberPerPage, currentPage: p }">
+                  <th scope="row">{{user.id}}</th>
+                  <td>{{user.lastname}}</td>
+                  <td>{{user.firstname}}</td>
+                  <td>{{user.address}} - {{user.zipcode}} {{user.city}}</td>
+                  <td>{{user.id}}</td>
+                  <td class="text-center"><i class="fas fa-check" style="color: #1cc88a"></i></td>
+                  <td>{{user.createdAt | date:'dd/MM/yyyy'}}</td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="users?.length === 0">
+                <tr>
+                  <td colspan="7"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer d-flex justify-content-center" *ngIf="users.length > numberPerPage">
+            <pagination-controls (pageChange)="p = $event" previousLabel="Préc" nextLabel="Suiv"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Détail de la commande</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table table-striped text-center">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Quantité</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Tomate Mozarella Di Bufala</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <th scope="row">1</th>
+          <td>Tomate Mozarella Di Bufala</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <th scope="row">1</th>
+          <td>Tomate Mozarella Di Bufala</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <th scope="row">1</th>
+          <td>Tomate Mozarella Di Bufala</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <th scope="row">1</th>
+          <td>Tomate Mozarella Di Bufala</td>
+          <td>2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Fermer</button>
+  </div>
+</ng-template>

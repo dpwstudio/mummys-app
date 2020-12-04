@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Product } from 'src/app/shared/models/product.model';
+import { ProductService } from 'src/app/shared/services/product/product.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,37 +12,22 @@ import { Product } from 'src/app/shared/models/product.model';
 export class MenuComponent implements OnInit {
   menus: Product[];
 
-  constructor() { }
+  constructor(
+    private productService: ProductService
+  ) { }
 
   ngOnInit(): void {
     this.getProducts();
   }
 
   getProducts() {
-    return this.menus = [
-      {
-        id: 1,
-        imageUri: 'desserts/img-1.jpg',
-        name: 'Mummy\'s discovery',
-        type: 'Formule',
-        size: 'Medium',
-        price: 12
-      }, {
-        id: 2,
-        imageUri: 'desserts/img-2.jpeg',
-        name: 'Mummy\'s food',
-        type: 'Formule',
-        size: 'Medium',
-        price: 15
-      }, {
-        id: 3,
-        imageUri: 'desserts/img-3.jpg',
-        name: 'Mummy\'s special',
-        type: 'Formule',
-        size: 'Medium',
-        price: 20
-      }
-    ];
+    this.productService.getProducts().pipe(
+      catchError(error => {
+        return throwError(error);
+      })
+    ).subscribe(products => {
+      this.menus = products.filter(product => product.category === 'menu');
+    })
   }
 
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { ProductService } from 'src/app/shared/services/product/product.service';
 import { Product } from '../../../../shared/models/product.model';
 
 @Component({
@@ -9,36 +12,21 @@ import { Product } from '../../../../shared/models/product.model';
 export class EntreeComponent implements OnInit {
   starters: Product[];
 
-  constructor() { }
+  constructor(
+		private productService: ProductService
+	) { }
 
-  ngOnInit(): void {
-    this.getProducts();
-  }
+	ngOnInit(): void {
+		this.getProducts();
+	}
 
-  getProducts() {
-    return this.starters = [
-      {
-        id: 1,
-        imageUri: 'entrees/img-3.jpg',
-        name: 'Salade César',
-        type: 'Entrée',
-        size: 'Small',
-        price: 6.5
-      }, {
-        id: 2,
-        imageUri: 'entrees/img-1.jpg',
-        name: 'Tomate Mozarella Di Bufala',
-        type: 'Entrée',
-        size: 'Small',
-        price: 6.5
-      }, {
-        id: 3,
-        imageUri: 'entrees/img-2.jpg',
-        name: 'Beignet de crevette',
-        type: 'Entrée',
-        size: 'Small',
-        price: 6.5
-      }
-    ];
-  }
+	getProducts() {
+		this.productService.getProducts().pipe(
+			catchError(error => {
+				return throwError(error);
+			})
+		).subscribe(products => {
+			this.starters = products.filter(product => product.category === 'entree');
+		})
+	}
 }

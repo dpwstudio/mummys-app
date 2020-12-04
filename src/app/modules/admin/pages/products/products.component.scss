@@ -1,0 +1,155 @@
+.mummys-container {
+  padding-top: 5em;
+  background: #f7f0e6;
+
+  .mummys-heading {
+    margin-bottom: 0;
+  }
+
+  .card {
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    margin-bottom: 50px;
+    border: none;
+    box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #ffdc8c;
+
+    .card-body {
+      padding: 1.5em 20px;
+
+      ul {
+        margin: 0 !important;
+        border: none;
+
+        .nav-link {
+          font-size: 10px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          border: none;
+          color: #ffdc8c;
+
+          &.active {
+            background-color: #ffdc8c;
+            border-radius: 30px;
+            color: white;
+          }
+        }
+
+      }
+
+      .card-title {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 10px;
+        margin: 0;
+        color: #ffcd6e;
+        font-weight: bold;
+      }
+
+      i {
+        color: #dddfeb;
+      }
+
+      h1 {
+        font-size: 25px;
+        font-weight: bold;
+        margin: 0;
+        color: #5a5c69;
+      }
+
+      .title {
+        margin: 0 0 10px;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .card-description {
+        margin: 0;
+      }
+
+    }
+
+    .card-footer {
+      padding: 15px 15px 10px 15px;
+      background-color: transparent;
+      line-height: 30px;
+      border-top: none !important;
+      font-size: 14px;
+
+      .card-description {
+        margin: 0;
+      }
+
+      .btn-link {
+        font-size: 25px;
+        color: #ffdc8c;
+      }
+    }
+  }
+
+  .header {
+    display: block;
+    font-size: 30px;
+    color: #000;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+}
+
+.close {
+  &:focus {
+    outline: none;
+  }
+}
+
+.content {
+  .custom-file {
+    border-radius: 7px;
+
+    .custom-file-label {
+      border: none;
+      background: #fafafa;
+    }
+  }
+
+  textarea {
+    padding: 15px;
+  }
+
+  select {
+    background: #ffe8b6;
+    color: white;
+  }
+
+  input,
+  textarea,
+  select {
+    border-radius: 10px;
+
+    &::placeholder {
+      color: #d1d1d1;
+      font-size: 13px;
+    }
+  }
+}
+
+.footer {
+  .btn {
+    margin-top: 20px;
+    width: 200px;
+  }
+
+  .btn-primary.disabled,
+  .btn-primary:disabled {
+    background-color: #ffdc8c;
+    border: 2px solid #ffdc8c;
+
+    &:hover {
+      background-color: #ffdc8c !important;
+      border: 2px solid #ffdc8c !important;
+    }
+  }
+}

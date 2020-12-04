@@ -1,0 +1,65 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Photo</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Catégorie</th>
+      <th scope="col">Ingrédients</th>
+      <th scope="col">Description</th>
+      <th scope="col">Prix</th>
+      <th scope="col">Ajouté le</th>
+      <th scope="col"><i class="fas fa-pencil-alt"></i></th>
+      <th scope="col"><i class="fas fa-trash"></i></th>
+    </tr>
+  </thead>
+  <tbody *ngIf="products?.length > 0">
+    <tr *ngFor="let product of products | paginate: { itemsPerPage: numberPerPage, currentPage: p }">
+      <th scope="row">{{product.id}}</th>
+      <td>
+        <div style="width: 80px; height: 100px; overflow: hidden; border-radius: 10px;">
+          <img src="http://localhost:3000/images/products/{{product.image}}" alt=""
+            style="height: 100%; object-fit: cover; width: 100%;">
+        </div>
+      </td>
+      <td>{{product.name}}</td>
+      <td>{{product.category | titlecase}}</td>
+      <td>{{product.ingredient}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.price | currency:'EUR':'symbol':'1.2-2':'fr' }}</td>
+      <td>{{product.createdAt  | date:'dd/MM/yyyy'}}</td>
+      <td>
+        <button class="btn btn-warning btn-round" (click)="editProduct(product.id)"><i
+            class="fas fa-pencil-alt text-white"></i></button>
+      </td>
+      <td>
+        <button class="btn btn-danger btn-round" (click)="deleteProductDialog(content, product)"><i
+            class="fas fa-trash text-white"></i></button>
+      </td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="products?.length === 0">
+    <tr>
+      <td class="text-center" colspan="10">Aucun produit disponible</td>
+    </tr>
+  </tbody>
+</table>
+<div class="d-flex justify-content-center" *ngIf="products.length > numberPerPage">
+  <pagination-controls (pageChange)="p = $event" previousLabel="Préc" nextLabel="Suiv"></pagination-controls>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Supprimer un produit</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Etes-vous sur de vouloir supprimer le produit ?
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Annuler</button>
+    <button type="button" class="btn btn-danger" (click)="deleteProduct(product.id)">Supprimer</button>
+  </div>
+</ng-template>

@@ -1,0 +1,24 @@
+.table {
+  th {
+    border: none;
+    color: #5a5c69;
+    vertical-align: middle;
+  }
+
+  td {
+    border: none;
+    color: #5a5c69;
+    vertical-align: middle;
+
+    .btn-round {
+      border-radius: 30px;
+      margin: 0;
+    }
+  }
+}
+
+.close {
+  &:focus {
+    outline: none;
+  }
+}

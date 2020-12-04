@@ -1,0 +1,170 @@
+<div class="loading d-flex flex-column align-items-center justify-content-center" *ngIf="loading">
+  <div class="animate__animated animate__pulse animate__infinite text-center">
+    <img src="assets/images/logo.png" alt="" width="100">
+    <p class="text-white mt-2">Veuillez patienter...</p>
+  </div>
+</div>
+<div class="mummys-container">
+  <div class="mummys-narrow-content">
+    <div class="row mb-5">
+      <div class="col-md-12">
+        <span class="heading-meta">Produits</span>
+        <h2 class="mummys-heading">Gestion des produits.</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 offset-lg-1">
+        <div class="card card-user" style="border-left: 6px solid #4e73df">
+          <div class="card-body d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="card-title" style="color: #4e73df;">Entrées</h5>
+              <h1>{{starters?.length}}</h1>
+            </div>
+            <i class="fas fa-carrot fa-2x"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card card-user" style="border-left: 6px solid #1cc88a">
+          <div class="card-body d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="card-title" style="color: #1cc88a;">Plats</h5>
+              <h1>{{dishes?.length}}</h1>
+            </div>
+            <i class="fas fa-utensils fa-2x"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card card-user" style="border-left: 6px solid #e74a3b">
+          <div class="card-body d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="card-title" style="color: #e74a3b;">Desserts</h5>
+              <h1>{{desserts?.length}}</h1>
+            </div>
+            <i class="fas fa-ice-cream fa-2x"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card card-user">
+          <div class="card-body d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="card-title">Boissons</h5>
+              <h1>{{drinks?.length}}</h1>
+            </div>
+            <i class="fas fa-wine-glass-alt fa-2x"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <div class="card card-user" style="border-left: 6px solid #36b9cc	">
+          <div class="card-body d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="card-title" style="color: #36b9cc;">Menus</h5>
+              <h1>{{menus?.length}}</h1>
+            </div>
+            <i class="fas fa-file-alt fa-2x"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card card-user">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+              <h5 class="card-title">Liste des produits</h5>
+              <ul ngbNav #nav="ngbNav" class="nav-tabs">
+                <li ngbNavItem>
+                  <a ngbNavLink>Entrée</a>
+                  <ng-template ngbNavContent>
+                    <app-table [products]="starters"></app-table>
+                  </ng-template>
+                </li>
+                <li ngbNavItem>
+                  <a ngbNavLink>Plats</a>
+                  <ng-template ngbNavContent>
+                    <app-table [products]="dishes"></app-table>
+                  </ng-template>
+                </li>
+                <li ngbNavItem>
+                  <a ngbNavLink>Desserts</a>
+                  <ng-template ngbNavContent>
+                    <app-table [products]="desserts"></app-table>
+                  </ng-template>
+                </li>
+                <li ngbNavItem>
+                  <a ngbNavLink>Boissons</a>
+                  <ng-template ngbNavContent>
+                    <app-table [products]="drinks"></app-table>
+                  </ng-template>
+                </li>
+                <li ngbNavItem>
+                  <a ngbNavLink>Menus</a>
+                  <ng-template ngbNavContent>
+                    <app-table [products]="menus"></app-table>
+                  </ng-template>
+                </li>
+              </ul>
+              <button class="btn btn-info" style="font-size: 10px; margin: 0; border-radius: 30px;"
+                (click)="addProductDialog(content)">
+                <i class="fas fa-plus text-white"></i>
+                Ajouter
+              </button>
+            </div>
+            <div [ngbNavOutlet]="nav"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Ajouter un produit</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="addProductForm">
+      <div class="content">
+        <div class=" form-group">
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile" name="photo1" (change)="onPhotoSelect($event)"
+              #UploadFileInput>
+            <label class="custom-file-label" for="customFile">{{fileInputLabel || 'Photo'}}</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" class="form-control"
+            formControlName="category">
+            <option value="" disabled selected>Catégorie</option>
+            <option value="entree">Entrée</option>
+            <option value="plat">Plat</option>
+            <option value="dessert">Dessert</option>
+            <option value="boisson">Boisson</option>
+            <option value="menu">Menu</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="name" placeholder="Nom" type="text">
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="ingredient" placeholder="Ingrédients" type="text">
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" formControlName="description" placeholder="Description" type="text"></textarea>
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="price" placeholder="Prix" type="text">
+        </div>
+      </div>
+      <div class="footer text-center mt-4">
+        <button class="btn btn-fill btn-round btn-primary btn-wd" [disabled]="!addProductForm.valid"
+          (click)="addProduct()">Ajouter</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

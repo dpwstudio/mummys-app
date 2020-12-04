@@ -180,15 +180,22 @@
         transform: scale(1);
         transform: translateY(0);
         padding: 15px 25px;
+        width: 100%;
+        height: 100%;
 
         .product-desc {
           h5 {
-            margin: 0;
+            margin: 0 0 10px;
             color: white;
             font-size: 13px;
             letter-spacing: 1px;
             font-weight: bold;
             text-transform: uppercase;
+          }
+
+          p {
+            font-size: 15px;
+            margin: 0;
           }
         }
       }
@@ -220,6 +227,17 @@
   }
 }
 
+.no-product {
+  border: none;
+
+  .no-product-text {
+    margin: 4em 0 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 18px;
+  }
+}
+
 
 
 .modal-body {
@@ -237,6 +255,14 @@
 
     .content {
       padding: 0 45px 0 30px;
+
+      h1 {
+        font-size: 25px;
+      }
+
+      p {
+        font-size: 14px;
+      }
     }
 
     .container-image {

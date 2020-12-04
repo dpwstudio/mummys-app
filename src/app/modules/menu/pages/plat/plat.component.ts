@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Product } from 'src/app/shared/models/product.model';
+import { ProductService } from 'src/app/shared/services/product/product.service';
 
 @Component({
   selector: 'app-plat',
@@ -9,37 +12,22 @@ import { Product } from 'src/app/shared/models/product.model';
 export class PlatComponent implements OnInit {
   dishes: Product[];
 
-  constructor() { }
+  constructor(
+    private productService: ProductService
+  ) { }
 
   ngOnInit(): void {
     this.getProducts();
   }
 
   getProducts() {
-    return this.dishes = [
-      {
-        id: 1,
-        imageUri: 'carousel/img-5.jpg',
-        name: 'Soupe Pho',
-        type: 'Plat chaud',
-        size: 'Medium',
-        price: 13
-      }, {
-        id: 2,
-        imageUri: 'carousel/img-2.jpg',
-        name: 'Nouilles sautés',
-        type: 'Plat chaud',
-        size: 'Medium',
-        price: 13
-      }, {
-        id: 3,
-        imageUri: 'carousel/img-6.jpg',
-        name: 'Riz Loc Lac',
-        type: 'Plat chaud',
-        size: 'Medium',
-        price: 13
-      }
-    ];
+    this.productService.getProducts().pipe(
+      catchError(error => {
+        return throwError(error);
+      })
+    ).subscribe(products => {
+      this.dishes = products.filter(product => product.category === 'plat');
+    })
   }
 
 }

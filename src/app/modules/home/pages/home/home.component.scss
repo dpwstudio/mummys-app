@@ -6,12 +6,12 @@
     padding: 0 20px;
 
     .card {
-      background: #f7f0e6;
+      background: #fbf7f1;
       margin: 40px 0 0;
       border: none;
       border-radius: 25px;
       padding: 30px;
-      border-bottom: 5px solid #e0d0bb;
+      border-bottom: 5px solid #f7f0e6;
 
       .card-img-top {
         width: 23%;
@@ -54,8 +54,10 @@
 
   .services-wrap {
     .services-img {
-      border-radius: 15px;
+      border-radius: 100px 5px;
       box-shadow: 0 1px 8px 1px #2727273b;
+      border-bottom: 7px solid #eee2d4;
+      border-left: 7px solid #eee2d4;
     }
 
     &:hover {
