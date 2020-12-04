@@ -15,7 +15,7 @@ export class UserService {
     private http: HttpClient,
     private authService: AuthService
   ) {
-    this.currentUser = this.authService.currentUserValue;
+    this.authService.currentUser.subscribe(x => this.currentUser = x[0]);
   }
 
   createUser(user: User) {
@@ -26,9 +26,17 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.http.get(`${apiUrl}/users`) as Observable<User[]>;
   }
+  
+  getUser(id): Observable<User[]> {
+    return this.http.get(`${apiUrl}/users/${id}`) as Observable<User[]>;
+  }
 
   editUser(user) {
     return this.http.put(`${apiUrl}/users/${user.id}`, user);
+  }
+
+  editAddress(address) {
+    return this.http.put(`${apiUrl}/users/${this.currentUser.id}`, address);
   }
 
   deleteUser(id) {

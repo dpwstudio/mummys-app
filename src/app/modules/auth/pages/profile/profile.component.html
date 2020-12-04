@@ -1,3 +1,9 @@
+<div class="loading d-flex flex-column align-items-center justify-content-center" *ngIf="loading">
+  <div class="animate__animated animate__pulse animate__infinite text-center">
+    <img src="assets/images/logo.png" alt="" width="100">
+    <p class="text-white mt-2">Veuillez patienter...</p>
+  </div>
+</div>
 <div class="mummys-container">
   <div class="mummys-narrow-content">
     <div class="row mb-5">
@@ -12,21 +18,20 @@
           <div class="card-body">
             <img class="avatar border-gray" src="assets/images/user.png" alt="...">
             <div class="author">
-              <h5 class="card-title" style="margin-bottom: 15px;">{{currentUser[0].firstname}}
-                {{currentUser[0].lastname}}</h5>
-              <h2 class="title">Identifiant</h2>
+              <h5 class="card-title" style="margin-bottom: 15px;">{{currentUser.firstname}}
+                {{currentUser.lastname}}</h5>
               <p class="card-description">
-                {{currentUser[0].email}}
+                {{currentUser.email}}
               </p>
               <p class="card-description text-center">
                 <i class="fas fa-mobile-alt mr-2"></i>
-                {{currentUser[0].phone}}
+                {{currentUser.phone}}
               </p>
             </div>
           </div>
           <div class="card-footer">
             <p class="card-description text-center" style="font-style: italic; font-size: 12px; color: #dfd1ba;">
-              Client depuis le {{currentUser[0].createdAt | date:'dd/MM/yyyy'}}
+              Client depuis le {{currentUser.createdAt | date:'dd/MM/yyyy'}}
             </p>
           </div>
         </div>
@@ -38,15 +43,16 @@
             <div class="author">
               <h5 class="card-title">Adresse de livraison</h5>
               <p class="card-description text-center">
-                {{currentUser[0].address}} <br>
-                {{currentUser[0].zipcode}}
-                {{currentUser[0].city}} <br>
+                {{currentUser.address}} <br>
+                {{currentUser.zipcode}}
+                {{currentUser.city}} <br>
               </p>
 
             </div>
           </div>
           <div class="card-footer text-center">
-            <button class="btn btn-primary">Modifier</button>
+            <button class="btn btn-primary"
+              (click)="editDeliveryAddressDialog(content)">Modifier</button>
           </div>
         </div>
       </div>
@@ -119,3 +125,31 @@
     </div>
   </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modifier mon adresse</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editDeliveryAddressForm">
+      <div class="content">
+        <div class="form-group">
+          <input class="form-control" formControlName="address" placeholder="Adresse" type="text">
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="zipcode" placeholder="Code postal" type="text">
+        </div>
+        <div class="form-group">
+          <input class="form-control" formControlName="city" placeholder="Ville" type="text">
+        </div>
+      </div>
+      <div class="footer text-center mt-4">
+        <button class="btn btn-fill btn-round btn-primary btn-wd" [disabled]="!editDeliveryAddressForm.valid"
+          (click)="editDeliveryAddress()">Modifier</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

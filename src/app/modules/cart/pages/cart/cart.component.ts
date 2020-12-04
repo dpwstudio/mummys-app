@@ -14,7 +14,6 @@ export class CartComponent implements OnInit {
   carts: Cart[];
   p: number = 1;
   numberPerPage = 6;
-  currentCart: Cart[];
   quantity: number;
   currentUser: User;
 
@@ -23,7 +22,7 @@ export class CartComponent implements OnInit {
     public authService: AuthService,
     private cartService: CartService
   ) {
-    this.currentUser = this.authService.currentUserValue;
+    this.authService.currentUser.subscribe(x => this.currentUser = x[0]);
   }
 
   isLoggedIn() {

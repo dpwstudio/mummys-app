@@ -17,7 +17,7 @@ export class DeliveryComponent implements OnInit {
     private authService: AuthService,
     private cartService: CartService
   ) {
-    this.currentUser = this.authService.currentUserValue;
+    this.authService.currentUser.subscribe(x => this.currentUser = x[0]);
   }
 
   ngOnInit(): void {

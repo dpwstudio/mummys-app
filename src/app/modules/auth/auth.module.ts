@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { customNotifierOptions } from 'src/app/config/config';
 import { NotifierModule } from 'angular-notifier';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     ReactiveFormsModule,
     NotifierModule.withConfig(customNotifierOptions),
     LayoutModule,
+    NgbModule
   ]
 })
 export class AuthModule { }
