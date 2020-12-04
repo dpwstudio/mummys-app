@@ -23,7 +23,7 @@ export class SidebarComponent implements OnInit {
     notifierService: NotifierService
   ) {
     this.notifier = notifierService;
-    this.authService.currentUser.subscribe(x => this.currentUser = x[0]);
+    this.authService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   ngOnInit(): void {
@@ -35,7 +35,7 @@ export class SidebarComponent implements OnInit {
   
   isAdmin() {
     if (this.isLoggedIn()) {
-      return this.currentUser.role === 'admin';
+      return this.currentUser[0].role === 'admin';
     }
   }
 
