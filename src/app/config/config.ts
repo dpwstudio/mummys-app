@@ -1,7 +1,5 @@
 import { NotifierOptions } from 'angular-notifier';
 
-const apiUrl = 'http://localhost:3000';
-
 const customNotifierOptions: NotifierOptions = {
     position: {
           horizontal: {
@@ -44,6 +42,5 @@ const customNotifierOptions: NotifierOptions = {
   };
 
 export {
-	apiUrl,
 	customNotifierOptions
 };

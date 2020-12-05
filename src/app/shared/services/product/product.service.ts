@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { apiUrl } from 'src/app/config/config';
+import { environment } from 'src/environments/environment';
 import { Product } from '../../models/product.model';
 import { User } from '../../models/user.model';
 import { AuthService } from '../auth/auth.service';
@@ -21,19 +21,19 @@ export class ProductService {
 
   createProduct(product: Product) {
     console.log('product', product);
-    return this.http.post(`${apiUrl}/products`, product);
+    return this.http.post(`${environment.mummysApi}/products`, product);
   }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get(`${apiUrl}/products`) as Observable<Product[]>;
+    return this.http.get(`${environment.mummysApi}/products`) as Observable<Product[]>;
   }
 
   editProduct(product) {
-    return this.http.put(`${apiUrl}/products/${product.id}`, product);
+    return this.http.put(`${environment.mummysApi}/products/${product.id}`, product);
   }
 
   deleteProduct(id) {
-    return this.http.delete(`${apiUrl}/products/${id}`);
+    return this.http.delete(`${environment.mummysApi}/products/${id}`);
   }
 
 }

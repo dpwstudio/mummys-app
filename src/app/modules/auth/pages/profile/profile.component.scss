@@ -89,27 +89,7 @@
 }
 
 .content {
-  .custom-file {
-    border-radius: 7px;
-
-    .custom-file-label {
-      border: none;
-      background: #fafafa;
-    }
-  }
-
-  textarea {
-    padding: 15px;
-  }
-
-  select {
-    background: #ffe8b6;
-    color: white;
-  }
-
-  input,
-  textarea,
-  select {
+  input {
     border-radius: 10px;
 
     &::placeholder {

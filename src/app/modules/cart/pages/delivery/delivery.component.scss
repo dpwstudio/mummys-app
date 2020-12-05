@@ -158,5 +158,33 @@
     text-align: center;
     margin-bottom: 50px;
   }
+}
 
+.content {
+  input {
+    border-radius: 10px;
+
+    &::placeholder {
+      color: #d1d1d1;
+      font-size: 13px;
+    }
+  }
+}
+
+.footer {
+  .btn {
+    margin-top: 20px;
+    width: 200px;
+  }
+
+  .btn-primary.disabled,
+  .btn-primary:disabled {
+    background-color: #ffdc8c;
+    border: 2px solid #ffdc8c;
+
+    &:hover {
+      background-color: #ffdc8c !important;
+      border: 2px solid #ffdc8c !important;
+    }
+  }
 }

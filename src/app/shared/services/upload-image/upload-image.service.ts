@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NotifierService } from 'angular-notifier';
-import { apiUrl } from 'src/app/config/config';
+import { environment } from 'src/environments/environment';
 import { User } from '../../models/user.model';
 import { AuthService } from '../auth/auth.service';
 
@@ -23,7 +23,7 @@ export class UploadImageService {
 
   sendPhotoToServer(image) {
     console.log('image', image);
-    return this.http.post(`${apiUrl}/images`, image).subscribe(
+    return this.http.post(`${environment.mummysApi}/images`, image).subscribe(
       res => {
         console.log('Image uploaded with success.');
       },

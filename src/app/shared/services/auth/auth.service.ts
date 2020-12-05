@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../../models/user.model';
 import { map } from 'rxjs/operators';
-import { apiUrl } from 'src/app/config/config';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   login(email, password) {
-    return this.http.post<any>(`${apiUrl}/auth/login`, { email, password })
+    return this.http.post<any>(`${environment.mummysApi}/auth/login`, { email, password })
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', JSON.stringify(user));
@@ -33,7 +33,7 @@ export class AuthService {
 
   register(user: User) {
     console.log('user', user);
-    return this.http.post(`${apiUrl}/auth/register`, user);
+    return this.http.post(`${environment.mummysApi}/auth/register`, user);
   }
 
   logout() {

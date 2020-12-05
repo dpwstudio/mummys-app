@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { apiUrl } from 'src/app/config/config';
+import { environment } from 'src/environments/environment';
 import { User } from '../../models/user.model';
 import { AuthService } from '../auth/auth.service';
 
@@ -20,27 +20,27 @@ export class UserService {
 
   createUser(user: User) {
     console.log('user', user);
-    return this.http.post(`${apiUrl}/users`, user);
+    return this.http.post(`${environment.mummysApi}/users`, user);
   }
 
   getUsers(): Observable<User[]> {
-    return this.http.get(`${apiUrl}/users`) as Observable<User[]>;
+    return this.http.get(`${environment.mummysApi}/users`) as Observable<User[]>;
   }
   
   getUser(id): Observable<User[]> {
-    return this.http.get(`${apiUrl}/users/${id}`) as Observable<User[]>;
+    return this.http.get(`${environment.mummysApi}/users/${id}`) as Observable<User[]>;
   }
 
   editUser(user) {
-    return this.http.put(`${apiUrl}/users/${user.id}`, user);
+    return this.http.put(`${environment.mummysApi}/users/${user.id}`, user);
   }
 
   editAddress(address) {
-    return this.http.put(`${apiUrl}/users/${this.currentUser.id}`, address);
+    return this.http.put(`${environment.mummysApi}/users/${this.currentUser.id}`, address);
   }
 
   deleteUser(id) {
-    return this.http.delete(`${apiUrl}/users/${id}`);
+    return this.http.delete(`${environment.mummysApi}/users/${id}`);
   }
 
 }
