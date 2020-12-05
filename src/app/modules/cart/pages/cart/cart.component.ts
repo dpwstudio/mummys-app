@@ -55,7 +55,7 @@ export class CartComponent implements OnInit {
       return;
     }
     this.carts = this.cartService.cartProductList;
-    console.log('this.carts', this.carts);
+    localStorage.setItem('tmpCart', JSON.stringify(this.carts))
   }
 
   decrement(cart) {
@@ -63,9 +63,8 @@ export class CartComponent implements OnInit {
     if (cart.quantity === 0) {
       this.cartService.removeProduct(cart);
     }
-    console.log('decrement2', cart.quantity);
     this.carts = this.cartService.cartProductList;
-    console.log('this.carts', this.carts);
+    localStorage.setItem('tmpCart', JSON.stringify(this.carts))
   }
 
 }
