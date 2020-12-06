@@ -59,23 +59,39 @@
               <thead>
                 <tr>
                   <th scope="col">#</th>
+                  <th scope="col">Statut</th>
+                  <th scope="col">Date</th>
                   <th scope="col">Nom du client</th>
                   <th scope="col">Adresse de livraison</th>
                   <th scope="col">Montant</th>
-                  <th scope="col">
-                    Détail
-                  </th>
+                  <th scope="col">Détail</th>
+                  <th scope="col">Livrée</th>
+                  <th scope="col">Annulée</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>John Doe</td>
-                  <td>19 rue léonard de vinci - 77420 CHAMPS SUR MARNE</td>
-                  <td>26,50€</td>
+                <tr *ngFor="let order of orders">
+                  <th scope="row">{{order.id}}</th>
+                  <td class="text-center">
+                    <i class="fas fa-hourglass-start text-primary fa-2x"></i>
+                  </td>
+                  <td>{{order.createdAt   | date:'dd/MM/yyyy hh:mm'}}</td>
+                  <td>{{order.clientName}}</td>
+                  <td>{{order.localization}}</td>
+                  <td>{{order.total | currency:'EUR':'symbol':'1.2-2':'fr' }}</td>
                   <td>
                     <button class="btn btn-primary btn-round" (click)="showDetail(content)">
                       <i class="far fa-eye text-white fa-lg"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-success btn-round" (click)="orderDelivered(content)">
+                      <i class="fas fa-check text-white fa-lg"></i>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="btn btn-danger btn-round" (click)="orderCancelled(content)">
+                      <i class="fas fa-times text-white fa-lg"></i>
                     </button>
                   </td>
                 </tr>

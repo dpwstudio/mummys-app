@@ -79,6 +79,7 @@ export class CheckoutComponent implements OnInit {
         res => {
           this.router.navigate(['/confirm-payment']);
           this.notifier.notify('success', 'La commande a bien été prise en compte.');
+          this.cartService.removeCart();
           this.loading = false;
         },
         error => {

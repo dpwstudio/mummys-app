@@ -34,4 +34,9 @@ export class CartService {
     this.cartProductList = this.cartProductList.filter(({ name }) => name !== product.name);
   }
 
+  removeCart() {
+    localStorage.setItem('tmpCart', JSON.stringify([]));
+    this.cartProductList = JSON.parse(localStorage.getItem('tmpCart'));
+  }
+
 }
