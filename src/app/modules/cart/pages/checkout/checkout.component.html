@@ -47,7 +47,7 @@
         <div class="row">
 
           <!--Grid column-->
-          <div class="col-md-8 mb-4 mx-auto">
+          <div class="col-md-8 col-md-6 mb-4 mx-auto">
             <div class="container-checkout bg-white rounded-lg p-5">
               <!-- Credit card form tabs -->
               <ul role="tablist" class="nav bg-light nav-pills rounded-pill nav-fill mb-3">
@@ -126,7 +126,7 @@
 
                     </div>
                     <div class="text-center">
-                      <button type="button" class="subscribe btn btn-primary shadow-sm" (click)="paidWithCreditCard()">
+                      <button type="button" class="subscribe btn btn-primary shadow-sm" (click)="createOrders(carts)">
                         Payer la commande</button>
                     </div>
                   </form>
@@ -154,7 +154,7 @@
                     peut se faire en espèce, Ticket restaurant ou carte bancaire. Pour le paiement en espèce, nous vous recommandons de faire l'appoint.
                   </p>
                   <p>
-                    <button type="button" class="btn btn-primary" (click)="paidWithCreditCard()"><i
+                    <button type="button" class="btn btn-primary"><i
                         class="fas fa-truck mr-2"></i> Payer à la livraison</button>
                   </p>
                 </div>
@@ -169,7 +169,7 @@
           <!--Grid column-->
 
           <!--Grid column-->
-          <div class="container-cart col-md-4 mb-4">
+          <div class="container-cart col-lg-4 col-md-6 mb-4">
 
             <!-- Heading -->
             <h4 class="d-flex justify-content-between align-items-center mb-3">

@@ -1,20 +1,13 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NotifierService } from 'angular-notifier';
 import { Cart } from '../../models/cart.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private readonly notifier: NotifierService;
   cartProductList: Cart[] = [];
 
-  constructor(
-    private http: HttpClient,
-    notifierService: NotifierService
-  ) {
-    this.notifier = notifierService;
+  constructor() {
     const tmpCart = JSON.parse(localStorage.getItem('tmpCart'));
     if (!tmpCart) {
       localStorage.setItem('tmpCart', JSON.stringify([]));
@@ -40,6 +33,5 @@ export class CartService {
   removeProduct(product) {
     this.cartProductList = this.cartProductList.filter(({ name }) => name !== product.name);
   }
-
 
 }
