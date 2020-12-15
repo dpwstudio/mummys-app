@@ -3,8 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { DeliveryComponent } from './pages/delivery/delivery.component';
-import { ConfirmPaymentComponent } from './pages/confirm-payment/confirm-payment.component';
+import { PaymentSuccessComponent } from './pages/payment-success/payment-success.component';
 import { AuthGuard } from 'src/app/shared/guard/auth/auth.guard';
+import { OrderCancelledComponent } from './pages/order-cancelled/order-cancelled.component';
 
 const routes: Routes = [
   {
@@ -28,11 +29,18 @@ const routes: Routes = [
       title: 'Paiement'
     }
   }, {
-    path: 'confirm-payment',
-    component: ConfirmPaymentComponent,
+    path: 'payment-success',
+    component: PaymentSuccessComponent,
     canActivate: [AuthGuard],
     data: {
       title: 'Confirmation du paiement'
+    }
+  }, {
+    path: 'order-cancelled',
+    component: OrderCancelledComponent,
+    canActivate: [AuthGuard],
+    data: {
+      title: 'Commande annulé'
     }
   }
 ];

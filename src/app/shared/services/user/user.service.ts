@@ -32,7 +32,7 @@ export class UserService {
   }
 
   editUser(user) {
-    return this.http.put(`${environment.mummysApi}/users/${user.id}`, user);
+    return this.http.put(`${environment.mummysApi}/users/${this.currentUser.id}`, user);
   }
 
   editAddress(address) {

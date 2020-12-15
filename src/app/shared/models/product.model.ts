@@ -1,5 +1,6 @@
 export interface Product {
 	id: number;
+	stripeId?: string;
 	image?: string;
 	imageUri?: string;
 	type?: string;

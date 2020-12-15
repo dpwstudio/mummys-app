@@ -3,11 +3,11 @@ import { User } from 'src/app/shared/models/user.model';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 
 @Component({
-  selector: 'app-confirm-payment',
-  templateUrl: './confirm-payment.component.html',
-  styleUrls: ['./confirm-payment.component.scss']
+  selector: 'app-order-cancelled',
+  templateUrl: './order-cancelled.component.html',
+  styleUrls: ['./order-cancelled.component.scss']
 })
-export class ConfirmPaymentComponent implements OnInit {
+export class OrderCancelledComponent implements OnInit {
   currentUser: User;
 
   constructor(
@@ -16,7 +16,8 @@ export class ConfirmPaymentComponent implements OnInit {
     this.currentUser = this.authService.currentUserValue;
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
   }
 
 }

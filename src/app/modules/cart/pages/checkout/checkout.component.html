@@ -58,12 +58,6 @@
                   </a>
                 </li>
                 <li class="nav-item" style="width: 175px">
-                  <a data-toggle="pill" href="#nav-tab-paypal" class="nav-link rounded-pill">
-                    <i class="fab fa-paypal mr-2"></i>
-                    Paypal
-                  </a>
-                </li>
-                <li class="nav-item" style="width: 175px">
                   <a data-toggle="pill" href="#nav-tab-bank" class="nav-link rounded-pill">
                     <i class="fas fa-truck mr-2"></i>
                     A la livraison
@@ -78,72 +72,12 @@
 
                 <!-- credit card info-->
                 <div id="nav-tab-card" class="tab-pane fade active show">
-                  <!-- <p class="alert alert-success">Some text success or error</p> -->
-                  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-                    <div class="form-group">
-                      <label for="username">Nom <span style="font-style: italic; font-size: 10px;">(sur la
-                          carte)</span></label>
-                      <input type="text" name="fullName" formControlName="fullName" placeholder="Nom" required=""
-                        class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label for="cardNumber">Numéro de carte</label>
-                      <div class="input-group">
-                        <input type="text" name="cardNumber" formControlName="cardNumber"
-                          placeholder="xxxx xxxx xxxx xxxx" class="form-control card-number" required="">
-                        <div class="input-group-append">
-                          <span class="input-group-text text-muted">
-                            <i class="fab fa-cc-visa mx-1"></i>
-                            <i class="fab fa-cc-amex mx-1"></i>
-                            <i class="fab fa-cc-mastercard mx-1"></i>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-8">
-                        <div class="form-group">
-                          <label><span class="hidden-xs">Date d'expiration</span></label>
-                          <div class="input-group">
-                            <input type="number" formControlName="cardNumberExp" placeholder="Mois" name=""
-                              class="form-control mr-3" required="">
-                            <input type="number" formControlName="cardNumberExp" placeholder="Année" name=""
-                              class="form-control" required="">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <div class="form-group mb-4">
-                          <label data-toggle="tooltip" title=""
-                            data-original-title="Three-digits code on the back of your card">CVV
-                            <span style="font-style: italic; font-size: 10px;">(au dos)</span>
-                          </label>
-                          <input type="text" required="" formControlName="cardNumberCVV" class="form-control">
-                        </div>
-                      </div>
-
-
-
-                    </div>
-                    <div class="text-center">
-                      <button type="button" class="subscribe btn btn-primary shadow-sm" (click)="createOrders(carts)">
-                        Payer la commande</button>
-                    </div>
-                  </form>
-                </div>
-                <!-- End -->
-
-                <!-- Paypal info -->
-                <div id="nav-tab-paypal" class="tab-pane fade">
-                  <p>Paypal est le moyen le plus simple de payer en ligne.</p>
+                  <p>Pour plus de sécurité, optez pour un paiement par carte bancaire.</p>
                   <p>
-                    <button type="button" class="btn btn-info rounded-pill"><i class="fab fa-paypal mr-2"></i> Se
-                      connecter à
-                      Paypal</button>
-                  </p>
-                  <p class="text-muted">
-                    Vous pouvez depuis Paypal régler la commande avec votre compte ou si vous n'en avez pas le faire
-                    directement par carte bancaire.
+                    <button type="button" class="btn btn-info rounded-pill" (click)="paidWithCreditCard(carts)"><i
+                        class="fas fa-credit-card mr-2"></i>
+                      Payer par Carte bancaire
+                    </button>
                   </p>
                 </div>
                 <!-- End -->
@@ -151,11 +85,12 @@
                 <!-- bank transfer info -->
                 <div id="nav-tab-bank" class="tab-pane fade">
                   <p>Si vous le souhaitez, vous avez la possibilité de payer votre commande à la livraison. Le paiement
-                    peut se faire en espèce, Ticket restaurant ou carte bancaire. Pour le paiement en espèce, nous vous recommandons de faire l'appoint.
+                    peut se faire en espèce, Ticket restaurant ou carte bancaire. Pour le paiement en espèce, nous vous
+                    recommandons de faire l'appoint.
                   </p>
                   <p>
-                    <button type="button" class="btn btn-primary"><i
-                        class="fas fa-truck mr-2"></i> Payer à la livraison</button>
+                    <button type="button" class="btn btn-primary"><i class="fas fa-truck mr-2"></i> Payer à la
+                      livraison</button>
                   </p>
                 </div>
                 <!-- End -->
@@ -186,9 +121,10 @@
                 </div>
                 <span class="text-muted">{{cart.price | currency:'EUR':'symbol':'1.2-2':'fr'}}</span>
               </li>
-              <li class="list-group-item d-flex justify-content-center align-items-center lh-condensed" *ngIf="carts.length > 1">
+              <li class="list-group-item d-flex justify-content-center align-items-center lh-condensed"
+                *ngIf="carts.length > 1">
                 <pagination-controls (pageChange)="p = $event" previousLabel="Préc" nextLabel="Suiv">
-                </pagination-controls>  
+                </pagination-controls>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center"
                 style="background-color: #ffcd6d;">

@@ -38,7 +38,7 @@ registerLocaleData(localeFr, 'fr');
     AdminModule,
     AppRoutingModule,
     NgbModule,
-    NotifierModule.withConfig(customNotifierOptions)
+    NotifierModule.withConfig(customNotifierOptions),
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' }
