@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../../../shared/services/auth/auth.service';
+import { EmailService } from '../../../../shared/services/email/email.service';
 import { first } from 'rxjs/operators';
 import { NotifierService } from 'angular-notifier';
 import { User } from 'src/app/shared/models/user.model';
@@ -20,6 +21,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthService,
+    private emailService: EmailService,
     notifierService: NotifierService
   ) {
     this.notifier = notifierService;
@@ -49,11 +51,16 @@ export class RegisterComponent implements OnInit {
 
     console.log('this.registerForm', this.registerForm.value);
 
+    let email = {
+      email: this.registerForm.value.email
+    }
+
     this.authService.register(this.registerForm.value).pipe(first())
       .subscribe(
         data => {
           console.log('data', data);
-          this.notifier.notify("success", 'Votre inscription a bien été prise en compte.');
+          this.notifier.notify("success", 'Votre inscription a bien été prise en compte.');``
+          this.emailService.sendEmail(email).subscribe(data => console.log('send email', data));
           this.router.navigate(['/login']);
         },
         error => {

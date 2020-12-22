@@ -1,0 +1,30 @@
+.bloc-category {
+  cursor: pointer;
+  .icone-step {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    border-radius: 35px;
+    border-bottom: 5px solid #f7f0e6;
+
+    img {
+      margin-top: 20px;
+    }
+
+    .title-box {
+      color: #dfd1ba;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+@media screen and (max-width: 400px) {
+  .icone-step {
+    margin: 20px auto;
+  }
+}

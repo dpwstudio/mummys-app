@@ -1,25 +1,81 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
+import { first } from 'rxjs/operators';
+import { Cart } from 'src/app/shared/models/cart.model';
+import { Order } from 'src/app/shared/models/order.model';
 import { User } from 'src/app/shared/models/user.model';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { CartService } from 'src/app/shared/services/cart/cart.service';
+import { OrderService } from 'src/app/shared/services/order/order.service';
 
 @Component({
   selector: 'app-payment-success',
   templateUrl: './payment-success.component.html',
   styleUrls: ['./payment-success.component.scss']
 })
-export class PaymentSuccessComponent implements OnInit {
+export class PaymentSuccessComponent implements OnInit, AfterViewInit {
+  private readonly notifier: NotifierService;
   currentUser: User;
+  carts: Cart[];
+  order: Order;
+
 
   constructor(
     private authService: AuthService,
-    private cartService: CartService
+    private router: Router,
+    private cartService: CartService,
+    private orderService: OrderService,
+    private cdRef: ChangeDetectorRef,
+    notifierService: NotifierService
   ) {
-    this.currentUser = this.authService.currentUserValue;
+    this.notifier = notifierService;
+    this.authService.currentUser.subscribe(x => this.currentUser = x[0]);
   }
 
   ngOnInit(): void {
-    this.cartService.removeCart();
+    this.getCarts();
+    this.createOrders(this.carts);
+  }
+
+  getCarts() {
+    this.carts = this.cartService.cartProductList;
+    console.log('this.carts', this.carts);
+  }
+
+  getTotalTTC() {
+    return this.carts.reduce((acc, product) => acc = acc + (product.price * product.quantity), 0)
+  }
+
+  createOrders(carts) {
+    const { id, firstname, lastname, address, zipcode, city } = this.currentUser;
+    if (carts.length > 0) {
+      this.order = {
+        clientName: firstname + ' ' + lastname,
+        localization: address + ' ' + zipcode + ' ' + city,
+        total: this.getTotalTTC(),
+        carts: JSON.stringify(carts),
+        status: 'pending',
+        userId: id
+      }
+      this.orderService.createOrder(this.order).pipe(first())
+        .subscribe(
+          res => {
+            this.notifier.notify('success', 'Votre paiement a été accepté.')
+            this.cartService.removeCart();
+          },
+          error => {
+            this.notifier.notify('error', error.message)
+          });
+    } else {
+      this.notifier.notify('error', 'Votre panier est vide.')
+    }
+  }
+
+  ngAfterViewInit() {
+    console.log("Changement du currentUser du composant");
+    this.authService.currentUser.subscribe(x => this.currentUser = x[0]);
+    this.cdRef.detectChanges();
   }
 
 }

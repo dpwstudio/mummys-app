@@ -1,15 +1,15 @@
 .mummys-container {
   padding-top: 0;
-  padding-bottom: 3em;
+  padding-bottom: 10em;
 
   .modality {
     padding: 0 20px;
 
     .card {
-      background: #fbf7f1;
+      background: #f7f0e647;
       margin: 40px 0 0;
       border: none;
-      border-radius: 25px;
+      border-radius: 50px 5px;
       padding: 30px;
       border-bottom: 5px solid #f7f0e6;
 
@@ -43,6 +43,10 @@
   }
 
   @media screen and (max-width: 400px) {
+    .bloc-content-story {
+      padding: 0 45px;
+    }
+
     .about-desc {
       margin-top: 2em;
     }
@@ -105,11 +109,17 @@
   background-size: cover;
 
   .content-story {
-    background: #f7f4ef;
+    background: #fff;
     margin: 3em auto;
     padding: 30px 40px;
     border-radius: 60px 10px;
     border-bottom: 7px solid #dfd1ba;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .mummys-counters {
+    padding: 0 45px;
   }
 }
 

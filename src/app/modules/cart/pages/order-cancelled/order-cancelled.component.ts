@@ -13,7 +13,8 @@ export class OrderCancelledComponent implements OnInit {
   constructor(
     private authService: AuthService,
   ) {
-    this.currentUser = this.authService.currentUserValue;
+    this.authService.currentUser.subscribe(x => this.currentUser = x[0]);
+    console.log('this.currentUser', this.currentUser);
   }
 
   ngOnInit() {

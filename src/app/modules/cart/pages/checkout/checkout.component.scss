@@ -66,6 +66,14 @@
     }
 
     .tab-pane {
+      .btn-stripe {
+        background: #646FDF;
+        color: white;
+
+        &:hover {
+          background: #4952af;
+        }
+      }
 
       .form-control {
         border-radius: 10px;

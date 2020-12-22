@@ -72,9 +72,13 @@
 
                 <!-- credit card info-->
                 <div id="nav-tab-card" class="tab-pane fade active show">
-                  <p>Pour plus de sécurité, optez pour un paiement par carte bancaire.</p>
+                  <p class="d-flex align-items-center justify-content-between">Pour plus de sécurité, optez pour un
+                    paiement sécurisé par carte
+                    bancaire avec notre partenaire. 
+                    <i class="fab fa-stripe fa-4x" style="color: #646FDF;"></i>
+                  </p>
                   <p>
-                    <button type="button" class="btn btn-info rounded-pill" (click)="paidWithCreditCard(carts)"><i
+                    <button type="button" class="btn btn-stripe" (click)="paidWithCreditCard(carts)"><i
                         class="fas fa-credit-card mr-2"></i>
                       Payer par Carte bancaire
                     </button>

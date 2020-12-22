@@ -10,10 +10,11 @@ import { ListProductsComponent } from './components/list-products/list-products.
 import { BoissonComponent } from './pages/boisson/boisson.component';
 import { LayoutModule } from '../layout/layout.module';
 import { FormsModule } from '@angular/forms';
+import { CategoriesComponent } from './components/categories/categories.component';
 
 
 @NgModule({
-  declarations: [MenuComponent, EntreeComponent, PlatComponent, DessertComponent, ListProductsComponent, BoissonComponent],
+  declarations: [MenuComponent, EntreeComponent, PlatComponent, DessertComponent, ListProductsComponent, BoissonComponent, CategoriesComponent],
   imports: [
     CommonModule,
     FormsModule,

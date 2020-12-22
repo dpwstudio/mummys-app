@@ -11,3 +11,13 @@
     margin-bottom: 0;
   }
 }
+
+.mummys-narrow-content {
+  padding: 0 1em 3em;
+}
+
+@media screen and (max-width: 400px) {
+  .bloc-item {
+    width: 50%;
+  }
+}
