@@ -9,12 +9,11 @@ export class EmailService {
 
   constructor(private http: HttpClient) { }
 
-  sendEmail(body) {
-    let headers = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    }
-    return this.http.post(`${environment.mummysApi}/emails`, body, headers);
+  sendEmailToRegister(body) {
+    return this.http.post(`${environment.mummysApi}/emails/register`, body);
+  }
+
+  sendEmailToAdmin(body) {
+    return this.http.post(`${environment.mummysApi}/emails/contact`, body);
   }
 }

@@ -1,3 +1,9 @@
+<div class="loading d-flex flex-column align-items-center justify-content-center" *ngIf="loading">
+  <div class="animate__animated animate__pulse animate__infinite text-center">
+    <img src="assets/images/logo.png" alt="" width="100">
+    <p class="text-white mt-2">Veuillez patienter...</p>
+  </div>
+</div>
 <div class="mummys-container">
   <div class="mummys-narrow-content">
     <div class="row">
@@ -31,30 +37,33 @@
             <i class="icon-phone"></i>
           </div>
           <div class="mummys-text">
-            <p><a href="tel://">06 17 92 51 89</a></p>
+            <p><a href="tel:0617925189">0617925189</a></p>
           </div>
         </div>
       </div>
       <div class="col-md-7 col-md-push-1">
         <div class="row">
           <div class="col-md-10 col-md-offset-1 col-md-pull-1">
-            <form action="">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nom">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Objet">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="message" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-              </div>
-              <div class="form-group">
-                <button class="btn btn-primary btn-send-message"><i class="icon-paperplane mr-1" style="font-size: 14px;"></i> Envoyer</button>
-              </div>
-            </form>
+            <div class="card">
+              <form [formGroup]="contactForm">
+                <div class="form-group">
+                  <input type="text" class="form-control" formControlName="name" placeholder="Nom">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" formControlName="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <textarea style="padding: 15px 10px;" name="" formControlName="message" id="message" cols="30"
+                    rows="7" class="form-control" placeholder="Message"></textarea>
+                </div>
+                <div class="form-group footer">
+                  <button class="btn btn-primary btn-send-message" (click)="onSubmit()" [disabled]="!contactForm.valid">
+                    <i class="icon-paperplane mr-1" style="font-size: 14px;"></i>
+                    Envoyer
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
 
         </div>
@@ -63,5 +72,8 @@
   </div>
 </div>
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1312.471549319152!2d2.77049103790338!3d48.85929542937183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e61cd8474528d3%3A0x656a6d188168d26!2s32%20Rue%20du%20Foss%C3%A9%20Mignard%2C%2077700%20Chessy!5e0!3m2!1sfr!2sfr!4v1601481711453!5m2!1sfr!2sfr" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+<iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1312.471549319152!2d2.77049103790338!3d48.85929542937183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e61cd8474528d3%3A0x656a6d188168d26!2s32%20Rue%20du%20Foss%C3%A9%20Mignard%2C%2077700%20Chessy!5e0!3m2!1sfr!2sfr!4v1601481711453!5m2!1sfr!2sfr"
+  width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+  tabindex="0"></iframe>
 <app-footer></app-footer>

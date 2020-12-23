@@ -51,16 +51,12 @@ export class RegisterComponent implements OnInit {
 
     console.log('this.registerForm', this.registerForm.value);
 
-    let email = {
-      email: this.registerForm.value.email
-    }
-
     this.authService.register(this.registerForm.value).pipe(first())
       .subscribe(
         data => {
           console.log('data', data);
           this.notifier.notify("success", 'Votre inscription a bien été prise en compte.');``
-          this.emailService.sendEmail(email).subscribe(data => console.log('send email', data));
+          this.emailService.sendEmailToRegister(this.registerForm.value).subscribe(data => console.log('send email', data));
           this.router.navigate(['/login']);
         },
         error => {
