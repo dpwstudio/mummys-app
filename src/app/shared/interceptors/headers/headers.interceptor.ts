@@ -16,7 +16,7 @@ export class HeadersInterceptor implements HttpInterceptor {
     return next.handle(request.clone({
       headers: request.headers
         .set('Content-Type', 'application/json'),
-      responseType: 'text'
+      responseType: 'json'
     }));
   }
 }

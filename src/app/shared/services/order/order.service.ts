@@ -13,8 +13,8 @@ import { loadStripe } from '@stripe/stripe-js';
 export class OrderService {
   currentUser: User;
   stripePromise = loadStripe(environment.stripeKeyTest);
-  priceId = 'price_1HyQaZK20tky2hQ76CDu4gMy';
-  priceId2 = 'price_1HyQc3K20tky2hQ71sVzCVVj';
+  priceId = 'price_1I1rvyK20tky2hQ75I3y8e85';
+  priceId2 = 'price_1I1ryOK20tky2hQ7p4qaFWeW';
   quantity = 1;
 
   constructor(

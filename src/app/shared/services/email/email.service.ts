@@ -12,6 +12,10 @@ export class EmailService {
   sendEmailToRegister(body) {
     return this.http.post(`${environment.mummysApi}/emails/register`, body);
   }
+  
+  sendEmailToNewOrder(body) {
+    return this.http.post(`${environment.mummysApi}/emails/order`, body);
+  }
 
   sendEmailToAdmin(body) {
     return this.http.post(`${environment.mummysApi}/emails/contact`, body);
