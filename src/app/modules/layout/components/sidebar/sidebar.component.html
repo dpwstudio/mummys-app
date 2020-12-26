@@ -16,10 +16,10 @@
     <nav class="navbar navbar-expand-lg" id="mummys-main-menu" role="navigation" style="margin: 0 auto;">
       <ul class="navbar-nav d-flex flex-column" style="margin: 0 auto;">
         <li class="nav-item">
-          <a class="nav-link" (click)="toggleSidebar()" routerLink="/home" routerLinkActive="active">Home</a>
+          <a class="nav-link" (click)="toggleSidebar(false)" routerLink="/home" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="toggleSidebar()" routerLink="/about" routerLinkActive="active">Who I Am</a>
+          <a class="nav-link" (click)="toggleSidebar(false)" routerLink="/about" routerLinkActive="active">Who I Am</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -27,23 +27,23 @@
             La carte
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/entrees"><i class="fas fa-carrot mr-2" style="color: orange;"></i>
+            <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/entrees"><i class="fas fa-carrot mr-2" style="color: orange;"></i>
               Entrées</a>
-            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/plats"><i class="fas fa-utensils mr-2" style="color: lightblue;"></i>
+            <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/plats"><i class="fas fa-utensils mr-2" style="color: lightblue;"></i>
               Plats</a>
-            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/desserts"><i class="fas fa-ice-cream mr-2" style="color: pink;"></i>
+            <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/desserts"><i class="fas fa-ice-cream mr-2" style="color: pink;"></i>
               Desserts</a>
-            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/boissons"><i class="fas fa-cocktail mr-2"
+            <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/boissons"><i class="fas fa-cocktail mr-2"
                 style="color: greenyellow;"></i> Boissons</a>
-            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/menus"><i class="fas fa-cube mr-2" style="color: tomato;"></i>
+            <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/menus"><i class="fas fa-cube mr-2" style="color: tomato;"></i>
               Menus</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="toggleSidebar()" routerLink="/contact" routerLinkActive="active">Contact</a>
+          <a class="nav-link" (click)="toggleSidebar(false)" routerLink="/contact" routerLinkActive="active">Contact</a>
         </li>
         <li class="nav-item" *ngIf="!isLoggedIn()">
-          <a class="nav-link" (click)="toggleSidebar()" routerLink="/login" routerLinkActive="active"><i class="far fa-user-circle mr-1"></i>
+          <a class="nav-link" (click)="toggleSidebar(false)" routerLink="/login" routerLinkActive="active"><i class="far fa-user-circle mr-1"></i>
             Login</a>
         </li>
         <li class="nav-item dropdown" *ngIf="isLoggedIn()">
@@ -52,12 +52,12 @@
             <i class="far fa-user-circle mr-1"></i> {{currentUser[0].firstname}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/profile"><i class="far fa-user-circle mr-2"></i>Mon compte</a>
+            <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/profile"><i class="far fa-user-circle mr-2"></i>Mon compte</a>
             <a class="dropdown-item" (click)="logout()"><i class="fas fa-power-off mr-2"></i> Déconnexion</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="toggleSidebar()" routerLink="/cart" routerLinkActive="active">
+          <a class="nav-link" (click)="toggleSidebar(false)" routerLink="/cart" routerLinkActive="active">
             <i class="fas fa-shopping-cart mr-2" style="font-size: 30px;"></i>
             <span class="total-cart">{{getTotalCurrentCart()}}</span>
           </a>
@@ -69,15 +69,15 @@
             <span style="font-size: 14px">Admin</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/dashboard">
+            <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/dashboard">
               <i class="fas fa-tachometer-alt mr-2" style="color: orange;"></i>
               Dashboard</a>
-            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/products"><i class="fas fa-utensils mr-2"
+            <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/products"><i class="fas fa-utensils mr-2"
                 style="color: lightcoral;"></i>
               Produits</a>
-            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/orders"><i class="fas fa-utensils mr-2" style="color: lightblue;"></i>
+            <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/orders"><i class="fas fa-utensils mr-2" style="color: lightblue;"></i>
               Commandes</a>
-            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/clients"><i class="fas fa-users mr-2" style="color: pink;"></i>
+            <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/clients"><i class="fas fa-users mr-2" style="color: pink;"></i>
               Clients</a>
           </div>
         </li>
