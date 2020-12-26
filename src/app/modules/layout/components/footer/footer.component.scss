@@ -29,8 +29,7 @@
       .form-group {
         input {
           background: white;
-          margin-right: 10px;
-          border-radius: 5px;
+          border-radius: 5px 0 0 5px;
           padding: 6px 15px;
 
           &::placeholder {
@@ -39,11 +38,6 @@
           }
         }
 
-        @media screen and (max-width:380px) {
-          input {
-            border-radius: 5px 0 0 5px;
-          }
-        }
       }
     }
 
