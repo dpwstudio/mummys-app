@@ -5,6 +5,7 @@ import { NotifierService } from 'angular-notifier';
 import { Router } from '@angular/router';
 import { Cart } from 'src/app/shared/models/cart.model';
 import { CartService } from 'src/app/shared/services/cart/cart.service';
+import { SidebarService } from 'src/app/shared/services/sidebar/sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,6 +21,7 @@ export class SidebarComponent implements OnInit {
     private router: Router,
     public authService: AuthService,
     private cartService: CartService,
+    private sidebarService: SidebarService,
     notifierService: NotifierService
   ) {
     this.notifier = notifierService;
@@ -32,7 +34,7 @@ export class SidebarComponent implements OnInit {
   isLoggedIn() {
     return this.currentUser;
   }
-  
+
   isAdmin() {
     if (this.isLoggedIn()) {
       return this.currentUser[0].role === 'admin';
@@ -49,4 +51,20 @@ export class SidebarComponent implements OnInit {
     this.router.navigate(["/login"]);
   }
 
-}
+  showSidebar() {
+    this.sidebarService.showSidebar();
+  }
+
+  hideSidebar() {
+    this.sidebarService.hideSidebar();
+  }
+
+  toggleSidebar(forceValue?: boolean) {
+    return this.sidebarService.toggleSidebar(forceValue);
+  }
+
+  isSidebarVisible(): boolean {
+    return this.sidebarService.isVisible;
+  }
+  
+} 

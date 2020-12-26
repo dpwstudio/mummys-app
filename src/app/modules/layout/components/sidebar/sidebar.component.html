@@ -1,94 +1,101 @@
-<a href="#" class="js-mummys-nav-toggle mummys-nav-toggle d-flex align-items-center justify-content-center"
+<!-- <a href="#" class="js-mummys-nav-toggle mummys-nav-toggle d-flex align-items-center justify-content-center"
   style="border: none;">
   <i></i>
-</a>
-<aside id="mummys-aside" role="complementary" class="js-fullheight">
-  <h1 id="mummys-logo">
-    <a href="index.html">
-      <img src="assets/images/logo.png" alt="" width="120 ">
-    </a>
-  </h1>
-  <nav class="navbar navbar-expand-lg" id="mummys-main-menu" role="navigation" style="margin: 0 auto;">
-    <ul class="navbar-nav d-flex flex-column" style="margin: 0 auto;">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/about" routerLinkActive="active">Who I Am</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          La carte
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/entrees"><i class="fas fa-carrot mr-2" style="color: orange;"></i>
-            Entrées</a>
-          <a class="dropdown-item" routerLink="/plats"><i class="fas fa-utensils mr-2" style="color: lightblue;"></i>
-            Plats</a>
-          <a class="dropdown-item" routerLink="/desserts"><i class="fas fa-ice-cream mr-2" style="color: pink;"></i>
-            Desserts</a>
-          <a class="dropdown-item" routerLink="/boissons"><i class="fas fa-cocktail mr-2"
-              style="color: greenyellow;"></i> Boissons</a>
-          <a class="dropdown-item" routerLink="/menus"><i class="fas fa-cube mr-2" style="color: tomato;"></i> Menus</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
-      </li>
-      <li class="nav-item" *ngIf="!isLoggedIn()">
-        <a class="nav-link" routerLink="/login" routerLinkActive="active"><i class="far fa-user-circle mr-1"></i>
-          Login</a>
-      </li>
-      <li class="nav-item dropdown" *ngIf="isLoggedIn()">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <i class="far fa-user-circle mr-1"></i> {{currentUser[0].firstname}}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/profile"><i class="far fa-user-circle mr-2"></i>Mon compte</a>
-          <a class="dropdown-item" (click)="logout()"><i class="fas fa-power-off mr-2"></i> Déconnexion</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/cart" routerLinkActive="active">
-          <i class="fas fa-shopping-cart mr-2" style="font-size: 30px;"></i>
-          <span class="total-cart">{{getTotalCurrentCart()}}</span>
-        </a>
-      </li>
-      <li class="admin nav-item dropdown" *ngIf="isAdmin()">
-        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user-tie mr-2"></i>
-          <span style="font-size: 14px">Admin</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/dashboard">
-            <i class="fas fa-tachometer-alt mr-2" style="color: orange;"></i>
-            Dashboard</a>
-          <a class="dropdown-item" routerLink="/products"><i class="fas fa-utensils mr-2"
-              style="color: lightcoral;"></i>
-            Produits</a>
-          <a class="dropdown-item" routerLink="/orders"><i class="fas fa-utensils mr-2" style="color: lightblue;"></i>
-            Commandes</a>
-          <a class="dropdown-item" routerLink="/clients"><i class="fas fa-users mr-2" style="color: pink;"></i>
-            Clients</a>
-        </div>
-      </li>
-    </ul>
-  </nav>
+</a> -->
+<div [class.toggled]="isSidebarVisible()">
+  <a href="#" (click)="toggleSidebar()" class="mummys-nav-toggle d-flex align-items-center justify-content-center"
+    [class.active]="isSidebarVisible()" style="border: none;">
+    <i></i>
+  </a>
+  <aside id="mummys-aside" role="complementary" class="js-fullheight">
+    <h1 id="mummys-logo">
+      <a href="index.html">
+        <img src="assets/images/logo.png" alt="" width="120 ">
+      </a>
+    </h1>
+    <nav class="navbar navbar-expand-lg" id="mummys-main-menu" role="navigation" style="margin: 0 auto;">
+      <ul class="navbar-nav d-flex flex-column" style="margin: 0 auto;">
+        <li class="nav-item">
+          <a class="nav-link" (click)="toggleSidebar()" routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="toggleSidebar()" routerLink="/about" routerLinkActive="active">Who I Am</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            La carte
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/entrees"><i class="fas fa-carrot mr-2" style="color: orange;"></i>
+              Entrées</a>
+            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/plats"><i class="fas fa-utensils mr-2" style="color: lightblue;"></i>
+              Plats</a>
+            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/desserts"><i class="fas fa-ice-cream mr-2" style="color: pink;"></i>
+              Desserts</a>
+            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/boissons"><i class="fas fa-cocktail mr-2"
+                style="color: greenyellow;"></i> Boissons</a>
+            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/menus"><i class="fas fa-cube mr-2" style="color: tomato;"></i>
+              Menus</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="toggleSidebar()" routerLink="/contact" routerLinkActive="active">Contact</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn()">
+          <a class="nav-link" (click)="toggleSidebar()" routerLink="/login" routerLinkActive="active"><i class="far fa-user-circle mr-1"></i>
+            Login</a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="isLoggedIn()">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="far fa-user-circle mr-1"></i> {{currentUser[0].firstname}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/profile"><i class="far fa-user-circle mr-2"></i>Mon compte</a>
+            <a class="dropdown-item" (click)="logout()"><i class="fas fa-power-off mr-2"></i> Déconnexion</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="toggleSidebar()" routerLink="/cart" routerLinkActive="active">
+            <i class="fas fa-shopping-cart mr-2" style="font-size: 30px;"></i>
+            <span class="total-cart">{{getTotalCurrentCart()}}</span>
+          </a>
+        </li>
+        <li class="admin nav-item dropdown" *ngIf="isAdmin()">
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-tie mr-2"></i>
+            <span style="font-size: 14px">Admin</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/dashboard">
+              <i class="fas fa-tachometer-alt mr-2" style="color: orange;"></i>
+              Dashboard</a>
+            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/products"><i class="fas fa-utensils mr-2"
+                style="color: lightcoral;"></i>
+              Produits</a>
+            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/orders"><i class="fas fa-utensils mr-2" style="color: lightblue;"></i>
+              Commandes</a>
+            <a class="dropdown-item" (click)="toggleSidebar()" routerLink="/clients"><i class="fas fa-users mr-2" style="color: pink;"></i>
+              Clients</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
 
-  <div class="mummys-footer">
-    <p class="text">
-      Suivez-moi
-    </p>
-    <ul>
-      <li>
-        <a href="#"><i class="icon-facebook2"></i></a>
-      </li>
-      <li><a href="#"><i class="icon-twitter2"></i></a></li>
-      <li><a href="#"><i class="icon-instagram"></i></a></li>
-      <li><a href="#"><i class="icon-linkedin2"></i></a></li>
-    </ul>
-  </div>
-</aside>
+    <div class="mummys-footer">
+      <p class="text">
+        Suivez-moi
+      </p>
+      <ul>
+        <li>
+          <a href="#"><i class="icon-facebook2"></i></a>
+        </li>
+        <li><a href="#"><i class="icon-twitter2"></i></a></li>
+        <li><a href="#"><i class="icon-instagram"></i></a></li>
+        <li><a href="#"><i class="icon-linkedin2"></i></a></li>
+      </ul>
+    </div>
+  </aside>
+</div>

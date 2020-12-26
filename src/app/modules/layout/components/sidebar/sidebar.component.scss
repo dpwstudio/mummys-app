@@ -1,3 +1,9 @@
+.mummys-nav-toggle {
+  background-color: transparent;
+}
+
+
+
 #mummys-aside {
   background-color: white !important;
 
@@ -42,6 +48,21 @@
         }
       }
     }
+  }
+}
+
+.toggled {
+  #mummys-aside {
+    transform: translateX(0) !important;
+    width: 270px !important;
+    background: #fff !important;
+    z-index: 999 !important;
+    position: fixed !important;
+  }
+
+  .mummys-nav-toggle {
+    top: 25px;
+    transform: translateX(270px);
   }
 }
 

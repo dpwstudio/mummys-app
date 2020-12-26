@@ -1,5 +1,5 @@
 <app-sidebar></app-sidebar>
-<div id="mummys-main">
+<div id="mummys-main" [class.toggled]="isSidebarVisible()">
   <div class="nav-mobile">
     <img src="assets/images/logo-mob.png" alt="" width="70">
     <a class="nav-link" routerLink="/cart" routerLinkActive="active">
