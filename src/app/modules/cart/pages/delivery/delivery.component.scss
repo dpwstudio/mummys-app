@@ -139,12 +139,13 @@
     }
     @media screen and (max-width: 420px) {
       .card-footer {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         margin-bottom: 20px;
         .btn {
           width: 200px;
           margin: 5px;
+          height: 60px;
         }
       }    
     }
