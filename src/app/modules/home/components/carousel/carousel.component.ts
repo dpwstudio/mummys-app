@@ -2,12 +2,12 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-owl-carousel',
-  templateUrl: './owl-carousel.component.html',
-  styleUrls: ['./owl-carousel.component.scss'],
+  selector: 'app-carousel',
+  templateUrl: './carousel.component.html',
+  styleUrls: ['./carousel.component.scss'],
   providers: [NgbCarouselConfig]  // add NgbCarouselConfig to the component providers
 })
-export class OwlCarouselComponent implements OnInit {
+export class CarouselComponent implements OnInit {
   limit: number = 10; // <==== Edit this number to limit API results
   slides: any[];
   innerWidth: number;
