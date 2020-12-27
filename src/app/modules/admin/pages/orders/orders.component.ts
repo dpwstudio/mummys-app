@@ -45,7 +45,7 @@ export class OrdersComponent implements OnInit {
         return throwError(error)
       })
     ).subscribe(orders => {
-      this.orders = orders;
+      this.orders = orders.reverse();
       this.ordersPending = orders.filter(order => order.status === 'pending').length;
       this.ordersDelivered = orders.filter(order => order.status === 'delivered').length;
       this.ordersCancelled = orders.filter(order => order.status === 'cancelled').length;
@@ -80,5 +80,9 @@ export class OrdersComponent implements OnInit {
       error => {
         this.notifier.notify('error', error.message)
       });
+  }
+
+  isPending(order) {
+    return order.status === 'pending';
   }
 }

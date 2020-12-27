@@ -38,4 +38,9 @@ export class ClientsComponent implements OnInit {
     this.modalService.open(content, { centered: true });
   }
 
+  getTotalSubscribers() {
+    console.log('this.users', this.users);
+    return this.users?.reduce((acc, user) => acc + user.newsletter, 0);
+  }
+
 }

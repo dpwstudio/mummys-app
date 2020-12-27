@@ -51,8 +51,7 @@
             </div>
           </div>
           <div class="card-footer text-center">
-            <button class="btn btn-primary"
-              (click)="editDeliveryAddressDialog(content)">Modifier</button>
+            <button class="btn btn-primary" (click)="editDeliveryAddressDialog(content)">Modifier</button>
           </div>
         </div>
       </div>
@@ -62,8 +61,8 @@
             <img class="avatar border-gray" src="assets/images/order.png" alt="...">
             <div class="author">
               <h5 class="card-title">Total commandes</h5>
-              <h1 style="color: #dfd1ba; font-size: 2.5em;">
-                48
+              <h1 style="color: #ffcd6e; font-size: 2.4em;">
+                {{orders.length}}
               </h1>
             </div>
           </div>
@@ -75,8 +74,8 @@
             <img class="avatar border-gray" src="assets/images/euro.png" alt="...">
             <div class="author">
               <h5 class="card-title">Total en euros</h5>
-              <h1 style="color: #dfd1ba; font-size: 2.5em;">
-                48.00 €
+              <h1 style="color: #ffcd6e; font-size: 2.4em;">
+                {{getTotalOrdersTTC() | currency:'EUR':'symbol':'1.2-2':'fr' }}
               </h1>
             </div>
           </div>
@@ -92,32 +91,36 @@
                 <thead>
                   <tr>
                     <th scope="col">N°</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Prix</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Détail</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Salade César</td>
-                    <td>Tomate, Mozarella, Poulet</td>
-                    <td>6,50€</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Salade César</td>
-                    <td>Tomate, Mozarella, Poulet</td>
-                    <td>6,50€</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Salade César</td>
-                    <td>Tomate, Mozarella, Poulet</td>
-                    <td>6,50€</td>
+                  <tr *ngFor="let order of orders | paginate: { itemsPerPage: numberPerPage, currentPage: p }">
+                    <th scope="row">{{order.id}}</th>
+                    <td>{{order.createdAt | date:'dd/MM/yyyy hh:mm'}}</td>
+                    <td class="text-center">
+                      <i class="fas fa-hourglass-start text-primary" style="font-size: 20px;"
+                        *ngIf="order.status === 'pending'"></i>
+                      <i class="fas fa-check text-success" style="font-size: 20px;"
+                        *ngIf="order.status === 'delivered'"></i>
+                      <i class="fas fa-times text-danger" style="font-size: 20px;"
+                        *ngIf="order.status === 'cancelled'"></i>
+                    </td>
+                    <td>{{order.total | currency:'EUR':'symbol':'1.2-2':'fr' }}</td>
+                    <td>
+                      <button class="btn btn-primary btn-round" (click)="showDetail(contentDetail, order.carts)">
+                        <i class="far fa-eye text-white fa-lg"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
+              <div class="d-flex justify-content-center" *ngIf="orders?.length > numberPerPage">
+                <pagination-controls (pageChange)="p = $event" previousLabel="Préc" nextLabel="Suiv"></pagination-controls>
+              </div>
             </div>
           </div>
         </div>
@@ -151,5 +154,30 @@
           (click)="editDeliveryAddress()">Modifier</button>
       </div>
     </form>
+  </div>
+</ng-template>
+
+<ng-template #contentDetail let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Détail de la commande</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table table-striped text-center">
+      <thead>
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Quantité</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cart of carts">
+          <td>{{cart.name}}</td>
+          <td>{{cart.quantity}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </ng-template>

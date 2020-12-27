@@ -46,13 +46,25 @@
           <a class="nav-link" (click)="toggleSidebar(false)" routerLink="/login" routerLinkActive="active"><i class="far fa-user-circle mr-1"></i>
             Login</a>
         </li>
-        <li class="nav-item dropdown" *ngIf="isLoggedIn()">
+        <li class="nav-item dropdown" *ngIf="isLoggedIn()" [class.admin]="isAdmin()">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <i class="far fa-user-circle mr-1"></i> {{currentUser[0].firstname}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/profile"><i class="far fa-user-circle mr-2"></i>Mon compte</a>
+            <ng-container *ngIf="isAdmin()">
+              <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/dashboard">
+                <i class="fas fa-tachometer-alt mr-2" style="color: orange;"></i>
+                Dashboard</a>
+              <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/products"><i class="fas fa-utensils mr-2"
+                  style="color: lightcoral;"></i>
+                Produits</a>
+              <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/orders"><i class="fas fa-utensils mr-2" style="color: lightblue;"></i>
+                Commandes</a>
+              <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/clients"><i class="fas fa-users mr-2" style="color: pink;"></i>
+                Clients</a>
+            </ng-container>
             <a class="dropdown-item" (click)="logout()"><i class="fas fa-power-off mr-2"></i> Déconnexion</a>
           </div>
         </li>
@@ -61,25 +73,6 @@
             <i class="fas fa-shopping-cart mr-2" style="font-size: 30px;"></i>
             <span class="total-cart">{{getTotalCurrentCart()}}</span>
           </a>
-        </li>
-        <li class="admin nav-item dropdown" *ngIf="isAdmin()">
-          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-tie mr-2"></i>
-            <span style="font-size: 14px">Admin</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/dashboard">
-              <i class="fas fa-tachometer-alt mr-2" style="color: orange;"></i>
-              Dashboard</a>
-            <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/products"><i class="fas fa-utensils mr-2"
-                style="color: lightcoral;"></i>
-              Produits</a>
-            <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/orders"><i class="fas fa-utensils mr-2" style="color: lightblue;"></i>
-              Commandes</a>
-            <a class="dropdown-item" (click)="toggleSidebar(false)" routerLink="/clients"><i class="fas fa-users mr-2" style="color: pink;"></i>
-              Clients</a>
-          </div>
         </li>
       </ul>
     </nav>

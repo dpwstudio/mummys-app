@@ -33,6 +33,10 @@ export class OrderService {
     return this.http.get(`${environment.mummysApi}/orders`) as Observable<Order[]>;
   }
 
+  getOrdersByUser(userId): Observable<Order[]> {
+    return this.http.get(`${environment.mummysApi}/orders/user/${userId}`) as Observable<Order[]>;
+  }
+
   editOrder(id, status) {
     console.log('id', id);
     return this.http.put(`${environment.mummysApi}/orders/${id}`, status);

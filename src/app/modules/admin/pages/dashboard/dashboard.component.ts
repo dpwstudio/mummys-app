@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
         return throwError(error)
       })
     ).subscribe(orders => {
-      this.orders = orders;
+      this.orders = orders.reverse();
       this.totalOrders = orders.reduce((acc, order) => {
         return acc = acc + order.total;
       }, 0);

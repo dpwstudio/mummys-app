@@ -18,7 +18,7 @@
 body {
   font-family: "Nunito", Arial, sans-serif;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.8;
   color: rgba(0, 0, 0, 0.7);
 }
@@ -339,10 +339,8 @@ figure figcaption {
 }
 
 .mummys-blog,
-.mummys-container,
 .mummys-about,
 .mummys-services,
-.mummys-container,
 .mummys-container {
   padding-top: 4em;
   padding-bottom: 9em;
@@ -354,12 +352,10 @@ figure figcaption {
 @media screen and (max-width: 768px) {
 
   .mummys-blog,
-  .mummys-container,
   .mummys-about,
   .mummys-services,
-  .mummys-container,
   .mummys-container {
-    padding-top: 8em;
+    padding-top: 7em;
     padding-bottom: 8em;
   }
 }

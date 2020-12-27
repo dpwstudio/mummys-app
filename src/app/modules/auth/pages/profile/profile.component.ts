@@ -7,7 +7,10 @@ import { throwError } from 'rxjs';
 import { catchError, first } from 'rxjs/operators';
 import { User } from 'src/app/shared/models/user.model';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
+import { OrderService } from 'src/app/shared/services/order/order.service';
 import { UserService } from 'src/app/shared/services/user/user.service';
+import { Order } from 'src/app/shared/models/order.model';
+import { Cart } from 'src/app/shared/models/cart.model';
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +22,10 @@ export class ProfileComponent implements OnInit {
   currentUser: User;
   editDeliveryAddressForm: FormGroup;
   loading = false;
-
+  orders: Order[];
+  carts: Cart[];
+  p: number = 1;
+  numberPerPage = 6;
 
   constructor(
     private modalService: NgbModal,
@@ -27,6 +33,7 @@ export class ProfileComponent implements OnInit {
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private userService: UserService,
+    private orderService: OrderService,
     notifierService: NotifierService
   ) {
     this.notifier = notifierService;
@@ -39,6 +46,7 @@ export class ProfileComponent implements OnInit {
       zipcode: ["", Validators.required],
       city: ["", Validators.required]
     });
+    this.getOrdersByUser();
   }
 
   get f() {
@@ -86,6 +94,27 @@ export class ProfileComponent implements OnInit {
     setTimeout(() => {
       this.loading = false;
     }, 3000);
+  }
+
+  getOrdersByUser() {
+    const userId = this.currentUser.id;
+    this.orderService.getOrdersByUser(userId).pipe(
+      catchError(error => {
+        return throwError(error);
+      })
+    ).subscribe(orders => {
+      console.log('orders', orders);
+      this.orders = orders;
+    })
+  }
+
+  showDetail(content, carts) {
+    this.carts = JSON.parse(carts);
+    this.modalService.open(content, { centered: true });
+  }
+
+  getTotalOrdersTTC() {
+    return this.orders?.reduce((acc, order) => acc = acc + order.total, 0);
   }
 
 }

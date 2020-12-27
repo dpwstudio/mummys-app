@@ -48,7 +48,7 @@
 
           <!--Grid column-->
           <div class="col-md-8 col-md-6 mb-4 mx-auto">
-            <div class="container-checkout bg-white rounded-lg p-5">
+            <div class="container-checkout bg-white rounded-lg">
               <!-- Credit card form tabs -->
               <ul role="tablist" class="nav nav-pills rounded-pill nav-fill mb-3">
                 <li class="nav-item" style="width: 175px">
@@ -58,9 +58,15 @@
                   </a>
                 </li>
                 <li class="nav-item" style="width: 175px">
-                  <a data-toggle="pill" href="#nav-tab-bank" class="nav-link rounded-pill">
+                  <a data-toggle="pill" href="#nav-tab-delivery" class="nav-link rounded-pill">
                     <i class="fas fa-truck mr-2"></i>
                     A la livraison
+                  </a>
+                </li>
+                <li class="nav-item" style="width: 175px">
+                  <a data-toggle="pill" href="#nav-tab-take-away" class="nav-link rounded-pill">
+                    <i class="fas fa-home mr-2"></i>
+                    A emporter
                   </a>
                 </li>
               </ul>
@@ -70,11 +76,11 @@
               <!-- Credit card form content -->
               <div class="tab-content">
 
-                <!-- credit card info-->
+                <!-- Paid with Stripe-->
                 <div id="nav-tab-card" class="tab-pane fade active show">
                   <p class="d-flex align-items-center justify-content-between">Pour plus de sécurité, optez pour un
                     paiement sécurisé par carte
-                    bancaire avec notre partenaire. 
+                    bancaire avec notre partenaire.
                     <i class="fab fa-stripe fa-4x" style="color: #646FDF;"></i>
                   </p>
                   <p>
@@ -86,8 +92,8 @@
                 </div>
                 <!-- End -->
 
-                <!-- bank transfer info -->
-                <div id="nav-tab-bank" class="tab-pane fade">
+                <!--Paid to delivery -->
+                <div id="nav-tab-delivery" class="tab-pane fade">
                   <p>Si vous le souhaitez, vous avez la possibilité de payer votre commande à la livraison. Le paiement
                     peut se faire en espèce, Ticket restaurant ou carte bancaire. Pour le paiement en espèce, nous vous
                     recommandons de faire l'appoint.
@@ -95,6 +101,19 @@
                   <p>
                     <button type="button" class="btn btn-primary"><i class="fas fa-truck mr-2"></i> Payer à la
                       livraison</button>
+                  </p>
+                </div>
+                <!-- End -->
+
+                <!--Paid to delivery -->
+                <div id="nav-tab-take-away" class="tab-pane fade">
+                  <p>Si vous le souhaitez, vous avez la possibilité de venir récupérer votre commande et de payer sur
+                    place. Le paiement peut se faire en espèce, Ticket restaurant ou carte bancaire. Pour le paiement en
+                    espèce, nous vous recommandons de faire l'appoint.
+                  </p>
+                  <p>
+                    <button type="button" class="btn btn-primary"><i class="fas fa-home mr-2"></i> Payer sur
+                      place</button>
                   </p>
                 </div>
                 <!-- End -->
@@ -126,13 +145,13 @@
                 <span class="text-muted">{{cart.price | currency:'EUR':'symbol':'1.2-2':'fr'}}</span>
               </li>
               <li class="list-group-item d-flex justify-content-center align-items-center lh-condensed"
-                *ngIf="carts.length > 1">
+                *ngIf="carts.length > numberPerPage">
                 <pagination-controls (pageChange)="p = $event" previousLabel="Préc" nextLabel="Suiv">
                 </pagination-controls>
               </li>
               <li class="list-group-item d-flex justify-content-between align-items-center"
                 style="background-color: #ffcd6d;">
-                <span>Total TTC <i class="fas fa-euro-sign ml-2"></i></span>
+                <span>TOTAL TTC <i class="fas fa-euro-sign ml-2"></i></span>
                 <strong>{{ getTotalTTC() | currency:'EUR':'symbol':'1.2-2':'fr' }}</strong>
               </li>
             </ul>

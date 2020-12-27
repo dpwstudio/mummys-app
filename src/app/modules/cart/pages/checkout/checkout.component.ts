@@ -19,6 +19,7 @@ export class CheckoutComponent implements OnInit {
   carts: Cart[];
   loading = false;
   p: number = 1;
+  numberPerPage = 6;
   currentUser: User;
 
 

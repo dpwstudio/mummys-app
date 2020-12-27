@@ -5,53 +5,58 @@
     .mummys-icon {
       background-color: #f5ecdf;
       border-radius: 10px;
-    }
-  }
 
-}
-
-#get-in-touch {
-  background-color: #ffdc8c;
-}
-
-.card {
-  border-radius: 10px 10px 10px 10px;
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-  border: none;
-  padding: 2em 2em 1em;
-
-  .card-header {
-    background-color: transparent;
-    border: none;
-  }
-
-  .form-control {
-    background: #fafafa;
-    border-radius: 10px;
-
-    &::placeholder {
-      color: #d1d1d1;
-      font-size: 13px;
-    }
-  }
-
-  .footer {
-    text-align: center;
-
-    .btn {
-      margin-top: 20px;
-      width: 200px;
     }
 
-    .btn-primary.disabled,
-    .btn-primary:disabled {
-      background-color: #ffdc8c;
-      border: 2px solid #ffdc8c;
-
-      &:hover {
-        background-color: #ffdc8c !important;
-        border: 2px solid #ffdc8c !important;
+    .mummys-text {
+      p {
+        a {
+          color: #000000b3;
+        }
       }
     }
   }
+
+  .card {
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: 2em 2em 1em;
+
+    .card-header {
+      background-color: transparent;
+      border: none;
+    }
+
+    .form-control {
+      background: #fafafa;
+      border-radius: 10px;
+
+      &::placeholder {
+        color: #d1d1d1;
+        font-size: 13px;
+      }
+    }
+
+    .footer {
+      text-align: center;
+
+      .btn {
+        margin-top: 20px;
+        width: 200px;
+      }
+
+      .btn-primary.disabled,
+      .btn-primary:disabled {
+        background-color: #ffdc8c;
+        border: 2px solid #ffdc8c;
+
+        &:hover {
+          background-color: #ffdc8c !important;
+          border: 2px solid #ffdc8c !important;
+        }
+      }
+    }
+  }
+
 }

@@ -11,6 +11,7 @@ import { customNotifierOptions } from 'src/app/config/config';
 import { NotifierModule } from 'angular-notifier';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     NotifierModule.withConfig(customNotifierOptions),
     LayoutModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
   ]
 })
 export class AuthModule { }
