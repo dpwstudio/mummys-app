@@ -9,7 +9,7 @@ import { SidebarService } from './shared/services/sidebar/sidebar.service';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-	title = 'Mummy\'s Food';
+	title = 'mummys-app';
 
 	constructor(
 		private cartService: CartService,
