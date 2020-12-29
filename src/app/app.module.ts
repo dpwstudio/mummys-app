@@ -30,6 +30,8 @@ import { customNotifierOptions } from './config/config';
  * Import Interceptors
  */
 import { HeadersInterceptor } from './shared/interceptors/headers/headers.interceptor';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { HeadersInterceptor } from './shared/interceptors/headers/headers.interc
     AppRoutingModule,
     NgbModule,
     NotifierModule.withConfig(customNotifierOptions),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' },

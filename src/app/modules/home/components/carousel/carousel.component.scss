@@ -8,12 +8,12 @@
     margin: 30px;
     background: #ffdc8cd4;
     border-radius: 45px 2px 45px 2px;
-    border-bottom: 6px solid #ffcd6d;
-    border-left: 6px solid #ffcd6d;
+    border-bottom: 5px solid #ffcd6d;
+    border-left: 5px solid #ffcd6d;
 
     h1 {
       margin-bottom: 10px;
-      font-size: 35px;
+      font-size: 30px;
       font-weight: 500;
       text-transform: uppercase;
       color: white;
@@ -45,6 +45,10 @@
 
 
 @media screen and (max-width: 420px) {
+  .slider-text-inner {
+    bottom: 570px;
+  }
+
   .slides {
     img {
       width: 100%;

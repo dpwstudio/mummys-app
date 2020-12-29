@@ -24,8 +24,7 @@
 
 
 @media screen and (max-width: 420px) {
-  .icone-step {
-    margin: 20px auto;
-    width: 300px !important;
+  .row {
+    display: none;
   }
 }
