@@ -1,26 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SwUpdate } from '@angular/service-worker';
 import { CartService } from './shared/services/cart/cart.service';
 import { SidebarService } from './shared/services/sidebar/sidebar.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'mummys-app';
+export class AppComponent implements OnInit {
+	title = 'Mummy\'s Food';
 
-  constructor(
-    private cartService: CartService,
-    private sidebarService: SidebarService
-  ) {
-  }
+	constructor(
+		private cartService: CartService,
+		private sidebarService: SidebarService,
+		private swUpdate: SwUpdate
+	) {
+	}
 
-  getTotalCurrentCart() {
-    return this.cartService.cartProductList.length;
-  }
+	ngOnInit() {
+		if (this.swUpdate.isEnabled) {
+			this.swUpdate.available.subscribe(() => {
+				if (confirm("New version available. Load New Version?")) {
+					window.location.reload();
+				}
+			});
+		}
+	}
 
-  isSidebarVisible(): boolean {
-    return this.sidebarService.isVisible;
-  }
+	getTotalCurrentCart() {
+		return this.cartService.cartProductList.length;
+	}
+
+	isSidebarVisible(): boolean {
+		return this.sidebarService.isVisible;
+	}
 }

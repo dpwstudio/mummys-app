@@ -6,9 +6,10 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { customNotifierOptions } from 'src/app/config/config';
 import { NotifierModule } from 'angular-notifier';
+import { NavMobFootComponent } from './components/nav-mob-foot/nav-mob-foot.component';
 
 @NgModule({
-  declarations: [SidebarComponent, FooterComponent],
+  declarations: [SidebarComponent, FooterComponent, NavMobFootComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -16,7 +17,8 @@ import { NotifierModule } from 'angular-notifier';
   ],
   exports: [
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    NavMobFootComponent
   ]
 })
 export class LayoutModule { }

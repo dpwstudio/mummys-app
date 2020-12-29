@@ -1,9 +1,5 @@
-<!-- <a href="#" class="js-mummys-nav-toggle mummys-nav-toggle d-flex align-items-center justify-content-center"
-  style="border: none;">
-  <i></i>
-</a> -->
 <div [class.toggled]="isSidebarVisible()">
-  <a href="#" (click)="toggleSidebar()" class="mummys-nav-toggle d-flex align-items-center justify-content-center"
+  <a (click)="toggleSidebar()" class="mummys-nav-toggle d-flex align-items-center justify-content-center"
     [class.active]="isSidebarVisible()" style="border: none;">
     <i></i>
   </a>
