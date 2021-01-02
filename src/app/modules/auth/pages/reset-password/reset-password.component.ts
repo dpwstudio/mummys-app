@@ -55,7 +55,6 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   resetPassword() {
-    console.log('reset')
     this.loading = true;
     // stop here if form is invalid
     if (this.resetPasswordForm.value.password !== this.resetPasswordForm.value.confirmPassword) {
@@ -63,15 +62,16 @@ export class ResetPasswordComponent implements OnInit {
       return;
     }
 
-    const obj = {
+    const body = {
       password: this.resetPasswordForm.value.password,
       email: this.email
     }
-    this.authService.resetPassword(obj)
+    this.authService.resetPassword(body)
       .pipe(first())
       .subscribe(
         data => {
           this.notifier.notify("success", `Votre mot de passe a été réinitialsé avec succès.`);
+          this.router.navigate(['home']);
           this.loading = false;
         },
         error => {

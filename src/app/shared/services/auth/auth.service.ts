@@ -17,10 +17,18 @@ export class AuthService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
+  /**
+   * Récupère l'utilisateur connecté
+   */
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
 
+  /**
+   * Connection au compte
+   * @param email 
+   * @param password 
+   */
   login(email, password) {
     return this.http.post<any>(`${environment.mummysApi}/auth/login`, { email, password })
       .pipe(map(user => {
@@ -31,27 +39,42 @@ export class AuthService {
       }));
   }
 
+  /**
+   * Création de compte
+   * @param user 
+   */
   register(user: User) {
     console.log('user', user);
     return this.http.post(`${environment.mummysApi}/auth/register`, user);
   }
 
+  /**
+   * Demande de réinitialisation du mot de passe
+   * @param email 
+   */
   lostPassword(email) {
     console.log('email', email)
     return this.http.post(`${environment.mummysApi}/auth/lostPassword`, email);
   }
 
-  resetPassword(password) {
-    console.log('password', password)
-    return this.http.put(`${environment.mummysApi}/auth/resetPassword`, password);
+  /**
+   * Réintialisation du mot de passe
+   * @param password 
+   */
+  resetPassword(body) {
+    return this.http.put(`${environment.mummysApi}/auth/resetPassword`, body);
   }
-
+  /**
+   * Déconnecté le compte actif en supprimant le currentUser du localStorage (null)
+   */
   logout() {
-    // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
 
+  /**
+   * L'utilisateur a le rôle ADMIN
+   */
   isAdmin() {
     return this.currentUserValue[0].role === 'admin';
   }
