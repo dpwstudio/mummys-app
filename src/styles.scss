@@ -954,7 +954,7 @@ figure figcaption {
 }
 
 .mummys-counters {
-  padding: 3em 0;
+  padding: 2em 0;
   background-size: cover;
   background-attachment: fixed;
   background-position: center center;
@@ -975,14 +975,14 @@ figure figcaption {
   height: 100px;
   display: table;
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .mummys-counters .icon i {
   display: table-cell;
   vertical-align: middle;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   font-size: 50px;
   color: #ffdc8c;
   text-shadow: 0 1px 10px #000000c2;

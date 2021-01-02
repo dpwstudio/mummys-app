@@ -23,7 +23,11 @@ export class CartComponent implements OnInit {
     private cartService: CartService
   ) {
     if(this.authService.currentUser) {
-      this.authService.currentUser.subscribe(x => this.currentUser = x[0]);
+      this.authService.currentUser.subscribe(x => {
+        if (this.currentUser) {
+          this.currentUser = x[0]
+        }
+      });
     }
   }
 
