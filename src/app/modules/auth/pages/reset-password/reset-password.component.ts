@@ -8,16 +8,17 @@ import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { EmailService } from 'src/app/shared/services/email/email.service';
 
 @Component({
-  selector: 'app-lost-password',
-  templateUrl: './lost-password.component.html',
-  styleUrls: ['./lost-password.component.scss']
+  selector: 'app-reset-password',
+  templateUrl: './reset-password.component.html',
+  styleUrls: ['./reset-password.component.scss']
 })
-export class LostPasswordComponent implements OnInit {
+export class ResetPasswordComponent implements OnInit {
   private readonly notifier: NotifierService;
-  lostPasswordForm: FormGroup;
+  resetPasswordForm: FormGroup;
   loading = false;
   returnUrl: string;
   currentUser: User;
+  email = '';
 
   constructor(
     private router: Router,
@@ -35,37 +36,47 @@ export class LostPasswordComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.lostPasswordForm = this.formBuilder.group({
-      email: ["", Validators.required],
+    this.route.queryParamMap
+      .subscribe((params) => {
+        this.email = params.get('email');
+        console.log('params', this.email)
+      }
+      );
+    this.resetPasswordForm = this.formBuilder.group({
+      password: ["", Validators.required],
+      confirmPassword: ["", Validators.required],
     });
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   get f() {
-    return this.lostPasswordForm.controls;
+    return this.resetPasswordForm.controls;
   }
 
-  sendRequest() {
+  resetPassword() {
+    console.log('reset')
     this.loading = true;
     // stop here if form is invalid
-    if (this.lostPasswordForm.invalid) {
+    if (this.resetPasswordForm.value.password !== this.resetPasswordForm.value.confirmPassword) {
+      this.notifier.notify("error", `Veuillez saisir le même mot de passe.`);
       return;
     }
 
-    this.authService.lostPassword(this.lostPasswordForm.value)
+    const obj = {
+      password: this.resetPasswordForm.value.password,
+      email: this.email
+    }
+    this.authService.resetPassword(obj)
+      .pipe(first())
       .subscribe(
         data => {
-          this.emailService.sendEmailForLostPassword(this.lostPasswordForm.value).subscribe(() => {
-            this.router.navigate(['home']);
-            this.notifier.notify("success", `La demande a bien été pris en compte, vérifiez vos emails pour réinitialiser votre mot de passe.`);
-            this.loading = false;
-          });
-
+          this.notifier.notify("success", `Votre mot de passe a été réinitialsé avec succès.`);
+          this.loading = false;
         },
         error => {
-          this.notifier.notify('error', error.error.message);
           this.loading = false;
         });
   }
+
 }

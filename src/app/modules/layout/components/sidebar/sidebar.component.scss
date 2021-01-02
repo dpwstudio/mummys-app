@@ -66,8 +66,6 @@
   }
 }
 
-
-
 .total-cart {
   background: red;
   width: 19px;
@@ -110,5 +108,11 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  #mummys-aside {
+    width: 20%;
   }
 }

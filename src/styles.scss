@@ -127,6 +127,18 @@ figure figcaption {
   }
 }
 
+@media screen and (max-width: 1030px) {
+  #mummys-aside {
+    width: 270px;
+    -moz-transform: translateX(-270px);
+    -webkit-transform: translateX(-270px);
+    -ms-transform: translateX(-270px);
+    -o-transform: translateX(-270px);
+    transform: translateX(-270px);
+    padding-top: 2em;
+  }
+}
+
 @media screen and (max-width: 768px) {
   #mummys-aside {
     width: 270px;
@@ -307,6 +319,13 @@ figure figcaption {
   }
 }
 
+@media screen and (max-width: 1030px) {
+  #mummys-main {
+    width: 100%;
+    padding-top: 3em;
+  }
+}
+
 @media screen and (max-width: 768px) {
   #mummys-main {
     width: 100%;
@@ -355,7 +374,7 @@ figure figcaption {
   .mummys-about,
   .mummys-services,
   .mummys-container {
-    padding-top: 7em;
+    padding-top: 3em;
     padding-bottom: 8em;
   }
 }
@@ -1466,7 +1485,7 @@ figure figcaption {
   transition: 0.5s;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1030px) {
   .mummys-nav-toggle {
     opacity: 1;
     visibility: visible;

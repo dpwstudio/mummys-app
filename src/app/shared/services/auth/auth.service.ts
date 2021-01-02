@@ -36,6 +36,16 @@ export class AuthService {
     return this.http.post(`${environment.mummysApi}/auth/register`, user);
   }
 
+  lostPassword(email) {
+    console.log('email', email)
+    return this.http.post(`${environment.mummysApi}/auth/lostPassword`, email);
+  }
+
+  resetPassword(password) {
+    console.log('password', password)
+    return this.http.put(`${environment.mummysApi}/auth/resetPassword`, password);
+  }
+
   logout() {
     // remove user from local storage and set current user to null
     localStorage.removeItem('currentUser');

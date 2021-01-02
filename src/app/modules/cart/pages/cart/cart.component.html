@@ -43,7 +43,6 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th scope="col">N°</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Quantité</th>
                     <th scope="col">Prix unitaire TTC</th>
@@ -51,7 +50,6 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let cart of carts | paginate: { itemsPerPage: numberPerPage, currentPage: p }">
-                    <th scope="row">{{cart.id}}</th>
                     <td>{{cart.name}}</td>
                     <td>
                       <div class="d-flex align-items-center justify-content-center">

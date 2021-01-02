@@ -22,7 +22,9 @@ export class CartComponent implements OnInit {
     public authService: AuthService,
     private cartService: CartService
   ) {
-    this.authService.currentUser.subscribe(x => this.currentUser = x[0]);
+    if(this.authService.currentUser) {
+      this.authService.currentUser.subscribe(x => this.currentUser = x[0]);
+    }
   }
 
   isLoggedIn() {

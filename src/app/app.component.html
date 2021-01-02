@@ -1,7 +1,7 @@
 <app-sidebar></app-sidebar>
 <div id="mummys-main" [class.toggled]="isSidebarVisible()">
   <div class="nav-mobile">
-    <img src="assets/images/logo-mob.png" alt="" width="50">
+    <a href="#"><img src="assets/images/logo-mob.png" alt="" width="50"></a>
     <a class="nav-link" routerLink="/cart" routerLinkActive="active">
       <i class="fas fa-shopping-cart mr-2" style="font-size: 22px;"></i>
       <span class="total-cart">{{getTotalCurrentCart()}}</span>
@@ -12,3 +12,6 @@
   </router-outlet>
   <app-nav-mob-foot></app-nav-mob-foot>
 </div>
+<p *ngIf="updateAvailable" class="update-notification">
+  There is a new version of this app available. <span (click)="doUpdate()">Update now?</span>
+</p>

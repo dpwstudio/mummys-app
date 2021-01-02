@@ -12,10 +12,11 @@ import { NotifierModule } from 'angular-notifier';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, LostPasswordComponent, ProfileComponent],
+  declarations: [LoginComponent, RegisterComponent, LostPasswordComponent, ProfileComponent, ResetPasswordComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

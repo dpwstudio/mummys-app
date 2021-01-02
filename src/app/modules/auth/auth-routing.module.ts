@@ -5,6 +5,7 @@ import { RegisterComponent } from '../auth/pages/register/register.component';
 import { LostPasswordComponent } from '../auth/pages/lost-password/lost-password.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthGuard } from 'src/app/shared/guard/auth/auth.guard';
+import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       title: 'Mon compte'
+    }
+  }, {
+    path: 'reset-password',
+    component: ResetPasswordComponent,
+    data: {
+      title: 'Rénitialiser mon mot de passe'
     }
   }
 ];
