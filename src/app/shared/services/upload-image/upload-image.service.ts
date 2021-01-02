@@ -22,7 +22,6 @@ export class UploadImageService {
   }
 
   sendPhotoToServer(image) {
-    console.log('image', image);
     return this.http.post(`${environment.mummysApi}/images`, image).subscribe(
       res => {
         console.log('Image uploaded with success.');

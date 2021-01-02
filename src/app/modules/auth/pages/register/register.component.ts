@@ -49,18 +49,14 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    console.log('this.registerForm', this.registerForm.value);
-
     this.authService.register(this.registerForm.value).pipe(first())
       .subscribe(
         data => {
-          console.log('data', data);
           this.notifier.notify("success", 'Votre inscription a bien été prise en compte.');``
           this.emailService.sendEmailToRegister(this.registerForm.value).subscribe(data => console.log('send email', data));
           this.router.navigate(['/login']);
         },
         error => {
-          console.log('error', error);
           if (error.status === 409) {
             this.notifier.notify("error", 'Cet email existe déjà, veuillez en saisir un autre.');
           } else {

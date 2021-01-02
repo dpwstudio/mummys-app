@@ -51,7 +51,6 @@ export class DashboardComponent implements OnInit {
   }
 
   setOrderDelivered(id) {
-    console.log('id', id);
     const status = {
       status: 'delivered'
     };
@@ -66,7 +65,6 @@ export class DashboardComponent implements OnInit {
   }
 
   setOrderCancelled(id) {
-    console.log('id', id);
     const status = {
       status: 'cancelled'
     };

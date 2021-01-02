@@ -42,7 +42,6 @@ export class PaymentSuccessComponent implements OnInit, AfterViewInit {
 
   getCarts() {
     this.carts = this.cartService.cartProductList;
-    console.log('this.carts', this.carts);
   }
 
   getTotalTTC() {
@@ -77,7 +76,6 @@ export class PaymentSuccessComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log("Changement du currentUser du composant");
     this.authService.currentUser.subscribe(x => this.currentUser = x[0]);
     this.cdRef.detectChanges();
   }

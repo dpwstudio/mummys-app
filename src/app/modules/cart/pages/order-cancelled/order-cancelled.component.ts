@@ -14,7 +14,6 @@ export class OrderCancelledComponent implements OnInit {
     private authService: AuthService,
   ) {
     this.authService.currentUser.subscribe(x => this.currentUser = x[0]);
-    console.log('this.currentUser', this.currentUser);
   }
 
   ngOnInit() {

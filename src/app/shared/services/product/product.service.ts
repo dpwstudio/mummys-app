@@ -20,7 +20,6 @@ export class ProductService {
   }
 
   createProduct(product: Product) {
-    console.log('product', product);
     return this.http.post(`${environment.mummysApi}/products`, product);
   }
 

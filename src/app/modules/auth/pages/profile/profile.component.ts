@@ -63,8 +63,6 @@ export class ProfileComponent implements OnInit {
       return;
     }
 
-    console.log('this.f', this.f);
-
     this.userService.editAddress(this.editDeliveryAddressForm.value).pipe(first())
       .subscribe(
         res => {
@@ -103,7 +101,6 @@ export class ProfileComponent implements OnInit {
         return throwError(error);
       })
     ).subscribe(orders => {
-      console.log('orders', orders);
       this.orders = orders;
     })
   }

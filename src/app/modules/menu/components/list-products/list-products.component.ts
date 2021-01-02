@@ -29,7 +29,6 @@ export class ListProductsComponent implements OnInit {
   }
 
   getQuantity(event) {
-     console.log('event', event);
      this.quantity = event;
   }
 
@@ -51,7 +50,6 @@ export class ListProductsComponent implements OnInit {
     });
     modalRef.result.then(
       (result) => {
-        console.log(result);
         this.closeResult = `Closed with: ${result}`;
       },
       (reason) => {

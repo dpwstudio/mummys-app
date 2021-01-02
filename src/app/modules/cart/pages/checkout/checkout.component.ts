@@ -37,7 +37,6 @@ export class CheckoutComponent implements OnInit {
 
   getCarts() {
     this.carts = this.cartService.cartProductList;
-    console.log('this.carts', this.carts);
   }
 
   getTotalTTC() {

@@ -25,7 +25,6 @@ export class OrderService {
   }
 
   createOrder(order: Order) {
-    console.log('order', order);
     return this.http.post(`${environment.mummysApi}/orders`, order);
   }
 
@@ -38,7 +37,6 @@ export class OrderService {
   }
 
   editOrder(id, status) {
-    console.log('id', id);
     return this.http.put(`${environment.mummysApi}/orders/${id}`, status);
   }
 

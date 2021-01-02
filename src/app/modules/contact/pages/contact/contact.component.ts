@@ -40,18 +40,14 @@ export class ContactComponent implements OnInit {
       return;
     }
 
-    console.log('this.contactForm', this.contactForm.value);
-
     this.emailService.sendEmailToAdmin(this.contactForm.value)
       .subscribe(
         data => {
-          console.log('data', data);
           this.notifier.notify("success", 'Votre message a bien été envoyé.');
           this.router.navigate(['/home']);
           this.loading = false;
         },
         error => {
-          console.log('error', error);
           this.notifier.notify("error", error.message);
           this.loading = false;
         });

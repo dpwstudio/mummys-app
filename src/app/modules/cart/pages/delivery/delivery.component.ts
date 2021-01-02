@@ -64,8 +64,6 @@ export class DeliveryComponent implements OnInit {
       return;
     }
 
-    console.log('this.f', this.f);
-
     this.userService.editAddress(this.editDeliveryAddressForm.value).pipe(first())
       .subscribe(
         res => {

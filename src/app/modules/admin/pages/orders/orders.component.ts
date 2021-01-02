@@ -53,7 +53,6 @@ export class OrdersComponent implements OnInit {
   }
 
   setOrderDelivered(id) {
-    console.log('id', id);
     const status = {
       status: 'delivered'
     };
@@ -68,7 +67,6 @@ export class OrdersComponent implements OnInit {
   }
 
   setOrderCancelled(id) {
-    console.log('id', id);
     const status = {
       status: 'cancelled'
     };

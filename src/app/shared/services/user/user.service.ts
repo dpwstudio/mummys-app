@@ -19,7 +19,6 @@ export class UserService {
   }
 
   createUser(user: User) {
-    console.log('user', user);
     return this.http.post(`${environment.mummysApi}/users`, user);
   }
 

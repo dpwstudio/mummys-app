@@ -44,7 +44,6 @@ export class AuthService {
    * @param user 
    */
   register(user: User) {
-    console.log('user', user);
     return this.http.post(`${environment.mummysApi}/auth/register`, user);
   }
 
@@ -53,7 +52,6 @@ export class AuthService {
    * @param email 
    */
   lostPassword(email) {
-    console.log('email', email)
     return this.http.post(`${environment.mummysApi}/auth/lostPassword`, email);
   }
 

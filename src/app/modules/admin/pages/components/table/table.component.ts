@@ -45,7 +45,6 @@ export class TableComponent implements OnInit {
         return throwError(error);
       })
     ).subscribe(result => {
-      console.log('result', result)
       this.notifier.notify('success', 'Le produit a bien été supprimé.');
     });
     this.modalService.dismissAll();

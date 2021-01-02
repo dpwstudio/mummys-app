@@ -39,7 +39,6 @@ export class ClientsComponent implements OnInit {
   }
 
   getTotalSubscribers() {
-    console.log('this.users', this.users);
     return this.users?.reduce((acc, user) => acc + user.newsletter, 0);
   }
 

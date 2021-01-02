@@ -44,7 +44,6 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.href = this.router.url;
-    console.log(this.router.url);
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
 
@@ -80,7 +79,6 @@ export class ProductsComponent implements OnInit {
 
   onPhotoSelect(event) {
     const file = event.target.files[0];
-    console.log('file', file)
     this.fileInputLabel = file.name;
     this.addProductForm.get('uploadedImg').setValue(file);
     this.addProductForm.get('image').setValue(file.name);
@@ -97,14 +95,9 @@ export class ProductsComponent implements OnInit {
       return;
     }
 
-    console.log('this.f', this.f);
-
     const formData = new FormData();
     formData.append('uploadedImg', this.addProductForm.get('uploadedImg').value);
     formData.append('agentId', '007');
-
-    console.log('form', this.addProductForm.value);
-
 
     this.productService.createProduct(this.addProductForm.value).pipe(first())
       .subscribe(

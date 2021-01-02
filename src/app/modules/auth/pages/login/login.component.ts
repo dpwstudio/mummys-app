@@ -61,7 +61,6 @@ export class LoginComponent implements OnInit {
           this.notifier.notify("success", `Vous êtes maintenant connecté à Mummy's Food`);
         },
         error => {
-          console.log('error', error);
           if (error.status === 404) {
             this.notifier.notify("error", 'Email ou mot de passe incorrect, veuillez réessayer.');
           } else {
