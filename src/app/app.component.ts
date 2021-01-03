@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartService } from './shared/services/cart/cart.service';
 import { SidebarService } from './shared/services/sidebar/sidebar.service';
 
@@ -25,10 +26,10 @@ export class AppComponent implements OnInit {
 		if (this.swUpdate.isEnabled) {
 			this.swUpdate.available.subscribe(() => {
 				this.updateAvailable = true;
+				console.log('test', this.updateAvailable);
 			})
 		}
 	}
-
 
 	@HostListener('window:beforeinstallprompt', ['$event'])
 	onbeforeinstallprompt(e: { preventDefault: () => void; }) {

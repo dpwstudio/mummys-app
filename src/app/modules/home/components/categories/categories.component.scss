@@ -1,0 +1,15 @@
+.mummys-container {
+  padding-top: 0;
+  padding-bottom: 2em;
+
+  .services-wrap {
+    .services-img {
+      border-radius: 15px;
+      box-shadow: 0 1px 8px 1px #2727273b;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}

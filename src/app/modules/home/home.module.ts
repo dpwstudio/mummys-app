@@ -10,9 +10,15 @@ import { LayoutModule } from '../layout/layout.module';
 
 import { CountToModule } from 'angular-count-to';
 import { MummysCounterComponent } from './components/mummys-counter/mummys-counter.component';
+import { InstallAppComponent } from './components/install-app/install-app.component';
+import { DeliveryComponent } from './components/delivery/delivery.component';
+import { AboutComponent } from './components/about/about.component';
+import { ConceptComponent } from './components/concept/concept.component';
+import { ModalityComponent } from './components/modality/modality.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 
 @NgModule({
-  declarations: [HomeComponent, CarouselComponent, MummysCounterComponent],
+  declarations: [HomeComponent, CarouselComponent, MummysCounterComponent, InstallAppComponent, DeliveryComponent, AboutComponent, ConceptComponent, ModalityComponent, CategoriesComponent],
   imports: [
     BrowserAnimationsModule,
     CommonModule,

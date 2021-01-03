@@ -1,0 +1,15 @@
+<div class="card animate__animated animate__fadeInUp" *ngIf="showCookie">
+  <div class="card-header">
+    <h1><i class="fas fa-cookie mr-2"></i> COOKIES</h1>
+  </div>
+  <div class="card-body">
+    <p>
+      En poursuivant votre navigation sur ce site, vous acceptez le dépôt de cookies qui nous permettront, ainsi qu’à
+      nos partenaires, de vous proposer des offres et contenus adaptés à vos centres d’intérêt, de réaliser des analyses
+      de fréquentation du site et qui vous éviteront d’avoir à vous identifier lors de chaque connexion.
+    </p>
+  </div>
+  <div class="card-footer text-center">
+    <button class="btn btn-primary" (click)="showCookie = false">D'accord</button>
+  </div>
+</div>
