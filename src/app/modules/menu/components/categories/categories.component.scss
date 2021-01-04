@@ -1,23 +1,37 @@
 .bloc-category {
   cursor: pointer;
+
   .icone-step {
     position: relative;
     width: 200px;
-    height: 200px;
+    height: 180px;
     padding: 10px;
     border-radius: 35px;
-    border-bottom: 5px solid #f7f0e6;
+    transition: all ease 200ms;
 
     img {
       margin-top: 20px;
     }
 
     .title-box {
+      display: none;
       color: #dfd1ba;
       font-size: 14px;
       text-transform: uppercase;
-      letter-spacing: 4px;
+      letter-spacing: 2px;
       margin-bottom: 0;
+      transition: all ease-in 200ms;
+
+    }
+
+    &:hover {
+      border-bottom: 5px solid #f7f0e6;
+      transition: border-bottom ease 200ms;
+
+      .title-box {
+        display: block;
+        transition: display ease 200ms;
+      }
     }
   }
 }
