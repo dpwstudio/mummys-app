@@ -2,8 +2,10 @@
   <div class="mummys-narrow-content">
     <div class="row mb-5">
       <div class="col-md-12">
-        <span class="heading-meta">Panier</span>
-        <h2 class="mummys-heading">Récapitulatif de votre commande.</h2>
+        <h2 class="section-title">
+          Récapitulatif de votre commande
+          <span>Mon Panier</span>
+        </h2>
         <div class="ariane-fil d-flex align-items-center justify-content-center">
           <div class="ml-3 mr-3">
             <a routerLink="/cart">
@@ -54,8 +56,8 @@
                     <td>
                       <div class="d-flex align-items-center justify-content-center">
                         <span class="minus" (click)="decrement(cart)">-</span>
-                        <input disabled class="form-control" type="text" [(ngModel)]="cart.quantity" min="0"
-                          max="8" id="qty">
+                        <input disabled class="form-control" type="text" [(ngModel)]="cart.quantity" min="0" max="8"
+                          id="qty">
                         <span class="plus" (click)="increment(cart)">+</span>
                       </div>
 

@@ -10,7 +10,7 @@
     background-color: #ffcd6d;
 
     .bloc-footer {
-      padding: 3em 0 2em;
+      padding: 2em 0;
 
       h2 {
         font-size: 16px;
@@ -19,6 +19,8 @@
         color: white;
         font-weight: bold;
         margin-bottom: 15px;
+        padding-left: 15px;
+        border-left: 3px solid white;
       }
 
       p {
@@ -26,11 +28,24 @@
         font-size: 13px;
       }
 
+      .links {
+        margin: 0;
+        padding: 0;
+
+        li {
+          list-style-type: none;
+
+          a {
+            color: white;
+          }
+        }
+      }
+
       .form-group {
         input {
           background: white;
           border-radius: 5px 0 0 5px;
-          padding: 6px 15px;
+          padding: 10px 15px;
 
           &::placeholder {
             color: #d1d1d1;

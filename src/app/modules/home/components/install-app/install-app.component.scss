@@ -12,3 +12,15 @@
     font-size: 16px;
   }
 }
+
+.mummys-container:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 200px solid transparent;
+  border-left: 1900px solid #fff;
+  border-bottom: 0 solid transparent;
+}
