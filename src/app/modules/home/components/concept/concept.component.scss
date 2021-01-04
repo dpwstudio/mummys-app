@@ -1,5 +1,6 @@
 .mummys-narrow-content {
   margin-top: 3em;
+  margin-bottom: 5em;
 }
 
 .icone-step {
@@ -36,6 +37,10 @@
 }
 
 @media screen and (max-width: 500px) {
+  .mummys-narrow-content {
+    margin-top: 2em;
+  }
+
   .icone-step {
     margin: 20px 10px !important;
     height: 155px !important;

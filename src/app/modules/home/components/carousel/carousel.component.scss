@@ -41,8 +41,16 @@
   }
 }
 
+.bottom-shape {
+  position: absolute;
+  left: 0;
+  bottom: -2px;
 
-
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
 
 @media screen and (max-width: 420px) {
   .slider-text-inner {

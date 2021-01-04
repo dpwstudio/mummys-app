@@ -1,5 +1,5 @@
 .mummys-container {
-  padding-top: 0;
+  padding-top: 4em;
   padding-bottom: 2em;
 
   .services-wrap {
@@ -11,5 +11,16 @@
     &:hover {
       transform: scale(1.02);
     }
+  }
+}
+
+.bottom-shape {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
