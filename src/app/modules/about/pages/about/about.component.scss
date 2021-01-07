@@ -14,6 +14,18 @@
 }
 
 
+.bottom-shape {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
 @media screen and (max-width: 420px) {
   .bloc-about-img {
     padding: 0 30px;

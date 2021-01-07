@@ -7,6 +7,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
   state = false; 
+  stateApp = false; 
 
   constructor() { }
 
@@ -20,6 +21,11 @@ export class AboutComponent implements OnInit {
       this.state = true;
     } else {
       this.state = false;
+    }
+    if (scrollPosition >= 1200) {
+      this.stateApp = true;
+    } else {
+      this.stateApp = false;
     }
   }
 

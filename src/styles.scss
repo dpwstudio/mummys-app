@@ -612,33 +612,33 @@ figure figcaption {
   margin-bottom: 40px;
   z-index: 0;
   height: 250px;
-}
 
-.services-wrap .services-img {
-  height: 100%;
-  display: block;
-  z-index: -1;
-}
+  .services-img {
+    height: 100%;
+    display: block;
+    z-index: -1;
+  }
 
-.services-wrap .desc {
-  width: 40%;
-  z-index: 1;
-  margin: -55px auto;
-  background: #ffe29f;
-  color: white;
-  padding: 10px;
-  border-radius: 30px 2px;
-  border-bottom: 3px solid #ffcd6d;
-  border-left: 3px solid #ffcd6d;
-}
+  .desc {
+    width: 40%;
+    z-index: 1;
+    margin: -60px auto;
+    background: #ffe29f;
+    color: white;
+    padding: 7px;
+    border-radius: 30px 2px;
+    border-bottom: 3px solid #ffcd6d;
+    border-left: 3px solid #ffcd6d;
 
-.services-wrap .desc h3 {
-  font-weight: bold;
-  color: white;
-  font-size: 17px;
-  margin-bottom: 0;
-  text-transform: capitalize;
-  text-align: center;
+    h3 {
+      font-weight: bold;
+      color: white;
+      font-size: 14px;
+      margin-bottom: 0;
+      text-transform: capitalize;
+      text-align: center;
+    }
+  }
 }
 
 .move-bottom {

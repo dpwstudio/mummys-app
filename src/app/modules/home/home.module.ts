@@ -31,7 +31,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   exports: [
     HomeComponent,
-    MummysCounterComponent
+    MummysCounterComponent,
   ]
 })
 export class HomeModule { }

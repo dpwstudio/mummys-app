@@ -6,8 +6,7 @@
     width: 200px;
     height: 180px;
     padding: 10px;
-    border-radius: 35px;
-    transition: all ease 200ms;
+    border-radius: 30px;
 
     img {
       margin-top: 20px;
@@ -20,17 +19,13 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       margin-bottom: 0;
-      transition: all ease-in 200ms;
-
     }
 
     &:hover {
       border-bottom: 5px solid #f7f0e6;
-      transition: border-bottom ease 200ms;
-
+      
       .title-box {
         display: block;
-        transition: display ease 200ms;
       }
     }
   }

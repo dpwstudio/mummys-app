@@ -8,7 +8,7 @@
   <div class="mummys-narrow-content">
     <div class="row mb-5">
       <div class="col-md-12">
-        <h2 class="section-title">
+        <h2 class="section-title animate__animated animate__fadeInDown">
           Détail de la livraison
           <span>Livraison</span>
         </h2>
@@ -31,7 +31,7 @@
           </a>
           <i class="fas fa-angle-right" *ngIf="carts.length > 0"></i>
           <div class="ml-3 mr-3" *ngIf="carts.length > 0">
-            <a routerLink="/checkout">
+            <a routerLink="/delivery">
               <h2 class="d-flex align-items-center">
                 <i class="fas fa-credit-card"></i>
                 <span>Paiement</span>
@@ -42,12 +42,21 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-6 offset-lg-3 col-md-12">
+      <div class="col-lg-8 offset-lg-2 col-md-12">
         <div class="card card-user">
           <div class="card-body">
             <img class="avatar border-gray" src="assets/images/place.png" alt="...">
-            <div class="content-card">
+            <div class="content-card mb-4">
               <h5 class="card-title">Adresse de livraison</h5>
+              <p class="card-description text-center">
+                {{currentUser.address}} <br>
+                {{currentUser.zipcode}}
+                {{currentUser.city}} <br>
+              </p>
+
+            </div>
+            <div class="content-card">
+              <h5 class="card-title">Adresse de facturation</h5>
               <p class="card-description text-center">
                 {{currentUser.address}} <br>
                 {{currentUser.zipcode}}

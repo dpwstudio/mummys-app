@@ -17,9 +17,8 @@
     <tr *ngFor="let product of products | paginate: { itemsPerPage: numberPerPage, currentPage: p }">
       <th scope="row">{{product.id}}</th>
       <td>
-        <div style="width: 80px; height: 100px; overflow: hidden; border-radius: 10px;">
-          <img src="http://dpwstudio.local:3000/images/products/{{product.image}}" alt=""
-            style="height: 100%; object-fit: cover; width: 100%;">
+        <div class="img-product">
+          <img src="http://dpwstudio.local:3000/images/products/{{product.image}}" alt="">
         </div>
       </td>
       <td>{{product.name}}</td>

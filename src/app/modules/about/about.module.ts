@@ -7,10 +7,11 @@ import { RouterModule } from '@angular/router';
 import { LayoutModule } from '../layout/layout.module';
 import { CountToModule } from 'angular-count-to';
 import { HomeModule } from '../home/home.module';
+import { InstallAppComponent } from './components/install-app/install-app.component';
 
 
 @NgModule({
-  declarations: [AboutComponent],
+  declarations: [AboutComponent, InstallAppComponent],
   imports: [
     CommonModule,
     AboutRoutingModule,

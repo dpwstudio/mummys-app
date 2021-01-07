@@ -1,11 +1,12 @@
 .slider-text-inner {
+  width: 92%;
   position: absolute;
   bottom: 460px;
-  right: 0px;
 
   .desc {
+    width: 60%;
     padding: 30px;
-    margin: 30px;
+    margin: 30px auto;
     background: #ffdc8cd4;
     border-radius: 45px 2px 45px 2px;
     border-bottom: 5px solid #ffcd6d;
@@ -54,7 +55,7 @@
 
 @media screen and (max-width: 420px) {
   .slider-text-inner {
-    bottom: 650px;
+    bottom: 400px;
   }
 
   .slides {

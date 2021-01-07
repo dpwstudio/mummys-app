@@ -16,7 +16,6 @@ export class AnimateDirective {
     const componentPosition = this.el.nativeElement;
     console.log('componentPosition', );
     const scrollPosition = window.pageYOffset;
-    console.log('scrollPosition', scrollPosition);
     if (scrollPosition >= componentPosition - 1000) {
       // this.renderer.addClass(this.el.nativeElement, this.animate)
     } else {

@@ -55,8 +55,8 @@
 
       .credit-card {
         i {
-          color: white;
-          font-size: 35px;
+          color: #ffdc8c;
+          font-size: 30px;
           margin: 5px 10px 5px 0;
         }
       }
@@ -64,4 +64,17 @@
 
   }
 
+}
+
+.mummys-footer {
+  margin-top: 10px;
+  a {
+    i {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+    &:hover {
+      color: white;
+    }
+  }
 }

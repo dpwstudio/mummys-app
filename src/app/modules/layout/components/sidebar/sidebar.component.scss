@@ -74,6 +74,7 @@
   background: red;
   width: 19px;
   height: 19px;
+  font-weight: 600;
   border-radius: 30px;
   color: white;
   position: absolute;
@@ -105,15 +106,7 @@
   }
 }
 
-.mummys-footer {
-  p {
-    margin: 0;
-    color: #eee2d4;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 12px;
-  }
-}
+
 
 @media screen and (max-width: 1030px) {
   #mummys-aside {

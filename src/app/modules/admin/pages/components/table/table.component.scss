@@ -13,6 +13,19 @@
     color: #5a5c69;
     vertical-align: middle;
 
+    .img-product {
+      width: 80px;
+      height: 100px;
+      overflow: hidden;
+      border-radius: 10px;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+
     .btn-round {
       border-radius: 30px;
       margin: 0;
