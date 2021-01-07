@@ -93,7 +93,7 @@
 
           h2 {
             margin: 0;
-            font-size: 12px;
+            font-size: 14px;
           }
 
           p {
@@ -153,68 +153,10 @@
         margin: 0 auto;
         transition: all 300ms linear;
 
-        .table {
-          th {
-            border: none;
-            font-size: 10px;
-            vertical-align: middle;
-            text-transform: uppercase;
-            font-weight: 200;
-            letter-spacing: 1px;
-          }
-
-          td {
-            border-top: 0.5px solid #efefef;
-            vertical-align: middle;
-
-            .minus {
-              border-radius: 3px;
-              margin-left: 10px;
-            }
-
-            .plus {
-              border-radius: 3px;
-            }
-
-            .minus,
-            .plus {
-              width: 25px;
-              height: 25px;
-              background: #ffdc8c;
-              padding: 0;
-              color: white;
-              display: inline-block;
-              line-height: 25px;
-              font-size: 19px;
-              vertical-align: middle;
-              text-align: center;
-              cursor: pointer;
-              font-weight: bold;
-            }
-
-            label {
-              margin: 0;
-              text-transform: uppercase;
-              font-size: 12px;
-              letter-spacing: 2px;
-            }
-
-            input {
-              width: 35px;
-              height: 25px;
-              text-align: center;
-              font-size: 15px;
-              font-weight: 500;
-              background-color: white;
-            }
-
-          }
-        }
-
         .card-title {
           font-size: 17px;
           letter-spacing: 2px;
-          margin: 1.5em;
+          margin: 0;
           text-transform: uppercase;
           font-weight: 200;
           color: #212529;
@@ -267,5 +209,33 @@
     line-height: 1.2;
     text-align: center;
     margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .subTotal-section {
+    position: fixed;
+    bottom: 67px;
+    width: 100%;
+    padding: 0;
+    z-index: 2;
+
+    .card {
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      .card-body {
+        padding: 0 10px;
+
+        .content-card {
+          .card-title {
+            font-size: 12px;           
+          }
+          .sous-total {
+            font-size: 25px;
+          }
+        }
+      }
+    }
   }
 }
