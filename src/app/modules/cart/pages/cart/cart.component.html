@@ -52,7 +52,7 @@
                     <div class="detail d-flex align-items-center justify-content-between">
                       <div>
                         <h2 class="no-gutters">{{cart.name}}</h2>
-                        <p>11,00 €</p>
+                        <p>{{cart.price | currency:'EUR':'symbol':'1.2-2':'fr' }}</p>
                       </div>
 
                       <div class="d-flex align-items-center justify-content-end">
