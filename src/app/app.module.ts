@@ -10,6 +10,7 @@ registerLocaleData(localeFr, 'fr');
  */
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
 import { LayoutModule } from './modules/layout/layout.module';
 import { HomeModule } from './modules/home/home.module';
 import { AboutModule } from './modules/about/about.module';
@@ -32,6 +33,7 @@ import { customNotifierOptions } from './config/config';
 import { HeadersInterceptor } from './shared/interceptors/headers/headers.interceptor';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -39,8 +41,10 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     LayoutModule,
+    SharedModule,
     HomeModule,
     AboutModule,
     MenuModule,

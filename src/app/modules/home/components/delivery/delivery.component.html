@@ -1,7 +1,7 @@
 <div class="mummys-container">
   <div class="mummys-narrow-content">
     <div class="row">
-      <div class="col-md-4 d-flex align-items-center">
+      <div class="col-md-4 align-items-center d-none {{state ? 'd-flex animate__animated animate__fadeInLeft' : ''}}">
         <div class="about-desc">
           <span class="heading-meta">Livraison</span>
           <h2 class="mummys-heading">Zone de livraison possible</h2>
@@ -9,7 +9,7 @@
             vous trouverez joint ci-après une map des zones où il est possible de se faire livrer.</p>
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 d-none {{state ? 'd-block animate__animated animate__fadeInRight' : ''}}">
         <div class="about-img" style="background-image: url(assets/images/zone-livraison.png);">
         </div>
       </div>

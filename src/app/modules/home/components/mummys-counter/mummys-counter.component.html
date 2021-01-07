@@ -2,32 +2,36 @@
   <div class="overlay"></div>
   <div class="mummys-narrow-content">
     <div class="row">
-      <div class="bloc-item col-md-3 text-center">
+      <div class="bloc-item col-md-3 text-center {{state ? 'animate__animated animate__fadeInDown delay-1' : ''}}">
         <span class="icon">
           <i class="fas fa-carrot mr-2" style="color: orange;"></i>
         </span>
-        <span class="mummys-counter" [CountTo]="countStarters.countTo" [from]="countStarters.from" [duration]="countStarters.duration"></span>
+        <span class="mummys-counter" [CountTo]="countStarters.countTo" [from]="countStarters.from"
+          [duration]="countStarters.duration"></span>
         <span class="mummys-counter-label">Entrées</span>
       </div>
-      <div class="bloc-item col-md-3 text-center">
+      <div class="bloc-item col-md-3 text-center {{state ? 'animate__animated animate__fadeInDown delay-2' : ''}}">
         <span class="icon">
           <i class="fas fa-utensils mr-2" style="color: lightblue;"></i>
         </span>
-        <span class="mummys-counter" [CountTo]="countDishes.countTo" [from]="countDishes.from" [duration]="countDishes.duration"></span>
+        <span class="mummys-counter" [CountTo]="countDishes.countTo" [from]="countDishes.from"
+          [duration]="countDishes.duration"></span>
         <span class="mummys-counter-label">Plats</span>
       </div>
-      <div class="bloc-item col-md-3 text-center">
+      <div class="bloc-item col-md-3 text-center {{state ? 'animate__animated animate__fadeInDown delay-3' : ''}}">
         <span class="icon">
           <i class="fas fa-ice-cream mr-2" style="color: pink;"></i>
         </span>
-        <span class="mummys-counter" [CountTo]="countDesserts.countTo" [from]="countDesserts.from" [duration]="countDesserts.duration"></span>
+        <span class="mummys-counter" [CountTo]="countDesserts.countTo" [from]="countDesserts.from"
+          [duration]="countDesserts.duration"></span>
         <span class="mummys-counter-label">Desserts</span>
       </div>
-      <div class="bloc-item col-md-3 text-center">
+      <div class="bloc-item col-md-3 text-center {{state ? 'animate__animated animate__fadeInDown delay-4' : ''}}">
         <span class="icon">
           <i class="far fa-user-circle"></i>
         </span>
-        <span class="mummys-counter" [CountTo]="countUsers.countTo" [from]="countUsers.from" [duration]="countUsers.duration"></span>
+        <span class="mummys-counter" [CountTo]="countUsers.countTo" [from]="countUsers.from"
+          [duration]="countUsers.duration"></span>
         <span class="mummys-counter-label">Clients</span>
       </div>
     </div>

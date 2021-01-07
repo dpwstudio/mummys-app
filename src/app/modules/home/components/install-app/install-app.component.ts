@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-install-app',
@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./install-app.component.scss']
 })
 export class InstallAppComponent implements OnInit {
+  state = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    const scrollPosition = window.pageYOffset;
+    if (scrollPosition >= 2700) {
+      this.state = true;
+    } else {
+      this.state = false;
+    }
+  }
 }

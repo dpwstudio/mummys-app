@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.scss']
 })
 export class AboutComponent implements OnInit {
+  state = false; 
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    const scrollPosition = window.pageYOffset;
+    if (scrollPosition >= 950) {
+      this.state = true;
+    } else {
+      this.state = false;
+    }
   }
 
 }

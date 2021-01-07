@@ -4,6 +4,7 @@
   background-size: cover;
 
   .content-story {
+    display: none;
     background: #fff;
     margin: 3em auto;
     padding: 25px;
@@ -20,16 +21,16 @@
 
 
 .mummys-heading.story:after {
-	position: absolute;
-	bottom: -6px;
-	left: 50%;
-	width: 60px;
-	height: 4px;
-	content: "";
-	background: #ffdc8c;
-	transform: translateX(-160%);
- }
- 
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 60px;
+  height: 4px;
+  content: "";
+  background: #ffdc8c;
+  transform: translateX(-160%);
+}
+
 
 
 @media screen and (max-width: 500px) {

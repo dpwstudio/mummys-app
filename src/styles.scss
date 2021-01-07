@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~angular-notifier/styles";
+@import 'aos/dist/aos.css';
 
 @font-face {
   font-family: 'icomoon';
@@ -611,10 +612,11 @@ figure figcaption {
   display: block;
   margin-bottom: 40px;
   z-index: 0;
+  height: 250px;
 }
 
 .services-wrap .services-img {
-  height: 250px;
+  height: 100%;
   display: block;
   z-index: -1;
 }
@@ -622,7 +624,7 @@ figure figcaption {
 .services-wrap .desc {
   width: 40%;
   z-index: 1;
-  margin: -20px auto 30px;
+  margin: -55px auto;
   background: #ffe29f;
   color: white;
   padding: 10px;
@@ -1690,4 +1692,20 @@ figure figcaption {
   padding: 0px 12px !important;
   border-radius: 3px;
   min-width: 30px;
+}
+
+.delay-1 {
+  animation-delay: .25s;
+}
+
+.delay-2 {
+  animation-delay: .5s;
+}
+
+.delay-3 {
+  animation-delay: .75s;
+}
+
+.delay-4 {
+  animation-delay: 1s;
 }

@@ -16,6 +16,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ConceptComponent } from './components/concept/concept.component';
 import { ModalityComponent } from './components/modality/modality.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [HomeComponent, CarouselComponent, MummysCounterComponent, InstallAppComponent, DeliveryComponent, AboutComponent, ConceptComponent, ModalityComponent, CategoriesComponent],
@@ -23,9 +24,10 @@ import { CategoriesComponent } from './components/categories/categories.componen
     BrowserAnimationsModule,
     CommonModule,
     HomeRoutingModule,
+    SharedModule,
     LayoutModule,
     NgbModule,
-    CountToModule
+    CountToModule,
   ],
   exports: [
     HomeComponent,

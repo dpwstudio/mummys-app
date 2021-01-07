@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-mummys-counter',
@@ -26,10 +26,21 @@ export class MummysCounterComponent implements OnInit {
     from: 0,
     duration: 4
   };
+  state = false
   
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    const scrollPosition = window.pageYOffset
+    if (scrollPosition >= 3650) {
+      this.state = true;
+    } else {
+      this.state = false;
+    }
   }
 
 }
