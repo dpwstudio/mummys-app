@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~angular-notifier/styles";
-@import 'aos/dist/aos.css';
 
 @font-face {
   font-family: 'icomoon';
@@ -1708,4 +1707,8 @@ figure figcaption {
 
 .delay-4 {
   animation-delay: 1s;
+}
+
+.delay-4 {
+  animation-delay: 1.25s;
 }

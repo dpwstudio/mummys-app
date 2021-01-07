@@ -4,6 +4,7 @@ import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/
   selector: '[animate]'
 })
 export class AnimateDirective {
+  
   @Input('animate') animate: string;
   state = false;
 
@@ -13,7 +14,7 @@ export class AnimateDirective {
   @HostListener('window:scroll', ['$event'])
   checkScroll() {
     const componentPosition = this.el.nativeElement;
-    console.log('componentPosition', this.getPos(componentPosition));
+    console.log('componentPosition', );
     const scrollPosition = window.pageYOffset;
     console.log('scrollPosition', scrollPosition);
     if (scrollPosition >= componentPosition - 1000) {
@@ -21,13 +22,5 @@ export class AnimateDirective {
     } else {
       this.state = false;
     }
-  }
-
-  getPos(el) {
-    // yay readability
-    for (var lx = 0, ly = 0;
-      el != null;
-      lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
-    return { x: lx, y: ly };
   }
 }
