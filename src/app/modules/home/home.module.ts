@@ -17,6 +17,7 @@ import { ConceptComponent } from './components/concept/concept.component';
 import { ModalityComponent } from './components/modality/modality.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { LazyLoadImageModule, LAZYLOAD_IMAGE_HOOKS, ScrollHooks } from 'ng-lazyload-image';
 
 @NgModule({
   declarations: [HomeComponent, CarouselComponent, MummysCounterComponent, InstallAppComponent, DeliveryComponent, AboutComponent, ConceptComponent, ModalityComponent, CategoriesComponent],
@@ -28,6 +29,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
     LayoutModule,
     NgbModule,
     CountToModule,
+    LazyLoadImageModule
+  ],
+  providers: [
+    { provide: LAZYLOAD_IMAGE_HOOKS, useClass: ScrollHooks }
   ],
   exports: [
     HomeComponent,

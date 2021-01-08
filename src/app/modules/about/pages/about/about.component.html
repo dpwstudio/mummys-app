@@ -11,8 +11,8 @@
     <div class="row row-bottom-padded-md">
       <div class="row">
         <div class="col-md-6 bloc-about-img">
-          <div class="about-img animate__animated animate__fadeInLeft"
-            style="background-image: url(assets/images/about.jpg);">
+          <div class="about-img animate__animated animate__fadeInLeft" [defaultImage]="'assets/images/home/about/bkg-default.jpg'"
+          [lazyLoad]="'assets/images/home/about/bkg.jpg'">
           </div>
         </div>
         <div class="col-md-6 animate__animated animate__fadeInRight bloc-about">
@@ -62,6 +62,5 @@
   </div>
 </div>
 <app-install-app></app-install-app>
-
 <app-mummys-counter></app-mummys-counter>
 <app-footer></app-footer>

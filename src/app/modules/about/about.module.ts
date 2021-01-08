@@ -8,6 +8,7 @@ import { LayoutModule } from '../layout/layout.module';
 import { CountToModule } from 'angular-count-to';
 import { HomeModule } from '../home/home.module';
 import { InstallAppComponent } from './components/install-app/install-app.component';
+import { LazyLoadImageModule, LAZYLOAD_IMAGE_HOOKS, ScrollHooks } from 'ng-lazyload-image';
 
 
 @NgModule({
@@ -17,6 +18,10 @@ import { InstallAppComponent } from './components/install-app/install-app.compon
     AboutRoutingModule,
     LayoutModule,
     HomeModule,
+    LazyLoadImageModule
+  ],
+  providers: [
+    { provide: LAZYLOAD_IMAGE_HOOKS, useClass: ScrollHooks }
   ],
   exports: [
     AboutComponent

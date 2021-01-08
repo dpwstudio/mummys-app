@@ -17,6 +17,17 @@
       }
     }
   }
+
+  &::after {
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    content: "";
+    left: 0;
+    right: 0;
+    background: #0000007d;
+  }
 }
 
 

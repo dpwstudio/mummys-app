@@ -19,7 +19,7 @@ export class CategoriesComponent implements OnInit {
   checkScroll() {
     const scrollPosition = window.pageYOffset;
     // console.log('scrollPosition', scrollPosition);
-    if (scrollPosition >= 1530) {
+    if (scrollPosition >= 1650) {
       this.state = true;
     } else {
       this.state = false;

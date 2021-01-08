@@ -7,7 +7,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
   state = false; 
-  stateApp = false; 
+  stateApp = false;
 
   constructor() { }
 

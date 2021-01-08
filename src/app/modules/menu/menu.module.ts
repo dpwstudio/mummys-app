@@ -11,6 +11,7 @@ import { BoissonComponent } from './pages/boisson/boisson.component';
 import { LayoutModule } from '../layout/layout.module';
 import { FormsModule } from '@angular/forms';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { LazyLoadImageModule, LAZYLOAD_IMAGE_HOOKS, ScrollHooks } from 'ng-lazyload-image';
 
 
 @NgModule({
@@ -19,7 +20,11 @@ import { CategoriesComponent } from './components/categories/categories.componen
     CommonModule,
     FormsModule,
     MenuRoutingModule,
-    LayoutModule
-  ]
+    LayoutModule,
+    LazyLoadImageModule
+  ],
+  providers: [
+    { provide: LAZYLOAD_IMAGE_HOOKS, useClass: ScrollHooks }
+  ],
 })
 export class MenuModule { }

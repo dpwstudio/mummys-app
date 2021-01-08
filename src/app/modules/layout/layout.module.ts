@@ -8,13 +8,18 @@ import { customNotifierOptions } from 'src/app/config/config';
 import { NotifierModule } from 'angular-notifier';
 import { NavMobFootComponent } from './components/nav-mob-foot/nav-mob-foot.component';
 import { CookieComponent } from './components/cookie/cookie.component';
+import { LazyLoadImageModule, LAZYLOAD_IMAGE_HOOKS, ScrollHooks } from 'ng-lazyload-image';
 
 @NgModule({
   declarations: [SidebarComponent, FooterComponent, NavMobFootComponent, CookieComponent],
   imports: [
     CommonModule,
     RouterModule,
-    NotifierModule.withConfig(customNotifierOptions)
+    NotifierModule.withConfig(customNotifierOptions),
+    LazyLoadImageModule
+  ],
+  providers: [
+    { provide: LAZYLOAD_IMAGE_HOOKS, useClass: ScrollHooks }
   ],
   exports: [
     SidebarComponent,
