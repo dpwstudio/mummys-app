@@ -1,7 +1,7 @@
 <div class="mummys-container" style="background-color: #fcfbf8;">
   <div class="mummys-narrow-content">
     <div class="row">
-      <div class="col-md-8 d-none {{state ? 'd-block animate__animated animate__fadeInLeft' : ''}}">
+      <div class="col-md-8 {{state ? 'animate__animated animate__fadeInLeft' : ''}}">
         <div class="desc-install">
           <span class="heading-meta">Installer l'application</span>
           <h2 class="mummys-heading">Pour une meilleure expérience utilisateur</h2>
@@ -15,7 +15,7 @@
           </button>
         </div>
       </div>
-      <div class="col-md-4 text-center d-none {{state ? 'd-block animate__animated animate__fadeInRight' : ''}}">
+      <div class="col-md-4 text-center {{state ? 'animate__animated animate__fadeInRight' : ''}}">
         <img width="300" [defaultImage]="'assets/images/home/about/iphone-default.jpg'"
           [lazyLoad]="'assets/images/home/about/iphone.png'">
       </div>

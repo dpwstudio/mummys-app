@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-  
+
   <!------------------>
   <!-- Google Fonts -->
   <!------------------>
@@ -33,7 +33,14 @@
 
 <body>
   <div id="mummys-page">
-    <app-root></app-root>
+    <app-root>
+      <div class="loading d-flex flex-column align-items-center justify-content-center">
+        <div class="animate__animated animate__pulse animate__infinite text-center">
+          <img src="assets/images/logo.png" alt="" width="100">
+          <p class="text-white mt-2" style="font-size: 12px;">Veuillez patienter...</p>
+        </div>
+      </div>
+    </app-root>
   </div>
 
   <!-- jQuery -->

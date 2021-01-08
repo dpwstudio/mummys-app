@@ -1,8 +1,7 @@
 <ngb-carousel [interval]="5000" *ngIf="slides" [showNavigationArrows]="showNavigationArrows">
   <ng-template ngbSlide *ngFor="let slide of slides">
 
-    <img [defaultImage]="'assets/images/carousel/default.jpg'"
-    [lazyLoad]="slide.image" alt="Random slide">
+    <img [src]="slide.image" alt="">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6 col-md-offset-3 col-md-push-3 col-sm-12 col-xs-12">
