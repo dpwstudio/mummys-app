@@ -15,7 +15,7 @@ export class UserService {
     private http: HttpClient,
     private authService: AuthService
   ) {
-    this.authService.currentUser.subscribe(x => this.currentUser = x[0]);
+    this.authService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   createUser(user: User) {
@@ -31,6 +31,7 @@ export class UserService {
   }
 
   editUser(user) {
+    console.log('this.currentUser', this.currentUser);
     return this.http.put(`${environment.mummysApi}/users/${this.currentUser.id}`, user);
   }
 

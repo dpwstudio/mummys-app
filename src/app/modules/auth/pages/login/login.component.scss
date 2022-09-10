@@ -1,7 +1,7 @@
 .mummys-container {
   background: #f7f0e6;
   min-height: 100vh;
-	padding: 4em 0 5em;
+  padding: 4em 0 5em;
 
   .card {
     border: none;
@@ -73,5 +73,18 @@
 @media screen and (max-width: 420px) {
   .mummys-container {
     padding-top: 7em !important;
+
+    .signup {
+      bottom: -28px !important;
+      left: 50%;
+      width: 50px !important;
+      height: 50px !important;
+      transform: translateX(-50%);
+      .card-link {
+        i {
+          font-size: 25px !important;
+        }
+      }
+    }
   }
 }

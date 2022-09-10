@@ -33,7 +33,9 @@ export class AuthService {
     return this.http.post<any>(`${environment.mummysApi}/auth/login`, { email, password })
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
-        localStorage.setItem('currentUser', JSON.stringify(user));
+
+        console.log('user', user)
+        localStorage.setItem('currentUser', JSON.stringify(user[0]));
         this.currentUserSubject.next(user);
         return user;
       }));
